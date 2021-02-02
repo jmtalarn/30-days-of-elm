@@ -1,0 +1,25 @@
+{
+	"name": "30-days-of-elm",
+	"version": "1.0.0",
+	"description": "https://dev.to/kristianpedersen/30-days-of-elm-intro-2lo2",
+	"main": "index.js",
+	"dependencies": {
+		"elm": "^0.19.1-5",
+		"elm-format": "^0.8.4",
+		"elm-test": "^0.19.1-revision6"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"dev": "elm reactor"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jmtalarn/30-days-of-elm.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jmtalarn/30-days-of-elm/issues"
+	},
+	"homepage": "https://github.com/jmtalarn/30-days-of-elm#readme"
+}
