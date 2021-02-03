@@ -10,7 +10,9 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"dev": "elm reactor"
+		"dev": "elm reactor",
+		"build": "elm make",
+		"build:pages": "find src -name '*.elm' -exec sh -c 'npm run build -- {} --output=dist/\"$(basename {} .elm).html\"' {} \\;"
 	},
 	"repository": {
 		"type": "git",
