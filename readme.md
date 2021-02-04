@@ -24,7 +24,7 @@ Display a p tag for each item in an array
 
 [src](src/Day3.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day3.html)
 
-### Day4 - Toggle visibility
+### Day4 - Toggle visibility
 
 [Publish it as interactive web pages](readme.md).
 
