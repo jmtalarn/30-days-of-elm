@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: 12.x
       # Runs a single command using the runners shell
+      - name: Remove package-lock.json
+        run: rm package-lock.json
+        
       - name: Run npm install
         run: npm install
 
