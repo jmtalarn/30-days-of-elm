@@ -32,3 +32,9 @@ Extra ball - Checkbox to say hi!
 
 [src](src/Day4.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day4.html)
 
+### Day5 - "Lights out" game
+* 5x5 checkboxes 
+* when clicking one, left, right,up,down neighbors also get toggled
+* The goal is uncheck all the checkboxes
+
+[src](src/Day5.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day5.html)
