@@ -44,5 +44,6 @@ jobs:
               run: |
                   git config --global user.name 'GitHub Actions'
                   git config --global user.email 'jmtalarn@gmail.com'
-                  git commit -am "Pages built"
+                  git add dist
+                  git commit -m "Pages built"
                   git push
