@@ -38,3 +38,8 @@ Extra ball - Checkbox to say hi!
 * The goal is uncheck all the checkboxes
 
 [src](src/Day5.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day5.html)
+
+### Day6 - Accessible background colors
+Generate color, and checking whether black or white text is the most readable, [according to Web Content Accessibility Guidelines (WCAG) standards](https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head).
+
+[src](src/Day6.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day6.html)
