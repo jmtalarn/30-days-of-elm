@@ -48,3 +48,8 @@ Generate color, and checking whether black or white text is the most readable, [
 Using ```elm-ui``` to center some divs and their content.
 
 [src](src/Day7.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day7.html)
+
+### Day8 - Centering div and content
+Data from JS and auto-reload on save
+
+[src](src/Day8.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day8.html)
