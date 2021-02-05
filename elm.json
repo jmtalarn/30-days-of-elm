@@ -12,7 +12,8 @@
             "elm/random": "1.0.0",
             "elm/time": "1.0.0",
             "fredcy/elm-parseint": "2.0.1",
-            "mdgriffith/elm-ui": "1.1.8"
+            "mdgriffith/elm-ui": "1.1.8",
+            "phollyer/elm-ui-colors": "3.0.0"
         },
         "indirect": {
             "elm/json": "1.1.3",
