@@ -43,3 +43,8 @@ Extra ball - Checkbox to say hi!
 Generate color, and checking whether black or white text is the most readable, [according to Web Content Accessibility Guidelines (WCAG) standards](https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head).
 
 [src](src/Day6.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day6.html)
+
+### Day7 - Centering div and content
+Using ```elm-ui``` to center some divs and their content.
+
+[src](src/Day7.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day7.html)
