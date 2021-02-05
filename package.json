@@ -8,11 +8,14 @@
 		"elm-format": "^0.8.4",
 		"elm-test": "^0.19.1-revision6"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"elm-live": "^4.0.2"
+	},
 	"scripts": {
 		"dev": "elm reactor",
 		"build": "elm make",
-		"build:pages": "find src -name '*.elm' -exec sh -c 'npm run build -- {} --output=dist/\"$(basename {} .elm).html\"' {} \\;"
+		"build:pages": "find src -name '*.elm' -exec sh -c 'npm run build -- {} --output=dist/\"$(basename {} .elm).html\"' {} \\;",
+		"live": "elm-live src/Main.elm src/**/*.elm"
 	},
 	"repository": {
 		"type": "git",
