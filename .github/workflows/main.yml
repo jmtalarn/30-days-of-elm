@@ -46,10 +46,10 @@ jobs:
             - name: Copy generated files
               run: cp -r elm-stuff/elm-starter-files/build ./docs
 
-            # - name: Commit pages
-            #   run: |
-            #       git config --global user.name 'GitHub Actions'
-            #       git config --global user.email 'jmtalarn@gmail.com'
-            #       git add dist
-            #       git commit -m "Pages built"
-            #       git push
+            - name: Commit pages
+              run: |
+                  git config --global user.name 'GitHub Actions'
+                  git config --global user.email 'jmtalarn@gmail.com'
+                  git add docs
+                  git commit -m "SPA built"
+                  git push
