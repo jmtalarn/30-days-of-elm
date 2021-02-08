@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://elm-spa-example.guupa.com/sitemap.txt
