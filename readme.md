@@ -10,19 +10,19 @@ Run ```npm run dev``` which will start Elm reactor on port 8000 by default.
 
 Build a range slider and show the value in a p tag
 
-[src](src/Day1.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day1.html)
+[src](src/Day1.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-1)
 
 ### Day 2 - HTML element for each item in list
 
 Display a p tag for each item in an array
 
-[src](src/Day2.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day2.html)
+[src](src/Day2.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-2)
 
 ### Day 3 - Random checkbox grid
 
 10x10 grid of checkboxes, which will be randomly checked when a button is clicked
 
-[src](src/Day3.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day3.html)
+[src](src/Day3.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-3)
 
 ### Day4 - Toggle visibility
 
@@ -30,26 +30,26 @@ Display a p tag for each item in an array
 
 Extra ball - Checkbox to say hi!
 
-[src](src/Day4.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day4.html)
+[src](src/Day4.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-4)
 
 ### Day5 - "Lights out" game
 * 5x5 checkboxes 
 * when clicking one, left, right,up,down neighbors also get toggled
 * The goal is uncheck all the checkboxes
 
-[src](src/Day5.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day5.html)
+[src](src/Day5.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-5)
 
 ### Day6 - Accessible background colors
 Generate color, and checking whether black or white text is the most readable, [according to Web Content Accessibility Guidelines (WCAG) standards](https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head).
 
-[src](src/Day6.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day6.html)
+[src](src/Day6.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-6)
 
 ### Day7 - Centering div and content
 Using ```elm-ui``` to center some divs and their content.
 
-[src](src/Day7.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day7.html)
+[src](src/Day7.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-7)
 
 ### Day8 - Centering div and content
 Data from JS and auto-reload on save
 
-[src](src/Day8.elm) [result](https://jmtalarn.github.io/30-days-of-elm/dist/Day8.html)
+[src](src/Day8.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day-8)

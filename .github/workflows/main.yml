@@ -37,13 +37,19 @@ jobs:
               run: npm install
 
             # Runs a set of commands using the runners shell
-            - name: Run build pages
-              run: npm run build:pages
+            - name: Run build elm-spa
+              run: npm run build:elm-spa
 
-            - name: Commit pages
-              run: |
-                  git config --global user.name 'GitHub Actions'
-                  git config --global user.email 'jmtalarn@gmail.com'
-                  git add dist
-                  git commit -m "Pages built"
-                  git push
+            - name: Run build elm-starter
+              run: npm run elm-starter:build
+
+            - name: Copy generated files
+              run: cp -r elm-stuff/elm-starter-files/build ./docs
+
+            # - name: Commit pages
+            #   run: |
+            #       git config --global user.name 'GitHub Actions'
+            #       git config --global user.email 'jmtalarn@gmail.com'
+            #       git add dist
+            #       git commit -m "Pages built"
+            #       git push
