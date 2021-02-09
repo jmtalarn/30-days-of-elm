@@ -94,15 +94,15 @@ view { page, toMsg } model =
     { title = page.title
     , body =
         [ column
-            [ spacing 30
-            , width fill
+            [ width fill
 
+            --, spacing 30
             --, Background.color <| rgb255 116 222 165
             , Background.color <| rgba255 255 255 255 0.9
             ]
             [ column
-                [ padding 20
-                , width fill
+                [ width fill
+                , padding 20
 
                 --, Background.color <| rgb255 38 104 69
                 , Background.color <| rgb255 141 166 211
@@ -132,8 +132,9 @@ view { page, toMsg } model =
             , column
                 [ height fill
                 , width fill
-                , spacing 15
-                , paddingEach { top = 0, right = 30, bottom = 300, left = 30 }
+
+                --, spacing 15
+                --, paddingEach { top = 0, right = 30, bottom = 300, left = 30 }
                 ]
                 page.body
             ]
