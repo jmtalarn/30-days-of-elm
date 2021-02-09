@@ -9,7 +9,6 @@ module Spa.Generated.Pages exposing
     , view
     )
 
-import Pages.Top
 import Pages.Day1
 import Pages.Day10
 import Pages.Day11
@@ -43,11 +42,13 @@ import Pages.Day9
 import Pages.NotFound
 import Pages.PageA
 import Pages.PageB
+import Pages.Top
 import Shared
 import Spa.Document as Document exposing (Document)
 import Spa.Generated.Route as Route exposing (Route)
 import Spa.Page exposing (Page)
 import Spa.Url as Url
+
 
 
 -- TYPES
@@ -136,103 +137,103 @@ init route =
     case route of
         Route.Top ->
             pages.top.init ()
-        
+
         Route.Day1 ->
             pages.day1.init ()
-        
+
         Route.Day10 ->
             pages.day10.init ()
-        
+
         Route.Day11 ->
             pages.day11.init ()
-        
+
         Route.Day12 ->
             pages.day12.init ()
-        
+
         Route.Day13 ->
             pages.day13.init ()
-        
+
         Route.Day14 ->
             pages.day14.init ()
-        
+
         Route.Day15 ->
             pages.day15.init ()
-        
+
         Route.Day16 ->
             pages.day16.init ()
-        
+
         Route.Day17 ->
             pages.day17.init ()
-        
+
         Route.Day18 ->
             pages.day18.init ()
-        
+
         Route.Day19 ->
             pages.day19.init ()
-        
+
         Route.Day2 ->
             pages.day2.init ()
-        
+
         Route.Day20 ->
             pages.day20.init ()
-        
+
         Route.Day21 ->
             pages.day21.init ()
-        
+
         Route.Day22 ->
             pages.day22.init ()
-        
+
         Route.Day23 ->
             pages.day23.init ()
-        
+
         Route.Day24 ->
             pages.day24.init ()
-        
+
         Route.Day25 ->
             pages.day25.init ()
-        
+
         Route.Day26 ->
             pages.day26.init ()
-        
+
         Route.Day27 ->
             pages.day27.init ()
-        
+
         Route.Day28 ->
             pages.day28.init ()
-        
+
         Route.Day29 ->
             pages.day29.init ()
-        
+
         Route.Day3 ->
             pages.day3.init ()
-        
+
         Route.Day30 ->
             pages.day30.init ()
-        
+
         Route.Day4 ->
             pages.day4.init ()
-        
+
         Route.Day5 ->
             pages.day5.init ()
-        
+
         Route.Day6 ->
             pages.day6.init ()
-        
+
         Route.Day7 ->
             pages.day7.init ()
-        
+
         Route.Day8 ->
-            pages.day8.init ()
-        
+            pages.day8.init { name = "", age = "", location = "" }
+
         Route.Day9 ->
             pages.day9.init ()
-        
+
         Route.NotFound ->
             pages.notFound.init ()
-        
+
         Route.PageA ->
             pages.pageA.init ()
-        
+
         Route.PageB ->
             pages.pageB.init ()
 
@@ -246,106 +247,106 @@ update bigMsg bigModel =
     case ( bigMsg, bigModel ) of
         ( Top__Msg msg, Top__Model model ) ->
             pages.top.update msg model
-        
+
         ( Day1__Msg msg, Day1__Model model ) ->
             pages.day1.update msg model
-        
+
         ( Day10__Msg msg, Day10__Model model ) ->
             pages.day10.update msg model
-        
+
         ( Day11__Msg msg, Day11__Model model ) ->
             pages.day11.update msg model
-        
+
         ( Day12__Msg msg, Day12__Model model ) ->
             pages.day12.update msg model
-        
+
         ( Day13__Msg msg, Day13__Model model ) ->
             pages.day13.update msg model
-        
+
         ( Day14__Msg msg, Day14__Model model ) ->
             pages.day14.update msg model
-        
+
         ( Day15__Msg msg, Day15__Model model ) ->
             pages.day15.update msg model
-        
+
         ( Day16__Msg msg, Day16__Model model ) ->
             pages.day16.update msg model
-        
+
         ( Day17__Msg msg, Day17__Model model ) ->
             pages.day17.update msg model
-        
+
         ( Day18__Msg msg, Day18__Model model ) ->
             pages.day18.update msg model
-        
+
         ( Day19__Msg msg, Day19__Model model ) ->
             pages.day19.update msg model
-        
+
         ( Day2__Msg msg, Day2__Model model ) ->
             pages.day2.update msg model
-        
+
         ( Day20__Msg msg, Day20__Model model ) ->
             pages.day20.update msg model
-        
+
         ( Day21__Msg msg, Day21__Model model ) ->
             pages.day21.update msg model
-        
+
         ( Day22__Msg msg, Day22__Model model ) ->
             pages.day22.update msg model
-        
+
         ( Day23__Msg msg, Day23__Model model ) ->
             pages.day23.update msg model
-        
+
         ( Day24__Msg msg, Day24__Model model ) ->
             pages.day24.update msg model
-        
+
         ( Day25__Msg msg, Day25__Model model ) ->
             pages.day25.update msg model
-        
+
         ( Day26__Msg msg, Day26__Model model ) ->
             pages.day26.update msg model
-        
+
         ( Day27__Msg msg, Day27__Model model ) ->
             pages.day27.update msg model
-        
+
         ( Day28__Msg msg, Day28__Model model ) ->
             pages.day28.update msg model
-        
+
         ( Day29__Msg msg, Day29__Model model ) ->
             pages.day29.update msg model
-        
+
         ( Day3__Msg msg, Day3__Model model ) ->
             pages.day3.update msg model
-        
+
         ( Day30__Msg msg, Day30__Model model ) ->
             pages.day30.update msg model
-        
+
         ( Day4__Msg msg, Day4__Model model ) ->
             pages.day4.update msg model
-        
+
         ( Day5__Msg msg, Day5__Model model ) ->
             pages.day5.update msg model
-        
+
         ( Day6__Msg msg, Day6__Model model ) ->
             pages.day6.update msg model
-        
+
         ( Day7__Msg msg, Day7__Model model ) ->
             pages.day7.update msg model
-        
+
         ( Day8__Msg msg, Day8__Model model ) ->
             pages.day8.update msg model
-        
+
         ( Day9__Msg msg, Day9__Model model ) ->
             pages.day9.update msg model
-        
+
         ( NotFound__Msg msg, NotFound__Model model ) ->
             pages.notFound.update msg model
-        
+
         ( PageA__Msg msg, PageA__Model model ) ->
             pages.pageA.update msg model
-        
+
         ( PageB__Msg msg, PageB__Model model ) ->
             pages.pageB.update msg model
-        
+
         _ ->
             ( bigModel, Cmd.none )
 
@@ -359,103 +360,103 @@ bundle bigModel =
     case bigModel of
         Top__Model model ->
             pages.top.bundle model
-        
+
         Day1__Model model ->
             pages.day1.bundle model
-        
+
         Day10__Model model ->
             pages.day10.bundle model
-        
+
         Day11__Model model ->
             pages.day11.bundle model
-        
+
         Day12__Model model ->
             pages.day12.bundle model
-        
+
         Day13__Model model ->
             pages.day13.bundle model
-        
+
         Day14__Model model ->
             pages.day14.bundle model
-        
+
         Day15__Model model ->
             pages.day15.bundle model
-        
+
         Day16__Model model ->
             pages.day16.bundle model
-        
+
         Day17__Model model ->
             pages.day17.bundle model
-        
+
         Day18__Model model ->
             pages.day18.bundle model
-        
+
         Day19__Model model ->
             pages.day19.bundle model
-        
+
         Day2__Model model ->
             pages.day2.bundle model
-        
+
         Day20__Model model ->
             pages.day20.bundle model
-        
+
         Day21__Model model ->
             pages.day21.bundle model
-        
+
         Day22__Model model ->
             pages.day22.bundle model
-        
+
         Day23__Model model ->
             pages.day23.bundle model
-        
+
         Day24__Model model ->
             pages.day24.bundle model
-        
+
         Day25__Model model ->
             pages.day25.bundle model
-        
+
         Day26__Model model ->
             pages.day26.bundle model
-        
+
         Day27__Model model ->
             pages.day27.bundle model
-        
+
         Day28__Model model ->
             pages.day28.bundle model
-        
+
         Day29__Model model ->
             pages.day29.bundle model
-        
+
         Day3__Model model ->
             pages.day3.bundle model
-        
+
         Day30__Model model ->
             pages.day30.bundle model
-        
+
         Day4__Model model ->
             pages.day4.bundle model
-        
+
         Day5__Model model ->
             pages.day5.bundle model
-        
+
         Day6__Model model ->
             pages.day6.bundle model
-        
+
         Day7__Model model ->
             pages.day7.bundle model
-        
+
         Day8__Model model ->
             pages.day8.bundle model
-        
+
         Day9__Model model ->
             pages.day9.bundle model
-        
+
         NotFound__Model model ->
             pages.notFound.bundle model
-        
+
         PageA__Model model ->
             pages.pageA.bundle model
-        
+
         PageB__Model model ->
             pages.pageB.bundle model
 

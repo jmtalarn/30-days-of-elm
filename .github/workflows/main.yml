@@ -43,6 +43,9 @@ jobs:
             - name: Run build elm-starter
               run: npm run elm-starter:build
 
+            - name: Remove old docs folder
+              run: rm -rf ./docs
+
             - name: Copy generated files
               run: cp -r elm-stuff/elm-starter-files/build/30-days-of-elm ./docs
 

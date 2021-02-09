@@ -1,17 +1,17 @@
 module Pages.Day8 exposing (..)
 
--- https://stackoverflow.com/a/41366859/4635829
---import Element.Input as Input
-
 import Browser
 import Colors.Opaque exposing (cyan, dimgray, fuchsia)
-import Debug
+import Dict exposing (fromList, get)
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+import Element.Input as Input
 import Html exposing (Html)
+import Html.Attributes
 import List exposing (concat)
+import Maybe
 import Shared
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
@@ -31,25 +31,41 @@ page =
 
 
 type Msg
-    = NoOp
+    = Set String String
 
 
 type alias Params =
-    ()
+    { name : String, age : String, location : String }
 
 
 type alias Model =
-    { box1 : String, box2 : String, box3 : String }
+    List ( String, String )
 
 
 init : Shared.Model -> Url Params -> ( Model, Cmd msg )
-init _ _ =
-    ( { box1 = "Day 8", box2 = "Piling and centering boxes", box3 = "Proident et nisi ut duis id do qui sunt cillum consequat duis aliqua sit eiusmod. Culpa amet veniam eiusmod duis in mollit ex minim. Ullamco irure aute aliqua labore. Est laborum amet exercitation magna consequat enim quis." }, Cmd.none )
+init _ url =
+    let
+        name =
+            Maybe.withDefault "" <| Dict.get "name" url.query
+
+        age =
+            Maybe.withDefault "" <| Dict.get "age" url.query
+
+        location =
+            Maybe.withDefault "" <| Dict.get "location" url.query
+    in
+    ( [ ( "name", name ), ( "age", age ), ( "location", location ) ], Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update _ model =
-    ( model, Cmd.none )
+update msg model =
+    let
+        dict =
+            Dict.fromList model
+    in
+    case msg of
+        Set field value ->
+            ( Dict.toList <| Dict.insert field value dict, Cmd.none )
 
 
 save : Model -> Shared.Model -> Shared.Model
@@ -65,16 +81,6 @@ load shared model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
-
-
-
-{-
-                 ██    ██    ██    ███████    ██     ██
-                 ██    ██    ██    ██         ██     ██
-   ██████████    ██    ██    ██    █████      ██  █  ██
-                  ██  ██     ██    ██         ██ ███ ██
-                   ████      ██    ███████     ███ ███
--}
 
 
 commonAttributes : List (Attribute msg)
@@ -98,18 +104,113 @@ titleAttributes =
 
 rowAttributes : List (Attribute msg)
 rowAttributes =
-    [ centerX, padding 10, width shrink ]
+    [ centerX, padding 10, width fill ]
+
+
+buildUrl : Model -> String
+buildUrl model =
+    let
+        dict =
+            Dict.fromList model
+    in
+    String.concat [ "?name=", Maybe.withDefault "" <| get "name" dict, "&age=", Maybe.withDefault "" <| get "age" dict, "&location=", Maybe.withDefault "" <| get "location" dict ]
+
+
+form : Model -> List (Element Msg)
+form model =
+    let
+        dict =
+            Dict.fromList model
+
+        name =
+            Maybe.withDefault "" <| get "name" dict
+
+        age =
+            Maybe.withDefault "" <| get "age" dict
+
+        location =
+            Maybe.withDefault "" <| get "location" dict
+    in
+    [ column [ spacing 15, width fill ]
+        [ row [ width fill ]
+            [ Input.text
+                []
+                { onChange = Set "name"
+                , text = name
+                , placeholder = Just (Input.placeholder [] (Element.text "Write the name here"))
+                , label =
+                    Input.labelAbove []
+                        (Element.text "Write the name here")
+                }
+            ]
+        , row [ width fill ]
+            [ Input.text
+                []
+                { onChange = Set "age"
+                , text = age
+                , placeholder = Just (Input.placeholder [] (Element.text "Write the age here"))
+                , label =
+                    Input.labelAbove []
+                        (Element.text "Write the age here")
+                }
+            ]
+        , row [ width fill ]
+            [ Input.text
+                []
+                { onChange = Set "location"
+                , text = location
+                , placeholder = Just (Input.placeholder [] (Element.text "Write the location here"))
+                , label =
+                    Input.labelAbove []
+                        (Element.text "Write the location here")
+                }
+            ]
+        ]
+    ]
 
 
 view : Model -> Document Msg
 view model =
+    let
+        dict =
+            Dict.fromList model
+
+        name =
+            Maybe.withDefault "" <| get "name" dict
+
+        age =
+            Maybe.withDefault "" <| get "age" dict
+
+        location =
+            Maybe.withDefault "" <| get "location" dict
+    in
     { title = "Day 8"
     , body =
-        [ column [ centerX, centerY, spacing 100 ]
-            [ row rowAttributes [ Element.el titleAttributes (Element.text model.box1) ]
-            , row rowAttributes [ Element.el commonAttributes (Element.text model.box2) ]
-            , row rowAttributes [ Element.paragraph paragraphAttributes [ Element.text model.box3 ] ]
-            , row rowAttributes [ Element.text "Hello!" ]
+        [ column [ centerX, centerY, width fill, paddingXY 300 50, spacing 50 ]
+            [ row
+                (rowAttributes ++ commonAttributes)
+                [ Element.paragraph
+                    []
+                    [ text "Hello! Greetings from ", text location, text ". My name is ", text name, text " and I'm ", text age, text " years old." ]
+                ]
+            , row
+                rowAttributes
+                [ column [ width <| fillPortion 3 ] <| form model
+                , column [ width <| fillPortion 2, padding 20, alignTop ]
+                    [ paragraph [ htmlAttribute <| Html.Attributes.style "word-break" "break-all" ]
+                        [ Element.link
+                            [ Font.color Colors.Opaque.cornflowerblue
+                            , Border.color Colors.Opaque.cornflowerblue
+                            , Border.dashed
+                            , Border.widthEach { bottom = 1, left = 0, right = 0, top = 0 }
+                            , mouseOver [ Border.glow Colors.Opaque.cornflowerblue 0.5 ]
+                            ]
+                            { url = buildUrl model
+                            , label = text <| buildUrl model
+                            }
+                        ]
+                    ]
+                ]
             ]
         ]
     }
