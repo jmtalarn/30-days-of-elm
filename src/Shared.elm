@@ -185,4 +185,4 @@ dayLinks =
 
 urls : List String
 urls =
-    [ "/", "/page-a", "/page-b", "/day-1", "/day-2", "/day-3", "/day-4", "/day-5", "/day-6", "/day-7", "/day-8", "/day-9", "/day-10", "/day-11", "/day-12", "/day-13", "/day-14", "/day-15", "/day-16", "/day-17", "/day-18", "/day-19", "/day-20", "/day-21", "/day-22", "/day-23", "/day-24", "/day-25", "/day-26", "/day-27", "/day-28", "/day-29", "/day-30" ]
+    [ "/", "/day1", "/day2", "/day3", "/day4", "/day5", "/day6", "/day7", "/day8", "/day9", "/day10", "/day11", "/day12", "/day13", "/day14", "/day15", "/day16", "/day17", "/day18", "/day19", "/day20", "/day21", "/day22", "/day23", "/day24", "/day25", "/day26", "/day27", "/day28", "/day29", "/day30" ]
