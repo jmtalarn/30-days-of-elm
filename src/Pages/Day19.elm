@@ -8,7 +8,7 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
-import Html exposing (h1)
+import Html exposing (h1, p)
 import Html.Events exposing (onInput)
 import Shared
 import Spa.Document exposing (Document)
@@ -76,46 +76,8 @@ view model =
             , padding 40
             , Font.size 30
             ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 1" ] ]
-
-            -- , row [ Element.width fill, Element.height <| px 20 ]
-            --     [ html <|
-            --         input
-            --             [ type_ "range"
-            --             , onInput Set
-            --             , value (String.fromInt model)
-            --             ]
-            --             []
-            --     ]
-            , row []
-                [ Input.slider
-                    [ Element.behindContent
-                        (Element.el
-                            [ Element.width Element.fill
-                            , Element.height (Element.px 2)
-                            , Element.centerY
-                            , Background.color grey
-                            , Border.rounded 2
-                            ]
-                            Element.none
-                        )
-                    ]
-                    { onChange = Set
-                    , min = 0
-                    , max = 100
-                    , label =
-                        Input.labelAbove []
-                            (Element.text "Slide to change the number")
-                    , thumb = Input.defaultThumb
-                    , step = Just 1
-                    , value = model
-                    }
-                ]
-            , row []
-                [ paragraph
-                    [ Font.family [ Font.monospace ] ]
-                    [ Element.text (String.fromFloat model) ]
-                ]
+            [ row [] [ html <| h1 [] [ Html.text "Day 19" ] ]
+            , row [] [ html <| p [] [ Html.text "Nothing here yet for this day of challenge" ] ]
             ]
         ]
     }

@@ -114,12 +114,14 @@ view { page, toMsg } model =
                     ]
                     [ el [ width <| px 100, height <| px 100 ] <| image [ width fill ] { description = "Logo", src = "/30-days-of-elm/icons/512.png" }
                     , column [ width fill, spacing 10 ]
-                        [ el [ Font.size 32, width fill ] <| text "elm-spa-example"
+                        [ el [ Font.size 32, width fill ] <| text "30 days of elm"
                         , paragraph [ Font.size 16 ]
                             [ text "Built with "
                             , link linkAttrs { label = text "elm-spa", url = "https://www.elm-spa.dev/" }
                             , text " and "
                             , link linkAttrs { label = text "elm-starter", url = "https://github.com/lucamug/elm-starter" }
+                            , text " based on "
+                            , link linkAttrs { label = text "Kristian Pedersen challenge", url = "https://dev.to/kristianpedersen/30-days-of-elm-intro-2lo2" }
                             , text "."
                             ]
                         ]
