@@ -112,7 +112,7 @@ view { page, toMsg } model =
                     , width fill
                     , spacing 20
                     ]
-                    [ el [ width <| px 100, height <| px 100 ] <| image [ width fill ] { description = "Logo", src = "/icons/512.png" }
+                    [ el [ width <| px 100, height <| px 100 ] <| image [ width fill ] { description = "Logo", src = "/30-days-of-elm/icons/512.png" }
                     , column [ width fill, spacing 10 ]
                         [ el [ Font.size 32, width fill ] <| text "elm-spa-example"
                         , paragraph [ Font.size 16 ]
@@ -185,4 +185,4 @@ dayLinks =
 
 urls : List String
 urls =
-    [ "/", "/day1", "/day2", "/day3", "/day4", "/day5", "/day6", "/day7", "/day8", "/day9", "/day10", "/day11", "/day12", "/day13", "/day14", "/day15", "/day16", "/day17", "/day18", "/day19", "/day20", "/day21", "/day22", "/day23", "/day24", "/day25", "/day26", "/day27", "/day28", "/day29", "/day30" ]
+    [ "/30-days-of-elm/", "/30-days-of-elm/day1", "/30-days-of-elm/day2", "/30-days-of-elm/day3", "/30-days-of-elm/day4", "/30-days-of-elm/day5", "/30-days-of-elm/day6", "/30-days-of-elm/day7", "/30-days-of-elm/day8", "/30-days-of-elm/day9", "/30-days-of-elm/day10", "/30-days-of-elm/day11", "/30-days-of-elm/day12", "/30-days-of-elm/day13", "/30-days-of-elm/day14", "/30-days-of-elm/day15", "/30-days-of-elm/day16", "/30-days-of-elm/day17", "/30-days-of-elm/day18", "/30-days-of-elm/day19", "/30-days-of-elm/day20", "/30-days-of-elm/day21", "/30-days-of-elm/day22", "/30-days-of-elm/day23", "/30-days-of-elm/day24", "/30-days-of-elm/day25", "/30-days-of-elm/day26", "/30-days-of-elm/day27", "/30-days-of-elm/day28", "/30-days-of-elm/day29", "/30-days-of-elm/day30" ]
