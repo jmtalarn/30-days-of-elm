@@ -109,6 +109,7 @@ view model =
             [ row rowAttributes [ Element.el titleAttributes (Element.text model.box1) ]
             , row rowAttributes [ Element.el commonAttributes (Element.text model.box2) ]
             , row rowAttributes [ Element.paragraph paragraphAttributes [ Element.text model.box3 ] ]
+            , row rowAttributes [ Element.text "Hello!" ]
             ]
         ]
     }
