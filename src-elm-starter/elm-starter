@@ -197,7 +197,7 @@ function bootstrap(env, callback) {
         const Elm = require(fielNameOutput);
         // Restoring warnings
         console.warn = consoleWarn;
-        console.log({ NASA_API_KEY: process.env.NASA_API_KEY, env: process.env })
+
         var app = Elm.Elm.Worker.init(
             {
                 flags:
