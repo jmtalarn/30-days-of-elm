@@ -74,31 +74,15 @@ update msg model =
         GotAsteroids result ->
             case result of
                 Ok asteroids ->
-                    let
-                        _ =
-                            Debug.log "asteroids" asteroids
-                    in
                     ( { model | response = Success asteroids }, Cmd.none )
 
                 Err error ->
-                    let
-                        _ =
-                            Debug.log "error" error
-                    in
                     ( { model | response = Failure }, Cmd.none )
 
         SetNowToDate date ->
-            let
-                _ =
-                    Debug.log "SetNowToDate" formatDate <| date
-            in
             ( { model | date = formatDate <| date }, getAsteroids model )
 
         SetDate date ->
-            let
-                _ =
-                    Debug.log "SetDate" date
-            in
             ( { model | date = date }, getAsteroids model )
 
 
