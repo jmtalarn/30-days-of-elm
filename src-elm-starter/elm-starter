@@ -21,11 +21,15 @@ const styleTitle = ` ${fgYellow}${totsu} %s${reset}\n`;
 const styleSubtitle = `    ${dim}${fgYellow}%s${reset}`;
 const styleDebug = `    ${fgMagenta}%s${reset}`;
 const styleWarning = `    ${fgRed}Warning:${reset} %s`;
-const arg = process.argv[2] ? process.argv[2] : "";
+
+require('dotenv').config()
+
+const arg = process.argv[ 2 ] ? process.argv[ 2 ] : "";
+
 const DEV = "dev";
 const PROD = "prod";
 const NOT_AVAILABLE = "na";
-let commit; 
+let commit;
 let branch;
 
 var argv = require('yargs')
@@ -47,7 +51,7 @@ var argv = require('yargs')
         default: 'assets/prod',
         describe: 'assets folder',
         type: 'string'
-    })    .example('$0 start', 'Start')
+    }).example('$0 start', 'Start')
     .alias('b', 'branch')
     .alias('c', 'commit')
     .alias('v', 'version')
@@ -62,15 +66,15 @@ var argv = require('yargs')
 
 // console.log(argv);
 // process.exit(1);
-    
-const command = argv['_'][0];
+
+const command = argv[ '_' ][ 0 ];
 
 if (argv.commit) {
     commit = argv.commit;
 } else {
     try {
         commit = child_process.execSync('git rev-parse --short HEAD').toString().replace(/^\s+|\s+$/g, '');
-    } catch(err) {
+    } catch (err) {
         console.log(styleWarning, `Next time pass the commit as option or make this a git repository so we can add the commit info.`);
         commit = `commit-${NOT_AVAILABLE}`;
     }
@@ -81,25 +85,25 @@ if (argv.branch) {
 } else {
     try {
         branch = child_process.execSync('git rev-parse --abbrev-ref HEAD').toString().replace(/^\s+|\s+$/g, '');
-    } catch(err) {
+    } catch (err) {
         console.log(styleWarning, `Next time pass the branch as option or make make this a git repository so we can add the branch info.`);
         branch = `branch-${NOT_AVAILABLE}`;
     }
 }
 
 [ "name"
-, "nameLong"
-, "description"
-, "author"
-, "version"
-, "homepage"
-, "license"
+    , "nameLong"
+    , "description"
+    , "author"
+    , "version"
+    , "homepage"
+    , "license"
 ].map(checkRequired)
 
 
 function checkRequired(key) {
-    if (! package[key] || String(package[key]) === "") {
-        package[key] = NOT_AVAILABLE;
+    if (!package[ key ] || String(package[ key ]) === "") {
+        package[ key ] = NOT_AVAILABLE;
         console.log(styleWarning, `"${key}" is required in package.json`);
     }
 }
@@ -116,43 +120,43 @@ if (command === "boot") {
 
 } else if (command === "debug") {
     console.log(styleTitle, `Starting (${commit}, ${branch})...`);
-    bootstrap(DEV, function(conf) {console.log(conf)});
+    bootstrap(DEV, function (conf) { console.log(conf) });
 
 } else if (command === "listResources") {
     console.log(styleTitle, `Starting (${commit}, ${branch})...`);
-    bootstrap(DEV, function(conf) {
-        console.log( listFiles(conf.dir.pw + "/assets/prod", []) );
+    bootstrap(DEV, function (conf) {
+        console.log(listFiles(conf.dir.pw + "/assets/prod", []));
     });
 
 } else if (command === "start") {
     console.log(styleTitle, `Starting (${commit}, ${branch})...`);
     bootstrap(DEV, command_start);
 
-} else if (command === "generateDevFiles" ) {
+} else if (command === "generateDevFiles") {
     console.log(styleTitle, `Generating dev files...`);
     bootstrap(DEV, command_generateDevFiles);
 
-} else if (command === "build" ) {
+} else if (command === "build") {
     console.log(styleTitle, `Building... (${commit} ${branch})`);
     bootstrap(PROD, command_build);
 
-} else if (command === "buildUsingServer" ) {
+} else if (command === "buildUsingServer") {
     console.log(styleTitle, `Building (I expect a server running on port 7000)...`);
     bootstrap(PROD, command_buildUsingServer);
 
-} else if (command === "serverBuild" ) {
+} else if (command === "serverBuild") {
     console.log(styleTitle, `Starting server "build"...`);
     bootstrap(PROD, command_serverBuild);
 
-} else if (command === "serverDev" ) {
+} else if (command === "serverDev") {
     console.log(styleTitle, `Starting server DEV...`);
     bootstrap(DEV, command_serverDev);
 
-} else if (command === "serverStatic" ) {
+} else if (command === "serverStatic") {
     console.log(styleTitle, `Starting server "static" for genoneration of static pages...`);
     bootstrap(PROD, command_serverStatic);
 
-} else if (command === "watchStartElm" ) {
+} else if (command === "watchStartElm") {
     console.log(styleTitle, `Watching elm-starter Elm files...`);
     bootstrap(DEV, command_watchStartElm);
 
@@ -166,73 +170,81 @@ if (command === "boot") {
 //
 //
 
-function bootstrap (env, callback) {
-    callback = callback || function(){};
+function bootstrap(env, callback) {
+    callback = callback || function () { };
     env = env === DEV ? DEV : PROD;
     const dirPw = process.cwd();
     const relDirIgnoredByGit = `elm-stuff/elm-starter-files`;
-    const dir = 
-        { pw:           `${dirPw}`
-        , bin:          `${dirPw}/node_modules/.bin`
+    const dir =
+    {
+        pw: `${dirPw}`
+        , bin: `${dirPw}/node_modules/.bin`
         , ignoredByGit: `${dirPw}/${relDirIgnoredByGit}`
-        , temp:         `${dirPw}/${relDirIgnoredByGit}/temp`
-        , assets:       `${dirPw}/${argv.assets}`
-        }
+        , temp: `${dirPw}/${relDirIgnoredByGit}/temp`
+        , assets: `${dirPw}/${argv.assets}`
+    }
     const file =
-        { elmWorker:    `${dirPw}/src-elm-starter/Worker.elm`
-        }
+    {
+        elmWorker: `${dirPw}/src-elm-starter/Worker.elm`
+    }
     const fielNameOutput = `${dir.temp}/worker.js`;
     const command = `${dir.bin}/elm make ${file.elmWorker} --output=${fielNameOutput}`;
     child_process.exec(command, (error, out) => {
         if (error) throw error;
         // Temporary silencing Elm warnings
         const consoleWarn = console.warn;
-        console.warn = function() {};
+        console.warn = function () { };
         const Elm = require(fielNameOutput);
         // Restoring warnings
         console.warn = consoleWarn;
+        console.log({ NASA_API_KEY: process.env.NASA_API_KEY, env: process.env })
         var app = Elm.Elm.Worker.init(
-            { flags :
-                    
-                // From package.jspn
-                { name : String(package.name)
-                , nameLong : String(package.nameLong)
-                , description : String(package.description)
-                , author : String(package.author)
-                , version : String(package.version)
-                , homepage : String(package.homepage).replace(/[/]*$/g, "") // Remove trayling "/"
-                , license : String(package.license)
-                , twitterSite : typeof package.twitterSite === "undefined"? null : String(package.twitterSite)
-                , twitterAuthor : typeof package.twitterAuthor === "undefined"? null : String(package.twitterAuthor)
-                , snapshotWidth: typeof package.snapshotWidth === "undefined"? null : String(package.snapshotWidth)
-                , snapshotHeight: typeof package.snapshotHeight === "undefined"? null : String(package.snapshotHeight)
-                , themeColor: typeof package.snapshotHeight === "undefined"? null : 
-                    { red: String(package.themeColor.red)
-                    , green: String(package.themeColor.green)
-                    , blue: String(package.themeColor.blue)
-                    }
+            {
+                flags:
 
-                // From Git
-                , commit: commit
-                , branch: branch
-                
-                // From starter.js
-                , env: env
-                , dirPw : dir.pw
-                , dirBin : dir.bin
-                , dirIgnoredByGit : dir.ignoredByGit
-                , dirTemp : dir.temp
-                , dirAssets : dir.assets
-                , fileElmWorker : file.elmWorker
-                , assets : listFiles(dir.pw + "/assets/prod", [])
+                // From package.jspn
+                {
+                    name: String(package.name)
+                    , nameLong: String(package.nameLong)
+                    , description: String(package.description)
+                    , author: String(package.author)
+                    , version: String(package.version)
+                    , homepage: String(package.homepage).replace(/[/]*$/g, "") // Remove trayling "/"
+                    , license: String(package.license)
+                    , twitterSite: typeof package.twitterSite === "undefined" ? null : String(package.twitterSite)
+                    , twitterAuthor: typeof package.twitterAuthor === "undefined" ? null : String(package.twitterAuthor)
+                    , snapshotWidth: typeof package.snapshotWidth === "undefined" ? null : String(package.snapshotWidth)
+                    , snapshotHeight: typeof package.snapshotHeight === "undefined" ? null : String(package.snapshotHeight)
+                    , themeColor: typeof package.snapshotHeight === "undefined" ? null :
+                        {
+                            red: String(package.themeColor.red)
+                            , green: String(package.themeColor.green)
+                            , blue: String(package.themeColor.blue)
+                        }
+
+                    // From Git
+                    , commit: commit
+                    , branch: branch
+
+                    // From starter.js
+                    , env: env
+                    , dirPw: dir.pw
+                    , dirBin: dir.bin
+                    , dirIgnoredByGit: dir.ignoredByGit
+                    , dirTemp: dir.temp
+                    , dirAssets: dir.assets
+                    , fileElmWorker: file.elmWorker
+                    , assets: listFiles(dir.pw + "/assets/prod", [])
+                    // From .env
+                    , nasaApiKey: process.env.NASA_API_KEY || ""
                 }
             }
         );
-        app.ports.dataFromElmToJavascript.subscribe(function(conf) {
+        app.ports.dataFromElmToJavascript.subscribe(function (conf) {
             // Got the file back from Elm!
-            fs.writeFile(dir.ignoredByGit + "/dev" + "/conf.json", JSON.stringify(conf,null,4), function(){});
+            fs.writeFile(dir.ignoredByGit + "/dev" + "/conf.json", JSON.stringify(conf, null, 4), function () { });
             callback(conf);
-            
+
         });
     });
 }
@@ -243,17 +255,17 @@ function bootstrap (env, callback) {
 //
 //
 
-function command_start (conf) {
+function command_start(conf) {
     command_generateDevFiles(conf);
     startCommand(`${conf.dir.bin}/concurrently`,
         [ `node ${conf.file.jsStarter} serverDev --branch=${branch} --commit=${commit}`
-        , `node ${conf.file.jsStarter} watchStartElm --branch=${branch} --commit=${commit}`
-        , `--kill-others`
+            , `node ${conf.file.jsStarter} watchStartElm --branch=${branch} --commit=${commit}`
+            , `--kill-others`
         ]
     );
 }
 
-function command_generateDevFiles (conf) {
+function command_generateDevFiles(conf) {
     removeDir(conf.dir.devRoot, false);
     mkdir(conf.dir.dev);
     mkdir(conf.dir.assetsDevTarget);
@@ -265,22 +277,22 @@ function command_generateDevFiles (conf) {
     symlinkDir(conf.dir.assetsDevSource, conf.dir.assetsDevTarget);
     // Touching Main.elm so that, in case there is a server running,
     // it will re-generate elm.js
-    child_process.exec(`touch ${conf.file.mainElm}`, (error, out) => {});
+    child_process.exec(`touch ${conf.file.mainElm}`, (error, out) => { });
 }
 
-function command_build (conf) {
+function command_build(conf) {
     startCommand(`${conf.dir.bin}/concurrently`,
         [ `node ${conf.file.jsStarter} serverStatic --branch=${branch} --commit=${commit}`
-        // Here we wait two seconds so that the server has time to
-        // compile Elm code and start itself
-        , `sleep 2 && node ${conf.file.jsStarter} buildUsingServer --branch=${branch} --commit=${commit}`
-        , `--kill-others`
-        , `--success=first`
+            // Here we wait two seconds so that the server has time to
+            // compile Elm code and start itself
+            , `sleep 2 && node ${conf.file.jsStarter} buildUsingServer --branch=${branch} --commit=${commit}`
+            , `--kill-others`
+            , `--success=first`
         ]
     );
 }
 
-function command_buildUsingServer (conf) {
+function command_buildUsingServer(conf) {
     removeDir(conf.dir.buildRoot, false);
     mkdir(conf.dir.build);
     generateFiles(conf, conf.dir.build);
@@ -296,35 +308,35 @@ function command_buildUsingServer (conf) {
     });
 }
 
-function command_serverBuild (conf) {
+function command_serverBuild(conf) {
     startCommand
-        ( conf.serverBuild.command
-        , conf.serverBuild.parameters
+        (conf.serverBuild.command
+            , conf.serverBuild.parameters
         );
 }
 
-function command_serverDev (conf) {
+function command_serverDev(conf) {
     startCommand
-        ( conf.serverDev.command
-        , conf.serverDev.parameters
+        (conf.serverDev.command
+            , conf.serverDev.parameters
         );
 }
 
-function command_serverStatic (conf) {
+function command_serverStatic(conf) {
     command_generateDevFiles(conf);
     startCommand
-        ( conf.serverStatic.command
-        , conf.serverStatic.parameters
+        (conf.serverStatic.command
+            , conf.serverStatic.parameters
         );
 }
 
-function command_watchStartElm (conf) {
+function command_watchStartElm(conf) {
     // Watching the src file to check in eny of the Elm file is changing
     startCommand(`${conf.dir.bin}/chokidar`,
         [ conf.dir.elmStartSrc
-        , conf.file.indexElm
-        , `-c`
-        , `node ${conf.file.jsStarter} generateDevFiles --branch=${branch} --commit=${commit}`
+            , conf.file.indexElm
+            , `-c`
+            , `node ${conf.file.jsStarter} generateDevFiles --branch=${branch} --commit=${commit}`
         ]
     );
 }
@@ -335,12 +347,12 @@ function command_watchStartElm (conf) {
 //
 //
 
-async function generateStaticPages (conf) {
+async function generateStaticPages(conf) {
     try {
         console.log(styleSubtitle, `Building ${conf.mainConf.urls.length} static pages for ${conf.mainConf.domain}`);
         // the `args` property is only necessary during docker build. if its not fine to keep this here, please make configurable.
         const browser = await puppeteer.launch({
-            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+            args: [ '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage' ],
             headless: conf.headless
         });
         const urlsInBatches = chunkArray(conf.mainConf.urls, conf.batchesSize);
@@ -358,40 +370,42 @@ async function generateStaticPages (conf) {
     }
 };
 
-async function processUrl (url, browser, conf) {
+async function processUrl(url, browser, conf) {
     const page = await browser.newPage();
-    await page.setViewport({width: conf.snapshotWidth, height: conf.snapshotHeight});
-    await page.goto(`${conf.startingDomain}${url}`, {waitUntil: 'networkidle0'});
-    if ( !fs.existsSync( `${conf.dir.buildRoot}${url}` ) ) {
-        mkdir( `${conf.dir.buildRoot}${url}` );
+    await page.setViewport({ width: conf.snapshotWidth, height: conf.snapshotHeight });
+    await page.goto(`${conf.startingDomain}${url}`, { waitUntil: 'networkidle0' });
+    if (!fs.existsSync(`${conf.dir.buildRoot}${url}`)) {
+        mkdir(`${conf.dir.buildRoot}${url}`);
     }
     let html = await page.content();
-    html = html.replace('</body>',`${conf.htmlToReinject}</body>`);
+    html = html.replace('</body>', `${conf.htmlToReinject}</body>`);
     console.log(styleSubtitle, `    * ${conf.startingDomain}${url}`);
     const minHtml = html_minifier.minify(html,
-        { minifyCSS: true
-        , minifyJS: true
-        , removeComments: true
+        {
+            minifyCSS: true
+            , minifyJS: true
+            , removeComments: true
         }
     );
-    
+
     fs.writeFileSync(`${conf.dir.buildRoot}${url}/${conf.pagesName}`, minHtml);
     if (conf.snapshots) {
         await page.screenshot(
-            { path: `${conf.dir.buildRoot}${url}/${conf.snapshotFileName}`
-            , quality: conf.snapshotsQuality
+            {
+                path: `${conf.dir.buildRoot}${url}/${conf.snapshotFileName}`
+                , quality: conf.snapshotsQuality
             }
         );
     }
     await page.close();
 }
 
-function minifyJs (conf, fileName) {
+function minifyJs(conf, fileName) {
     runTerser(`${conf.dir.build}/${fileName}`);
 }
 
 function generateFiles(conf, dest) {
-    conf.files.map (function(file) {
+    conf.files.map(function (file) {
         fs.writeFileSync(`${dest}/${file.name}`, file.content);
     });
 }
@@ -402,33 +416,34 @@ function generateFiles(conf, dest) {
 //
 //
 
-function consoleDebug (string) {
+function consoleDebug(string) {
     if (debugMode) {
-        console.log (styleDebug, string);
+        console.log(styleDebug, string);
     }
 }
 
-function runHtmlMinifier (fileName) {
+function runHtmlMinifier(fileName) {
     const code = fs.readFileSync(fileName, 'utf8');
     const minCode = html_minifier.minify(code,
-        { collapseWhitespace: true
-        , minifyCSS: true
-        , minifyJS: true
-        , removeComments: true
-        , removeEmptyAttributes : true
-        , removeEmptyElements : true
-        , removeAttributeQuotes : true
-        , removeOptionalTags : true
-        , removeRedundantAttributes : true
-        , removeScriptTypeAttributes : true
-        , collapseBooleanAttributes : true
-        , useShortDoctype : true
+        {
+            collapseWhitespace: true
+            , minifyCSS: true
+            , minifyJS: true
+            , removeComments: true
+            , removeEmptyAttributes: true
+            , removeEmptyElements: true
+            , removeAttributeQuotes: true
+            , removeOptionalTags: true
+            , removeRedundantAttributes: true
+            , removeScriptTypeAttributes: true
+            , collapseBooleanAttributes: true
+            , useShortDoctype: true
         }
     );
     fs.writeFileSync(fileName, minCode);
 }
 
-function runTerser (fileName) {
+function runTerser(fileName) {
     const code = fs.readFileSync(fileName, 'utf8');
     // TODO - Add special arguments to terser, to optimize pure functions
     const minCode = terser.minify(code);
@@ -436,17 +451,17 @@ function runTerser (fileName) {
     fs.writeFileSync(fileName, minCode.code);
 }
 
-function startCommand (cmd, parameters, callback) {
-    callback = callback || function(){};
+function startCommand(cmd, parameters, callback) {
+    callback = callback || function () { };
     const command = child_process.spawn(cmd, parameters);
     command.stdout.on('data', function (data) { process.stdout.write(data.toString()); });
     command.stderr.on('data', function (data) { process.stdout.write(data.toString()); });
-    command.on('close', function(code) {
+    command.on('close', function (code) {
         return callback(code);
     });
 }
 
-function chunkArray(myArray, chunk_size){
+function chunkArray(myArray, chunk_size) {
     var results = [];
     while (myArray.length) {
         results.push(myArray.splice(0, chunk_size));
@@ -460,19 +475,19 @@ function chunkArray(myArray, chunk_size){
 //
 //
 
-function mkdir (path) {
+function mkdir(path) {
     if (fs.existsSync(path)) {
         // path already exsists
     } else {
         try {
             fs.mkdirSync(path, { recursive: true })
-        } catch(e) {
+        } catch (e) {
             // error creating dir
         }
     }
 }
 
-function symlinkDir (srcDir, dstDir) {
+function symlinkDir(srcDir, dstDir) {
     if (!fs.existsSync(srcDir)) {
         // source directory doesn't exists
         console.log("!!!");
@@ -480,79 +495,79 @@ function symlinkDir (srcDir, dstDir) {
     }
     const list = fs.readdirSync(srcDir);
     var src, dst;
-    list.forEach(function(file) {
+    list.forEach(function (file) {
         src = `${srcDir}/${file}`;
         dst = `${dstDir}/${file}`;
         var stat = fs.lstatSync(src);
-        if ( stat && ( stat.isDirectory() || stat.isFile() ) && (file !== ".DS_Store") ) {
+        if (stat && (stat.isDirectory() || stat.isFile()) && (file !== ".DS_Store")) {
             fs.symlinkSync(src, dst);
         }
     });
 }
 
-function copyDir (srcDir, dstDir) {
-    if (!fs.existsSync(srcDir)) {
-        // source directory doesn't exists
-        return;
-    }
-    const files = fs.readdirSync(srcDir);
-    files.map( function (file) {
-        const src = `${srcDir}/${file}`;
-        const dst = `${dstDir}/${file}`;
-        const stat = fs.lstatSync(src);
-        if (stat && stat.isDirectory()) {
-            mkdir(dst);
-            copyDir(src, dst);
-        } else if ( file !== ".DS_Store" ) {
-            try {
-                fs.writeFileSync(dst, fs.readFileSync(src));
-            } catch(e) {
-                console.log(e);
-            }
-        }
-    });
-}
-
-function removeDir (srcDir, removeSelf) {
+function copyDir(srcDir, dstDir) {
     if (!fs.existsSync(srcDir)) {
         // source directory doesn't exists
         return;
     }
     const files = fs.readdirSync(srcDir);
     files.map(function (file) {
-            const src = `${srcDir}/${file}`;
-            const stat = fs.lstatSync(src);
-            if (stat && stat.isDirectory()) {
-                // Calling recursively removeDir
-                removeDir(src, true);
-            } else {
-                fs.unlinkSync(src);
+        const src = `${srcDir}/${file}`;
+        const dst = `${dstDir}/${file}`;
+        const stat = fs.lstatSync(src);
+        if (stat && stat.isDirectory()) {
+            mkdir(dst);
+            copyDir(src, dst);
+        } else if (file !== ".DS_Store") {
+            try {
+                fs.writeFileSync(dst, fs.readFileSync(src));
+            } catch (e) {
+                console.log(e);
             }
         }
+    });
+}
+
+function removeDir(srcDir, removeSelf) {
+    if (!fs.existsSync(srcDir)) {
+        // source directory doesn't exists
+        return;
+    }
+    const files = fs.readdirSync(srcDir);
+    files.map(function (file) {
+        const src = `${srcDir}/${file}`;
+        const stat = fs.lstatSync(src);
+        if (stat && stat.isDirectory()) {
+            // Calling recursively removeDir
+            removeDir(src, true);
+        } else {
+            fs.unlinkSync(src);
+        }
+    }
     )
     if (removeSelf) {
         fs.rmdirSync(srcDir);
     }
 };
 
-function listFiles (srcDir, acc) {
+function listFiles(srcDir, acc) {
     if (!fs.existsSync(srcDir)) {
         // source directory doesn't exists
-        return(acc);
+        return (acc);
     } else {
         const files = fs.readdirSync(srcDir);
-        files.map( function (file) {
+        files.map(function (file) {
             const src = `${srcDir}/${file}`;
             const stat = fs.lstatSync(src);
             if (stat && stat.isDirectory()) {
                 acc = listFiles(src, acc);
-            } else if ( file !== ".DS_Store" ) {
+            } else if (file !== ".DS_Store") {
                 const filePath = srcDir + "/" + file
                 const fileData = fs.readFileSync(filePath, 'utf8');
                 const hash = crypto.createHash('sha1').update(fileData, 'utf8').digest('hex');
-                acc.push([filePath, hash]);
+                acc.push([ filePath, hash ]);
             }
         });
-        return(acc);
+        return (acc);
     }
 }

@@ -10615,7 +10615,7 @@ var $author$project$Main$Pages = function (a) {
 var $author$project$Main$Shared = function (a) {
 	return {$: 'Shared', a: a};
 };
-var $author$project$Spa$Generated$Route$NotFound = {$: 'NotFound'};
+var $author$project$Spa$Route$NotFound = {$: 'NotFound'};
 var $elm$url$Url$Parser$State = F5(
 	function (visited, unvisited, params, frag, value) {
 		return {frag: frag, params: params, unvisited: unvisited, value: value, visited: visited};
@@ -10735,40 +10735,40 @@ var $elm$url$Url$Parser$parse = F2(
 					url.fragment,
 					$elm$core$Basics$identity)));
 	});
-var $author$project$Spa$Generated$Route$Day1 = {$: 'Day1'};
-var $author$project$Spa$Generated$Route$Day10 = {$: 'Day10'};
-var $author$project$Spa$Generated$Route$Day11 = {$: 'Day11'};
-var $author$project$Spa$Generated$Route$Day12 = {$: 'Day12'};
-var $author$project$Spa$Generated$Route$Day13 = {$: 'Day13'};
-var $author$project$Spa$Generated$Route$Day14 = {$: 'Day14'};
-var $author$project$Spa$Generated$Route$Day15 = {$: 'Day15'};
-var $author$project$Spa$Generated$Route$Day16 = {$: 'Day16'};
-var $author$project$Spa$Generated$Route$Day17 = {$: 'Day17'};
-var $author$project$Spa$Generated$Route$Day18 = {$: 'Day18'};
-var $author$project$Spa$Generated$Route$Day19 = {$: 'Day19'};
-var $author$project$Spa$Generated$Route$Day2 = {$: 'Day2'};
-var $author$project$Spa$Generated$Route$Day20 = {$: 'Day20'};
-var $author$project$Spa$Generated$Route$Day21 = {$: 'Day21'};
-var $author$project$Spa$Generated$Route$Day22 = {$: 'Day22'};
-var $author$project$Spa$Generated$Route$Day23 = {$: 'Day23'};
-var $author$project$Spa$Generated$Route$Day24 = {$: 'Day24'};
-var $author$project$Spa$Generated$Route$Day25 = {$: 'Day25'};
-var $author$project$Spa$Generated$Route$Day26 = {$: 'Day26'};
-var $author$project$Spa$Generated$Route$Day27 = {$: 'Day27'};
-var $author$project$Spa$Generated$Route$Day28 = {$: 'Day28'};
-var $author$project$Spa$Generated$Route$Day29 = {$: 'Day29'};
-var $author$project$Spa$Generated$Route$Day3 = {$: 'Day3'};
-var $author$project$Spa$Generated$Route$Day30 = {$: 'Day30'};
-var $author$project$Spa$Generated$Route$Day4 = {$: 'Day4'};
-var $author$project$Spa$Generated$Route$Day5 = {$: 'Day5'};
-var $author$project$Spa$Generated$Route$Day6 = {$: 'Day6'};
-var $author$project$Spa$Generated$Route$Day7 = {$: 'Day7'};
-var $author$project$Spa$Generated$Route$Day8 = {$: 'Day8'};
-var $author$project$Spa$Generated$Route$Day9 = {$: 'Day9'};
-var $author$project$Spa$Generated$Route$PageA = {$: 'PageA'};
-var $author$project$Spa$Generated$Route$PageB = {$: 'PageB'};
-var $author$project$Spa$Generated$Route$Top = {$: 'Top'};
-var $author$project$Spa$Generated$Route$basepath = '30-days-of-elm';
+var $author$project$Spa$Route$Day1 = {$: 'Day1'};
+var $author$project$Spa$Route$Day10 = {$: 'Day10'};
+var $author$project$Spa$Route$Day11 = {$: 'Day11'};
+var $author$project$Spa$Route$Day12 = {$: 'Day12'};
+var $author$project$Spa$Route$Day13 = {$: 'Day13'};
+var $author$project$Spa$Route$Day14 = {$: 'Day14'};
+var $author$project$Spa$Route$Day15 = {$: 'Day15'};
+var $author$project$Spa$Route$Day16 = {$: 'Day16'};
+var $author$project$Spa$Route$Day17 = {$: 'Day17'};
+var $author$project$Spa$Route$Day18 = {$: 'Day18'};
+var $author$project$Spa$Route$Day19 = {$: 'Day19'};
+var $author$project$Spa$Route$Day2 = {$: 'Day2'};
+var $author$project$Spa$Route$Day20 = {$: 'Day20'};
+var $author$project$Spa$Route$Day21 = {$: 'Day21'};
+var $author$project$Spa$Route$Day22 = {$: 'Day22'};
+var $author$project$Spa$Route$Day23 = {$: 'Day23'};
+var $author$project$Spa$Route$Day24 = {$: 'Day24'};
+var $author$project$Spa$Route$Day25 = {$: 'Day25'};
+var $author$project$Spa$Route$Day26 = {$: 'Day26'};
+var $author$project$Spa$Route$Day27 = {$: 'Day27'};
+var $author$project$Spa$Route$Day28 = {$: 'Day28'};
+var $author$project$Spa$Route$Day29 = {$: 'Day29'};
+var $author$project$Spa$Route$Day3 = {$: 'Day3'};
+var $author$project$Spa$Route$Day30 = {$: 'Day30'};
+var $author$project$Spa$Route$Day4 = {$: 'Day4'};
+var $author$project$Spa$Route$Day5 = {$: 'Day5'};
+var $author$project$Spa$Route$Day6 = {$: 'Day6'};
+var $author$project$Spa$Route$Day7 = {$: 'Day7'};
+var $author$project$Spa$Route$Day8 = {$: 'Day8'};
+var $author$project$Spa$Route$Day9 = {$: 'Day9'};
+var $author$project$Spa$Route$PageA = {$: 'PageA'};
+var $author$project$Spa$Route$PageB = {$: 'PageB'};
+var $author$project$Spa$Route$Top = {$: 'Top'};
+var $author$project$Spa$Route$basepath = '30-days-of-elm';
 var $elm$url$Url$Parser$Parser = function (a) {
 	return {$: 'Parser', a: a};
 };
@@ -10854,250 +10854,250 @@ var $elm$url$Url$Parser$slash = F2(
 					parseBefore(state));
 			});
 	});
-var $author$project$Spa$Generated$Route$routes = $elm$url$Url$Parser$oneOf(
+var $author$project$Spa$Route$routes = $elm$url$Url$Parser$oneOf(
 	_List_fromArray(
 		[
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Top,
-			$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath)),
+			$author$project$Spa$Route$Top,
+			$elm$url$Url$Parser$s($author$project$Spa$Route$basepath)),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day1,
+			$author$project$Spa$Route$Day1,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day1'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day10,
+			$author$project$Spa$Route$Day10,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day10'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day11,
+			$author$project$Spa$Route$Day11,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day11'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day12,
+			$author$project$Spa$Route$Day12,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day12'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day13,
+			$author$project$Spa$Route$Day13,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day13'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day14,
+			$author$project$Spa$Route$Day14,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day14'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day15,
+			$author$project$Spa$Route$Day15,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day15'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day16,
+			$author$project$Spa$Route$Day16,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day16'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day17,
+			$author$project$Spa$Route$Day17,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day17'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day18,
+			$author$project$Spa$Route$Day18,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day18'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day19,
+			$author$project$Spa$Route$Day19,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day19'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day2,
+			$author$project$Spa$Route$Day2,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day2'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day20,
+			$author$project$Spa$Route$Day20,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day20'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day21,
+			$author$project$Spa$Route$Day21,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day21'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day22,
+			$author$project$Spa$Route$Day22,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day22'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day23,
+			$author$project$Spa$Route$Day23,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day23'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day24,
+			$author$project$Spa$Route$Day24,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day24'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day25,
+			$author$project$Spa$Route$Day25,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day25'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day26,
+			$author$project$Spa$Route$Day26,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day26'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day27,
+			$author$project$Spa$Route$Day27,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day27'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day28,
+			$author$project$Spa$Route$Day28,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day28'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day29,
+			$author$project$Spa$Route$Day29,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day29'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day3,
+			$author$project$Spa$Route$Day3,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day3'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day30,
+			$author$project$Spa$Route$Day30,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day30'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day4,
+			$author$project$Spa$Route$Day4,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day4'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day5,
+			$author$project$Spa$Route$Day5,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day5'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day6,
+			$author$project$Spa$Route$Day6,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day6'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day7,
+			$author$project$Spa$Route$Day7,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day7'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day8,
+			$author$project$Spa$Route$Day8,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day8'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$Day9,
+			$author$project$Spa$Route$Day9,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('day9'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$NotFound,
+			$author$project$Spa$Route$NotFound,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('not-found'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$PageA,
+			$author$project$Spa$Route$PageA,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('page-a'))),
 			A2(
 			$elm$url$Url$Parser$map,
-			$author$project$Spa$Generated$Route$PageB,
+			$author$project$Spa$Route$PageB,
 			A2(
 				$elm$url$Url$Parser$slash,
-				$elm$url$Url$Parser$s($author$project$Spa$Generated$Route$basepath),
+				$elm$url$Url$Parser$s($author$project$Spa$Route$basepath),
 				$elm$url$Url$Parser$s('page-b')))
 		]));
-var $author$project$Spa$Generated$Route$fromUrl = $elm$url$Url$Parser$parse($author$project$Spa$Generated$Route$routes);
+var $author$project$Spa$Route$fromUrl = $elm$url$Url$Parser$parse($author$project$Spa$Route$routes);
 var $author$project$Main$fromUrl = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Spa$Generated$Route$fromUrl,
-	$elm$core$Maybe$withDefault($author$project$Spa$Generated$Route$NotFound));
+	$author$project$Spa$Route$fromUrl,
+	$elm$core$Maybe$withDefault($author$project$Spa$Route$NotFound));
 var $author$project$Shared$Model = F2(
 	function (url, key) {
 		return {key: key, url: url};
@@ -11108,208 +11108,208 @@ var $author$project$Shared$init = F3(
 			A2($author$project$Shared$Model, url, key),
 			$elm$core$Platform$Cmd$none);
 	});
-var $author$project$Spa$Generated$Pages$Day10__Model = function (a) {
+var $author$project$Spa$Pages$Day10__Model = function (a) {
 	return {$: 'Day10__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day10__Msg = function (a) {
+var $author$project$Spa$Pages$Day10__Msg = function (a) {
 	return {$: 'Day10__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day11__Model = function (a) {
+var $author$project$Spa$Pages$Day11__Model = function (a) {
 	return {$: 'Day11__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day11__Msg = function (a) {
+var $author$project$Spa$Pages$Day11__Msg = function (a) {
 	return {$: 'Day11__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day12__Model = function (a) {
+var $author$project$Spa$Pages$Day12__Model = function (a) {
 	return {$: 'Day12__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day12__Msg = function (a) {
+var $author$project$Spa$Pages$Day12__Msg = function (a) {
 	return {$: 'Day12__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day13__Model = function (a) {
+var $author$project$Spa$Pages$Day13__Model = function (a) {
 	return {$: 'Day13__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day13__Msg = function (a) {
+var $author$project$Spa$Pages$Day13__Msg = function (a) {
 	return {$: 'Day13__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day14__Model = function (a) {
+var $author$project$Spa$Pages$Day14__Model = function (a) {
 	return {$: 'Day14__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day14__Msg = function (a) {
+var $author$project$Spa$Pages$Day14__Msg = function (a) {
 	return {$: 'Day14__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day15__Model = function (a) {
+var $author$project$Spa$Pages$Day15__Model = function (a) {
 	return {$: 'Day15__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day15__Msg = function (a) {
+var $author$project$Spa$Pages$Day15__Msg = function (a) {
 	return {$: 'Day15__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day16__Model = function (a) {
+var $author$project$Spa$Pages$Day16__Model = function (a) {
 	return {$: 'Day16__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day16__Msg = function (a) {
+var $author$project$Spa$Pages$Day16__Msg = function (a) {
 	return {$: 'Day16__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day17__Model = function (a) {
+var $author$project$Spa$Pages$Day17__Model = function (a) {
 	return {$: 'Day17__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day17__Msg = function (a) {
+var $author$project$Spa$Pages$Day17__Msg = function (a) {
 	return {$: 'Day17__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day18__Model = function (a) {
+var $author$project$Spa$Pages$Day18__Model = function (a) {
 	return {$: 'Day18__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day18__Msg = function (a) {
+var $author$project$Spa$Pages$Day18__Msg = function (a) {
 	return {$: 'Day18__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day19__Model = function (a) {
+var $author$project$Spa$Pages$Day19__Model = function (a) {
 	return {$: 'Day19__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day19__Msg = function (a) {
+var $author$project$Spa$Pages$Day19__Msg = function (a) {
 	return {$: 'Day19__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day1__Model = function (a) {
+var $author$project$Spa$Pages$Day1__Model = function (a) {
 	return {$: 'Day1__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day1__Msg = function (a) {
+var $author$project$Spa$Pages$Day1__Msg = function (a) {
 	return {$: 'Day1__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day20__Model = function (a) {
+var $author$project$Spa$Pages$Day20__Model = function (a) {
 	return {$: 'Day20__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day20__Msg = function (a) {
+var $author$project$Spa$Pages$Day20__Msg = function (a) {
 	return {$: 'Day20__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day21__Model = function (a) {
+var $author$project$Spa$Pages$Day21__Model = function (a) {
 	return {$: 'Day21__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day21__Msg = function (a) {
+var $author$project$Spa$Pages$Day21__Msg = function (a) {
 	return {$: 'Day21__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day22__Model = function (a) {
+var $author$project$Spa$Pages$Day22__Model = function (a) {
 	return {$: 'Day22__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day22__Msg = function (a) {
+var $author$project$Spa$Pages$Day22__Msg = function (a) {
 	return {$: 'Day22__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day23__Model = function (a) {
+var $author$project$Spa$Pages$Day23__Model = function (a) {
 	return {$: 'Day23__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day23__Msg = function (a) {
+var $author$project$Spa$Pages$Day23__Msg = function (a) {
 	return {$: 'Day23__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day24__Model = function (a) {
+var $author$project$Spa$Pages$Day24__Model = function (a) {
 	return {$: 'Day24__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day24__Msg = function (a) {
+var $author$project$Spa$Pages$Day24__Msg = function (a) {
 	return {$: 'Day24__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day25__Model = function (a) {
+var $author$project$Spa$Pages$Day25__Model = function (a) {
 	return {$: 'Day25__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day25__Msg = function (a) {
+var $author$project$Spa$Pages$Day25__Msg = function (a) {
 	return {$: 'Day25__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day26__Model = function (a) {
+var $author$project$Spa$Pages$Day26__Model = function (a) {
 	return {$: 'Day26__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day26__Msg = function (a) {
+var $author$project$Spa$Pages$Day26__Msg = function (a) {
 	return {$: 'Day26__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day27__Model = function (a) {
+var $author$project$Spa$Pages$Day27__Model = function (a) {
 	return {$: 'Day27__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day27__Msg = function (a) {
+var $author$project$Spa$Pages$Day27__Msg = function (a) {
 	return {$: 'Day27__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day28__Model = function (a) {
+var $author$project$Spa$Pages$Day28__Model = function (a) {
 	return {$: 'Day28__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day28__Msg = function (a) {
+var $author$project$Spa$Pages$Day28__Msg = function (a) {
 	return {$: 'Day28__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day29__Model = function (a) {
+var $author$project$Spa$Pages$Day29__Model = function (a) {
 	return {$: 'Day29__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day29__Msg = function (a) {
+var $author$project$Spa$Pages$Day29__Msg = function (a) {
 	return {$: 'Day29__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day2__Model = function (a) {
+var $author$project$Spa$Pages$Day2__Model = function (a) {
 	return {$: 'Day2__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day2__Msg = function (a) {
+var $author$project$Spa$Pages$Day2__Msg = function (a) {
 	return {$: 'Day2__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day30__Model = function (a) {
+var $author$project$Spa$Pages$Day30__Model = function (a) {
 	return {$: 'Day30__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day30__Msg = function (a) {
+var $author$project$Spa$Pages$Day30__Msg = function (a) {
 	return {$: 'Day30__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day3__Model = function (a) {
+var $author$project$Spa$Pages$Day3__Model = function (a) {
 	return {$: 'Day3__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day3__Msg = function (a) {
+var $author$project$Spa$Pages$Day3__Msg = function (a) {
 	return {$: 'Day3__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day4__Model = function (a) {
+var $author$project$Spa$Pages$Day4__Model = function (a) {
 	return {$: 'Day4__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day4__Msg = function (a) {
+var $author$project$Spa$Pages$Day4__Msg = function (a) {
 	return {$: 'Day4__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day5__Model = function (a) {
+var $author$project$Spa$Pages$Day5__Model = function (a) {
 	return {$: 'Day5__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day5__Msg = function (a) {
+var $author$project$Spa$Pages$Day5__Msg = function (a) {
 	return {$: 'Day5__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day6__Model = function (a) {
+var $author$project$Spa$Pages$Day6__Model = function (a) {
 	return {$: 'Day6__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day6__Msg = function (a) {
+var $author$project$Spa$Pages$Day6__Msg = function (a) {
 	return {$: 'Day6__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day7__Model = function (a) {
+var $author$project$Spa$Pages$Day7__Model = function (a) {
 	return {$: 'Day7__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day7__Msg = function (a) {
+var $author$project$Spa$Pages$Day7__Msg = function (a) {
 	return {$: 'Day7__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day8__Model = function (a) {
+var $author$project$Spa$Pages$Day8__Model = function (a) {
 	return {$: 'Day8__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day8__Msg = function (a) {
+var $author$project$Spa$Pages$Day8__Msg = function (a) {
 	return {$: 'Day8__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day9__Model = function (a) {
+var $author$project$Spa$Pages$Day9__Model = function (a) {
 	return {$: 'Day9__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Day9__Msg = function (a) {
+var $author$project$Spa$Pages$Day9__Msg = function (a) {
 	return {$: 'Day9__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$NotFound__Model = function (a) {
+var $author$project$Spa$Pages$NotFound__Model = function (a) {
 	return {$: 'NotFound__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$NotFound__Msg = function (a) {
+var $author$project$Spa$Pages$NotFound__Msg = function (a) {
 	return {$: 'NotFound__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$PageA__Model = function (a) {
+var $author$project$Spa$Pages$PageA__Model = function (a) {
 	return {$: 'PageA__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$PageA__Msg = function (a) {
+var $author$project$Spa$Pages$PageA__Msg = function (a) {
 	return {$: 'PageA__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$PageB__Model = function (a) {
+var $author$project$Spa$Pages$PageB__Model = function (a) {
 	return {$: 'PageB__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$PageB__Msg = function (a) {
+var $author$project$Spa$Pages$PageB__Msg = function (a) {
 	return {$: 'PageB__Msg', a: a};
 };
-var $author$project$Spa$Generated$Pages$Top__Model = function (a) {
+var $author$project$Spa$Pages$Top__Model = function (a) {
 	return {$: 'Top__Model', a: a};
 };
-var $author$project$Spa$Generated$Pages$Top__Msg = function (a) {
+var $author$project$Spa$Pages$Top__Msg = function (a) {
 	return {$: 'Top__Msg', a: a};
 };
 var $author$project$Spa$Page$application = function (page) {
@@ -21050,9 +21050,26 @@ var $author$project$Pages$Day7$view = function (model) {
 var $author$project$Pages$Day7$page = $author$project$Spa$Page$application(
 	{init: $author$project$Pages$Day7$init, load: $author$project$Pages$Day7$load, save: $author$project$Pages$Day7$save, subscriptions: $author$project$Pages$Day7$subscriptions, update: $author$project$Pages$Day7$update, view: $author$project$Pages$Day7$view});
 var $author$project$Pages$Day8$init = F2(
-	function (_v0, _v1) {
+	function (_v0, url) {
+		var name = A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2($elm$core$Dict$get, 'name', url.query));
+		var location = A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2($elm$core$Dict$get, 'location', url.query));
+		var age = A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2($elm$core$Dict$get, 'age', url.query));
 		return _Utils_Tuple2(
-			{box1: 'Day 8', box2: 'Piling and centering boxes', box3: 'Proident et nisi ut duis id do qui sunt cillum consequat duis aliqua sit eiusmod. Culpa amet veniam eiusmod duis in mollit ex minim. Ullamco irure aute aliqua labore. Est laborum amet exercitation magna consequat enim quis.'},
+			_List_fromArray(
+				[
+					_Utils_Tuple2('name', name),
+					_Utils_Tuple2('age', age),
+					_Utils_Tuple2('location', location)
+				]),
 			$elm$core$Platform$Cmd$none);
 	});
 var $author$project$Pages$Day8$load = F2(
@@ -21067,9 +21084,39 @@ var $author$project$Pages$Day8$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
 var $author$project$Pages$Day8$update = F2(
-	function (_v0, model) {
-		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+	function (msg, model) {
+		var dict = $elm$core$Dict$fromList(model);
+		var field = msg.a;
+		var value = msg.b;
+		return _Utils_Tuple2(
+			$elm$core$Dict$toList(
+				A3($elm$core$Dict$insert, field, value, dict)),
+			$elm$core$Platform$Cmd$none);
 	});
+var $mdgriffith$elm_ui$Internal$Model$Top = {$: 'Top'};
+var $mdgriffith$elm_ui$Element$alignTop = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$Top);
+var $author$project$Pages$Day8$buildUrl = function (model) {
+	var dict = $elm$core$Dict$fromList(model);
+	return $elm$core$String$concat(
+		_List_fromArray(
+			[
+				'?name=',
+				A2(
+				$elm$core$Maybe$withDefault,
+				'',
+				A2($elm$core$Dict$get, 'name', dict)),
+				'&age=',
+				A2(
+				$elm$core$Maybe$withDefault,
+				'',
+				A2($elm$core$Dict$get, 'age', dict)),
+				'&location=',
+				A2(
+				$elm$core$Maybe$withDefault,
+				'',
+				A2($elm$core$Dict$get, 'location', dict))
+			]));
+};
 var $author$project$Pages$Day8$commonAttributes = _List_fromArray(
 	[
 		$mdgriffith$elm_ui$Element$Background$gradient(
@@ -21088,35 +21135,1068 @@ var $author$project$Pages$Day8$commonAttributes = _List_fromArray(
 			size: 10
 		})
 	]);
-var $author$project$Pages$Day8$paragraphAttributes = $elm$core$List$concat(
-	_List_fromArray(
+var $phollyer$elm_ui_colors$Colors$Opaque$cornflowerblue = A3($mdgriffith$elm_ui$Element$rgb255, 100, 149, 237);
+var $mdgriffith$elm_ui$Internal$Flag$borderStyle = $mdgriffith$elm_ui$Internal$Flag$flag(11);
+var $mdgriffith$elm_ui$Element$Border$dashed = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$borderStyle, $mdgriffith$elm_ui$Internal$Style$classes.borderDashed);
+var $author$project$Pages$Day8$Set = F2(
+	function (a, b) {
+		return {$: 'Set', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Element$Input$Placeholder = F2(
+	function (a, b) {
+		return {$: 'Placeholder', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Element$Input$placeholder = $mdgriffith$elm_ui$Element$Input$Placeholder;
+var $mdgriffith$elm_ui$Element$Input$TextInputNode = function (a) {
+	return {$: 'TextInputNode', a: a};
+};
+var $mdgriffith$elm_ui$Element$Input$TextArea = {$: 'TextArea'};
+var $mdgriffith$elm_ui$Element$Input$autofill = A2(
+	$elm$core$Basics$composeL,
+	$mdgriffith$elm_ui$Internal$Model$Attr,
+	$elm$html$Html$Attributes$attribute('autocomplete'));
+var $mdgriffith$elm_ui$Internal$Model$MoveY = function (a) {
+	return {$: 'MoveY', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Flag$moveY = $mdgriffith$elm_ui$Internal$Flag$flag(26);
+var $mdgriffith$elm_ui$Element$moveUp = function (y) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$TransformComponent,
+		$mdgriffith$elm_ui$Internal$Flag$moveY,
+		$mdgriffith$elm_ui$Internal$Model$MoveY(-y));
+};
+var $mdgriffith$elm_ui$Element$Input$calcMoveToCompensateForPadding = function (attrs) {
+	var gatherSpacing = F2(
+		function (attr, found) {
+			if ((attr.$ === 'StyleClass') && (attr.b.$ === 'SpacingStyle')) {
+				var _v2 = attr.b;
+				var x = _v2.b;
+				var y = _v2.c;
+				if (found.$ === 'Nothing') {
+					return $elm$core$Maybe$Just(y);
+				} else {
+					return found;
+				}
+			} else {
+				return found;
+			}
+		});
+	var _v0 = A3($elm$core$List$foldr, gatherSpacing, $elm$core$Maybe$Nothing, attrs);
+	if (_v0.$ === 'Nothing') {
+		return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
+	} else {
+		var vSpace = _v0.a;
+		return $mdgriffith$elm_ui$Element$moveUp(
+			$elm$core$Basics$floor(vSpace / 2));
+	}
+};
+var $mdgriffith$elm_ui$Internal$Flag$overflow = $mdgriffith$elm_ui$Internal$Flag$flag(20);
+var $mdgriffith$elm_ui$Element$clip = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$overflow, $mdgriffith$elm_ui$Internal$Style$classes.clip);
+var $mdgriffith$elm_ui$Internal$Flag$cursor = $mdgriffith$elm_ui$Internal$Flag$flag(21);
+var $mdgriffith$elm_ui$Element$Input$darkGrey = A3($mdgriffith$elm_ui$Element$rgb, 186 / 255, 189 / 255, 182 / 255);
+var $mdgriffith$elm_ui$Element$paddingXY = F2(
+	function (x, y) {
+		if (_Utils_eq(x, y)) {
+			var f = x;
+			return A2(
+				$mdgriffith$elm_ui$Internal$Model$StyleClass,
+				$mdgriffith$elm_ui$Internal$Flag$padding,
+				A5(
+					$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+					'p-' + $elm$core$String$fromInt(x),
+					f,
+					f,
+					f,
+					f));
+		} else {
+			var yFloat = y;
+			var xFloat = x;
+			return A2(
+				$mdgriffith$elm_ui$Internal$Model$StyleClass,
+				$mdgriffith$elm_ui$Internal$Flag$padding,
+				A5(
+					$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+					'p-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y))),
+					yFloat,
+					xFloat,
+					yFloat,
+					xFloat));
+		}
+	});
+var $mdgriffith$elm_ui$Element$Input$defaultTextPadding = A2($mdgriffith$elm_ui$Element$paddingXY, 12, 12);
+var $mdgriffith$elm_ui$Element$Input$white = A3($mdgriffith$elm_ui$Element$rgb, 1, 1, 1);
+var $mdgriffith$elm_ui$Element$Input$defaultTextBoxStyle = _List_fromArray(
+	[
+		$mdgriffith$elm_ui$Element$Input$defaultTextPadding,
+		$mdgriffith$elm_ui$Element$Border$rounded(3),
+		$mdgriffith$elm_ui$Element$Border$color($mdgriffith$elm_ui$Element$Input$darkGrey),
+		$mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$Input$white),
+		$mdgriffith$elm_ui$Element$Border$width(1),
+		$mdgriffith$elm_ui$Element$spacing(5),
+		$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+		$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink)
+	]);
+var $mdgriffith$elm_ui$Element$Input$getHeight = function (attr) {
+	if (attr.$ === 'Height') {
+		var h = attr.a;
+		return $elm$core$Maybe$Just(h);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $mdgriffith$elm_ui$Element$Input$hasFocusStyle = function (attr) {
+	if (((attr.$ === 'StyleClass') && (attr.b.$ === 'PseudoSelector')) && (attr.b.a.$ === 'Focus')) {
+		var _v1 = attr.b;
+		var _v2 = _v1.a;
+		return true;
+	} else {
+		return false;
+	}
+};
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $mdgriffith$elm_ui$Internal$Model$InFront = {$: 'InFront'};
+var $mdgriffith$elm_ui$Element$inFront = function (element) {
+	return A2($mdgriffith$elm_ui$Element$createNearby, $mdgriffith$elm_ui$Internal$Model$InFront, element);
+};
+var $mdgriffith$elm_ui$Element$Input$isConstrained = function (len) {
+	isConstrained:
+	while (true) {
+		switch (len.$) {
+			case 'Content':
+				return false;
+			case 'Px':
+				return true;
+			case 'Fill':
+				return true;
+			case 'Min':
+				var l = len.b;
+				var $temp$len = l;
+				len = $temp$len;
+				continue isConstrained;
+			default:
+				var l = len.b;
+				return true;
+		}
+	}
+};
+var $mdgriffith$elm_ui$Element$Input$isStacked = function (label) {
+	if (label.$ === 'Label') {
+		var loc = label.a;
+		switch (loc.$) {
+			case 'OnRight':
+				return false;
+			case 'OnLeft':
+				return false;
+			case 'Above':
+				return true;
+			default:
+				return true;
+		}
+	} else {
+		return true;
+	}
+};
+var $mdgriffith$elm_ui$Element$Input$negateBox = function (box) {
+	return {bottom: -box.bottom, left: -box.left, right: -box.right, top: -box.top};
+};
+var $mdgriffith$elm_ui$Internal$Model$paddingName = F4(
+	function (top, right, bottom, left) {
+		return 'pad-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left)))))));
+	});
+var $mdgriffith$elm_ui$Element$paddingEach = function (_v0) {
+	var top = _v0.top;
+	var right = _v0.right;
+	var bottom = _v0.bottom;
+	var left = _v0.left;
+	if (_Utils_eq(top, right) && (_Utils_eq(top, bottom) && _Utils_eq(top, left))) {
+		var topFloat = top;
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$padding,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+				'p-' + $elm$core$String$fromInt(top),
+				topFloat,
+				topFloat,
+				topFloat,
+				topFloat));
+	} else {
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$padding,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+				A4($mdgriffith$elm_ui$Internal$Model$paddingName, top, right, bottom, left),
+				top,
+				right,
+				bottom,
+				left));
+	}
+};
+var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
+var $mdgriffith$elm_ui$Element$Input$isFill = function (len) {
+	isFill:
+	while (true) {
+		switch (len.$) {
+			case 'Fill':
+				return true;
+			case 'Content':
+				return false;
+			case 'Px':
+				return false;
+			case 'Min':
+				var l = len.b;
+				var $temp$len = l;
+				len = $temp$len;
+				continue isFill;
+			default:
+				var l = len.b;
+				var $temp$len = l;
+				len = $temp$len;
+				continue isFill;
+		}
+	}
+};
+var $mdgriffith$elm_ui$Element$Input$isPixel = function (len) {
+	isPixel:
+	while (true) {
+		switch (len.$) {
+			case 'Content':
+				return false;
+			case 'Px':
+				return true;
+			case 'Fill':
+				return false;
+			case 'Min':
+				var l = len.b;
+				var $temp$len = l;
+				len = $temp$len;
+				continue isPixel;
+			default:
+				var l = len.b;
+				var $temp$len = l;
+				len = $temp$len;
+				continue isPixel;
+		}
+	}
+};
+var $mdgriffith$elm_ui$Internal$Model$paddingNameFloat = F4(
+	function (top, right, bottom, left) {
+		return 'pad-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(top) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(right) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(bottom) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(left)))))));
+	});
+var $mdgriffith$elm_ui$Element$Input$redistributeOver = F4(
+	function (isMultiline, stacked, attr, els) {
+		switch (attr.$) {
+			case 'Nearby':
+				return _Utils_update(
+					els,
+					{
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					});
+			case 'Width':
+				var width = attr.a;
+				return $mdgriffith$elm_ui$Element$Input$isFill(width) ? _Utils_update(
+					els,
+					{
+						fullParent: A2($elm$core$List$cons, attr, els.fullParent),
+						input: A2($elm$core$List$cons, attr, els.input),
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					}) : (stacked ? _Utils_update(
+					els,
+					{
+						fullParent: A2($elm$core$List$cons, attr, els.fullParent)
+					}) : _Utils_update(
+					els,
+					{
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					}));
+			case 'Height':
+				var height = attr.a;
+				return (!stacked) ? _Utils_update(
+					els,
+					{
+						fullParent: A2($elm$core$List$cons, attr, els.fullParent),
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					}) : ($mdgriffith$elm_ui$Element$Input$isFill(height) ? _Utils_update(
+					els,
+					{
+						fullParent: A2($elm$core$List$cons, attr, els.fullParent),
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					}) : ($mdgriffith$elm_ui$Element$Input$isPixel(height) ? _Utils_update(
+					els,
+					{
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					}) : _Utils_update(
+					els,
+					{
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					})));
+			case 'AlignX':
+				return _Utils_update(
+					els,
+					{
+						fullParent: A2($elm$core$List$cons, attr, els.fullParent)
+					});
+			case 'AlignY':
+				return _Utils_update(
+					els,
+					{
+						fullParent: A2($elm$core$List$cons, attr, els.fullParent)
+					});
+			case 'StyleClass':
+				switch (attr.b.$) {
+					case 'SpacingStyle':
+						var _v1 = attr.b;
+						return _Utils_update(
+							els,
+							{
+								fullParent: A2($elm$core$List$cons, attr, els.fullParent),
+								input: A2($elm$core$List$cons, attr, els.input),
+								parent: A2($elm$core$List$cons, attr, els.parent),
+								wrapper: A2($elm$core$List$cons, attr, els.wrapper)
+							});
+					case 'PaddingStyle':
+						var cls = attr.a;
+						var _v2 = attr.b;
+						var pad = _v2.a;
+						var t = _v2.b;
+						var r = _v2.c;
+						var b = _v2.d;
+						var l = _v2.e;
+						if (isMultiline) {
+							return _Utils_update(
+								els,
+								{
+									cover: A2($elm$core$List$cons, attr, els.cover),
+									parent: A2($elm$core$List$cons, attr, els.parent)
+								});
+						} else {
+							var newTop = t - A2($elm$core$Basics$min, t, b);
+							var newLineHeight = $mdgriffith$elm_ui$Element$htmlAttribute(
+								A2(
+									$elm$html$Html$Attributes$style,
+									'line-height',
+									'calc(1.0em + ' + ($elm$core$String$fromFloat(
+										2 * A2($elm$core$Basics$min, t, b)) + 'px)')));
+							var newHeight = $mdgriffith$elm_ui$Element$htmlAttribute(
+								A2(
+									$elm$html$Html$Attributes$style,
+									'height',
+									'calc(1.0em + ' + ($elm$core$String$fromFloat(
+										2 * A2($elm$core$Basics$min, t, b)) + 'px)')));
+							var newBottom = b - A2($elm$core$Basics$min, t, b);
+							var reducedVerticalPadding = A2(
+								$mdgriffith$elm_ui$Internal$Model$StyleClass,
+								$mdgriffith$elm_ui$Internal$Flag$padding,
+								A5(
+									$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+									A4($mdgriffith$elm_ui$Internal$Model$paddingNameFloat, newTop, r, newBottom, l),
+									newTop,
+									r,
+									newBottom,
+									l));
+							return _Utils_update(
+								els,
+								{
+									cover: A2($elm$core$List$cons, attr, els.cover),
+									input: A2(
+										$elm$core$List$cons,
+										newHeight,
+										A2($elm$core$List$cons, newLineHeight, els.input)),
+									parent: A2($elm$core$List$cons, reducedVerticalPadding, els.parent)
+								});
+						}
+					case 'BorderWidth':
+						var _v3 = attr.b;
+						return _Utils_update(
+							els,
+							{
+								cover: A2($elm$core$List$cons, attr, els.cover),
+								parent: A2($elm$core$List$cons, attr, els.parent)
+							});
+					case 'Transform':
+						return _Utils_update(
+							els,
+							{
+								cover: A2($elm$core$List$cons, attr, els.cover),
+								parent: A2($elm$core$List$cons, attr, els.parent)
+							});
+					case 'FontSize':
+						return _Utils_update(
+							els,
+							{
+								fullParent: A2($elm$core$List$cons, attr, els.fullParent)
+							});
+					case 'FontFamily':
+						var _v4 = attr.b;
+						return _Utils_update(
+							els,
+							{
+								fullParent: A2($elm$core$List$cons, attr, els.fullParent)
+							});
+					default:
+						var flag = attr.a;
+						var cls = attr.b;
+						return _Utils_update(
+							els,
+							{
+								parent: A2($elm$core$List$cons, attr, els.parent)
+							});
+				}
+			case 'NoAttribute':
+				return els;
+			case 'Attr':
+				var a = attr.a;
+				return _Utils_update(
+					els,
+					{
+						input: A2($elm$core$List$cons, attr, els.input)
+					});
+			case 'Describe':
+				return _Utils_update(
+					els,
+					{
+						input: A2($elm$core$List$cons, attr, els.input)
+					});
+			case 'Class':
+				return _Utils_update(
+					els,
+					{
+						parent: A2($elm$core$List$cons, attr, els.parent)
+					});
+			default:
+				return _Utils_update(
+					els,
+					{
+						input: A2($elm$core$List$cons, attr, els.input)
+					});
+		}
+	});
+var $mdgriffith$elm_ui$Element$Input$redistribute = F3(
+	function (isMultiline, stacked, attrs) {
+		return function (redist) {
+			return {
+				cover: $elm$core$List$reverse(redist.cover),
+				fullParent: $elm$core$List$reverse(redist.fullParent),
+				input: $elm$core$List$reverse(redist.input),
+				parent: $elm$core$List$reverse(redist.parent),
+				wrapper: $elm$core$List$reverse(redist.wrapper)
+			};
+		}(
+			A3(
+				$elm$core$List$foldl,
+				A2($mdgriffith$elm_ui$Element$Input$redistributeOver, isMultiline, stacked),
+				{cover: _List_Nil, fullParent: _List_Nil, input: _List_Nil, parent: _List_Nil, wrapper: _List_Nil},
+				attrs));
+	});
+var $mdgriffith$elm_ui$Element$Input$renderBox = function (_v0) {
+	var top = _v0.top;
+	var right = _v0.right;
+	var bottom = _v0.bottom;
+	var left = _v0.left;
+	return $elm$core$String$fromInt(top) + ('px ' + ($elm$core$String$fromInt(right) + ('px ' + ($elm$core$String$fromInt(bottom) + ('px ' + ($elm$core$String$fromInt(left) + 'px'))))));
+};
+var $mdgriffith$elm_ui$Internal$Model$Transparency = F2(
+	function (a, b) {
+		return {$: 'Transparency', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$transparency = $mdgriffith$elm_ui$Internal$Flag$flag(0);
+var $mdgriffith$elm_ui$Element$alpha = function (o) {
+	var transparency = function (x) {
+		return 1 - x;
+	}(
+		A2(
+			$elm$core$Basics$min,
+			1.0,
+			A2($elm$core$Basics$max, 0.0, o)));
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$transparency,
+		A2(
+			$mdgriffith$elm_ui$Internal$Model$Transparency,
+			'transparency-' + $mdgriffith$elm_ui$Internal$Model$floatClass(transparency),
+			transparency));
+};
+var $mdgriffith$elm_ui$Element$Input$charcoal = A3($mdgriffith$elm_ui$Element$rgb, 136 / 255, 138 / 255, 133 / 255);
+var $mdgriffith$elm_ui$Element$rgba = $mdgriffith$elm_ui$Internal$Model$Rgba;
+var $mdgriffith$elm_ui$Element$Input$renderPlaceholder = F3(
+	function (_v0, forPlaceholder, on) {
+		var placeholderAttrs = _v0.a;
+		var placeholderEl = _v0.b;
+		return A2(
+			$mdgriffith$elm_ui$Element$el,
+			_Utils_ap(
+				forPlaceholder,
+				_Utils_ap(
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$Font$color($mdgriffith$elm_ui$Element$Input$charcoal),
+							$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.noTextSelection + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.passPointerEvents)),
+							$mdgriffith$elm_ui$Element$clip,
+							$mdgriffith$elm_ui$Element$Border$color(
+							A4($mdgriffith$elm_ui$Element$rgba, 0, 0, 0, 0)),
+							$mdgriffith$elm_ui$Element$Background$color(
+							A4($mdgriffith$elm_ui$Element$rgba, 0, 0, 0, 0)),
+							$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+							$mdgriffith$elm_ui$Element$alpha(
+							on ? 1 : 0)
+						]),
+					placeholderAttrs)),
+			placeholderEl);
+	});
+var $mdgriffith$elm_ui$Element$scrollbarY = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$overflow, $mdgriffith$elm_ui$Internal$Style$classes.scrollbarsY);
+var $elm$html$Html$Attributes$spellcheck = $elm$html$Html$Attributes$boolProperty('spellcheck');
+var $mdgriffith$elm_ui$Element$Input$spellcheck = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Attr, $elm$html$Html$Attributes$spellcheck);
+var $mdgriffith$elm_ui$Element$Input$value = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Attr, $elm$html$Html$Attributes$value);
+var $mdgriffith$elm_ui$Element$Input$textHelper = F3(
+	function (textInput, attrs, textOptions) {
+		var withDefaults = _Utils_ap($mdgriffith$elm_ui$Element$Input$defaultTextBoxStyle, attrs);
+		var redistributed = A3(
+			$mdgriffith$elm_ui$Element$Input$redistribute,
+			_Utils_eq(textInput.type_, $mdgriffith$elm_ui$Element$Input$TextArea),
+			$mdgriffith$elm_ui$Element$Input$isStacked(textOptions.label),
+			withDefaults);
+		var onlySpacing = function (attr) {
+			if ((attr.$ === 'StyleClass') && (attr.b.$ === 'SpacingStyle')) {
+				var _v9 = attr.b;
+				return true;
+			} else {
+				return false;
+			}
+		};
+		var heightConstrained = function () {
+			var _v7 = textInput.type_;
+			if (_v7.$ === 'TextInputNode') {
+				var inputType = _v7.a;
+				return false;
+			} else {
+				return A2(
+					$elm$core$Maybe$withDefault,
+					false,
+					A2(
+						$elm$core$Maybe$map,
+						$mdgriffith$elm_ui$Element$Input$isConstrained,
+						$elm$core$List$head(
+							$elm$core$List$reverse(
+								A2($elm$core$List$filterMap, $mdgriffith$elm_ui$Element$Input$getHeight, withDefaults)))));
+			}
+		}();
+		var getPadding = function (attr) {
+			if ((attr.$ === 'StyleClass') && (attr.b.$ === 'PaddingStyle')) {
+				var cls = attr.a;
+				var _v6 = attr.b;
+				var pad = _v6.a;
+				var t = _v6.b;
+				var r = _v6.c;
+				var b = _v6.d;
+				var l = _v6.e;
+				return $elm$core$Maybe$Just(
+					{
+						bottom: A2(
+							$elm$core$Basics$max,
+							0,
+							$elm$core$Basics$floor(b - 3)),
+						left: A2(
+							$elm$core$Basics$max,
+							0,
+							$elm$core$Basics$floor(l - 3)),
+						right: A2(
+							$elm$core$Basics$max,
+							0,
+							$elm$core$Basics$floor(r - 3)),
+						top: A2(
+							$elm$core$Basics$max,
+							0,
+							$elm$core$Basics$floor(t - 3))
+					});
+			} else {
+				return $elm$core$Maybe$Nothing;
+			}
+		};
+		var parentPadding = A2(
+			$elm$core$Maybe$withDefault,
+			{bottom: 0, left: 0, right: 0, top: 0},
+			$elm$core$List$head(
+				$elm$core$List$reverse(
+					A2($elm$core$List$filterMap, getPadding, withDefaults))));
+		var inputElement = A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asEl,
+			function () {
+				var _v3 = textInput.type_;
+				if (_v3.$ === 'TextInputNode') {
+					var inputType = _v3.a;
+					return $mdgriffith$elm_ui$Internal$Model$NodeName('input');
+				} else {
+					return $mdgriffith$elm_ui$Internal$Model$NodeName('textarea');
+				}
+			}(),
+			_Utils_ap(
+				function () {
+					var _v4 = textInput.type_;
+					if (_v4.$ === 'TextInputNode') {
+						var inputType = _v4.a;
+						return _List_fromArray(
+							[
+								$mdgriffith$elm_ui$Internal$Model$Attr(
+								$elm$html$Html$Attributes$type_(inputType)),
+								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.inputText)
+							]);
+					} else {
+						return _List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$clip,
+								$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.inputMultiline),
+								$mdgriffith$elm_ui$Element$Input$calcMoveToCompensateForPadding(withDefaults),
+								$mdgriffith$elm_ui$Element$paddingEach(parentPadding),
+								$mdgriffith$elm_ui$Internal$Model$Attr(
+								A2(
+									$elm$html$Html$Attributes$style,
+									'margin',
+									$mdgriffith$elm_ui$Element$Input$renderBox(
+										$mdgriffith$elm_ui$Element$Input$negateBox(parentPadding)))),
+								$mdgriffith$elm_ui$Internal$Model$Attr(
+								A2($elm$html$Html$Attributes$style, 'box-sizing', 'content-box'))
+							]);
+					}
+				}(),
+				_Utils_ap(
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$Input$value(textOptions.text),
+							$mdgriffith$elm_ui$Internal$Model$Attr(
+							$elm$html$Html$Events$onInput(textOptions.onChange)),
+							$mdgriffith$elm_ui$Element$Input$hiddenLabelAttribute(textOptions.label),
+							$mdgriffith$elm_ui$Element$Input$spellcheck(textInput.spellchecked),
+							A2(
+							$elm$core$Maybe$withDefault,
+							$mdgriffith$elm_ui$Internal$Model$NoAttribute,
+							A2($elm$core$Maybe$map, $mdgriffith$elm_ui$Element$Input$autofill, textInput.autofill))
+						]),
+					redistributed.input)),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_Nil));
+		var wrappedInput = function () {
+			var _v0 = textInput.type_;
+			if (_v0.$ === 'TextArea') {
+				return A4(
+					$mdgriffith$elm_ui$Internal$Model$element,
+					$mdgriffith$elm_ui$Internal$Model$asEl,
+					$mdgriffith$elm_ui$Internal$Model$div,
+					_Utils_ap(
+						(heightConstrained ? $elm$core$List$cons($mdgriffith$elm_ui$Element$scrollbarY) : $elm$core$Basics$identity)(
+							_List_fromArray(
+								[
+									$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+									A2($elm$core$List$any, $mdgriffith$elm_ui$Element$Input$hasFocusStyle, withDefaults) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.focusedWithin),
+									$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.inputMultilineWrapper)
+								])),
+						redistributed.parent),
+					$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+						_List_fromArray(
+							[
+								A4(
+								$mdgriffith$elm_ui$Internal$Model$element,
+								$mdgriffith$elm_ui$Internal$Model$asParagraph,
+								$mdgriffith$elm_ui$Internal$Model$div,
+								A2(
+									$elm$core$List$cons,
+									$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+									A2(
+										$elm$core$List$cons,
+										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+										A2(
+											$elm$core$List$cons,
+											$mdgriffith$elm_ui$Element$inFront(inputElement),
+											A2(
+												$elm$core$List$cons,
+												$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.inputMultilineParent),
+												redistributed.wrapper)))),
+								$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+									function () {
+										if (textOptions.text === '') {
+											var _v1 = textOptions.placeholder;
+											if (_v1.$ === 'Nothing') {
+												return _List_fromArray(
+													[
+														$mdgriffith$elm_ui$Element$text('\u00A0')
+													]);
+											} else {
+												var place = _v1.a;
+												return _List_fromArray(
+													[
+														A3($mdgriffith$elm_ui$Element$Input$renderPlaceholder, place, _List_Nil, textOptions.text === '')
+													]);
+											}
+										} else {
+											return _List_fromArray(
+												[
+													$mdgriffith$elm_ui$Internal$Model$unstyled(
+													A2(
+														$elm$html$Html$span,
+														_List_fromArray(
+															[
+																$elm$html$Html$Attributes$class($mdgriffith$elm_ui$Internal$Style$classes.inputMultilineFiller)
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text(textOptions.text + '\u00A0')
+															])))
+												]);
+										}
+									}()))
+							])));
+			} else {
+				var inputType = _v0.a;
+				return A4(
+					$mdgriffith$elm_ui$Internal$Model$element,
+					$mdgriffith$elm_ui$Internal$Model$asEl,
+					$mdgriffith$elm_ui$Internal$Model$div,
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+						A2(
+							$elm$core$List$cons,
+							A2($elm$core$List$any, $mdgriffith$elm_ui$Element$Input$hasFocusStyle, withDefaults) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.focusedWithin),
+							$elm$core$List$concat(
+								_List_fromArray(
+									[
+										redistributed.parent,
+										function () {
+										var _v2 = textOptions.placeholder;
+										if (_v2.$ === 'Nothing') {
+											return _List_Nil;
+										} else {
+											var place = _v2.a;
+											return _List_fromArray(
+												[
+													$mdgriffith$elm_ui$Element$behindContent(
+													A3($mdgriffith$elm_ui$Element$Input$renderPlaceholder, place, redistributed.cover, textOptions.text === ''))
+												]);
+										}
+									}()
+									])))),
+					$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+						_List_fromArray(
+							[inputElement])));
+			}
+		}();
+		return A3(
+			$mdgriffith$elm_ui$Element$Input$applyLabel,
+			A2(
+				$elm$core$List$cons,
+				A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$cursor, $mdgriffith$elm_ui$Internal$Style$classes.cursorText),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$Input$isHiddenLabel(textOptions.label) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Element$spacing(5),
+					A2($elm$core$List$cons, $mdgriffith$elm_ui$Element$Region$announce, redistributed.fullParent))),
+			textOptions.label,
+			wrappedInput);
+	});
+var $mdgriffith$elm_ui$Element$Input$text = $mdgriffith$elm_ui$Element$Input$textHelper(
+	{
+		autofill: $elm$core$Maybe$Nothing,
+		spellchecked: false,
+		type_: $mdgriffith$elm_ui$Element$Input$TextInputNode('text')
+	});
+var $author$project$Pages$Day8$form = function (model) {
+	var dict = $elm$core$Dict$fromList(model);
+	var location = A2(
+		$elm$core$Maybe$withDefault,
+		'',
+		A2($elm$core$Dict$get, 'location', dict));
+	var name = A2(
+		$elm$core$Maybe$withDefault,
+		'',
+		A2($elm$core$Dict$get, 'name', dict));
+	var age = A2(
+		$elm$core$Maybe$withDefault,
+		'',
+		A2($elm$core$Dict$get, 'age', dict));
+	return _List_fromArray(
 		[
-			$author$project$Pages$Day8$commonAttributes,
+			A2(
+			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$Font$justify,
-				$mdgriffith$elm_ui$Element$Font$hairline,
-				$mdgriffith$elm_ui$Element$width(
-				A2($mdgriffith$elm_ui$Element$maximum, 500, $mdgriffith$elm_ui$Element$fill))
-			])
-		]));
+				[
+					$mdgriffith$elm_ui$Element$spacing(15),
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$mdgriffith$elm_ui$Element$row,
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$mdgriffith$elm_ui$Element$Input$text,
+							_List_Nil,
+							{
+								label: A2(
+									$mdgriffith$elm_ui$Element$Input$labelAbove,
+									_List_Nil,
+									$mdgriffith$elm_ui$Element$text('Write the name here')),
+								onChange: $author$project$Pages$Day8$Set('name'),
+								placeholder: $elm$core$Maybe$Just(
+									A2(
+										$mdgriffith$elm_ui$Element$Input$placeholder,
+										_List_Nil,
+										$mdgriffith$elm_ui$Element$text('Write the name here'))),
+								text: name
+							})
+						])),
+					A2(
+					$mdgriffith$elm_ui$Element$row,
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$mdgriffith$elm_ui$Element$Input$text,
+							_List_Nil,
+							{
+								label: A2(
+									$mdgriffith$elm_ui$Element$Input$labelAbove,
+									_List_Nil,
+									$mdgriffith$elm_ui$Element$text('Write the age here')),
+								onChange: $author$project$Pages$Day8$Set('age'),
+								placeholder: $elm$core$Maybe$Just(
+									A2(
+										$mdgriffith$elm_ui$Element$Input$placeholder,
+										_List_Nil,
+										$mdgriffith$elm_ui$Element$text('Write the age here'))),
+								text: age
+							})
+						])),
+					A2(
+					$mdgriffith$elm_ui$Element$row,
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$mdgriffith$elm_ui$Element$Input$text,
+							_List_Nil,
+							{
+								label: A2(
+									$mdgriffith$elm_ui$Element$Input$labelAbove,
+									_List_Nil,
+									$mdgriffith$elm_ui$Element$text('Write the location here')),
+								onChange: $author$project$Pages$Day8$Set('location'),
+								placeholder: $elm$core$Maybe$Just(
+									A2(
+										$mdgriffith$elm_ui$Element$Input$placeholder,
+										_List_Nil,
+										$mdgriffith$elm_ui$Element$text('Write the location here'))),
+								text: location
+							})
+						]))
+				]))
+		]);
+};
+var $mdgriffith$elm_ui$Element$Border$glow = F2(
+	function (clr, size) {
+		return $mdgriffith$elm_ui$Element$Border$shadow(
+			{
+				blur: size * 2,
+				color: clr,
+				offset: _Utils_Tuple2(0, 0),
+				size: size
+			});
+	});
+var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
+var $mdgriffith$elm_ui$Element$link = F2(
+	function (attrs, _v0) {
+		var url = _v0.url;
+		var label = _v0.label;
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asEl,
+			$mdgriffith$elm_ui$Internal$Model$NodeName('a'),
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$Attr(
+					$elm$html$Html$Attributes$href(url)),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Internal$Model$Attr(
+						$elm$html$Html$Attributes$rel('noopener noreferrer')),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+						A2(
+							$elm$core$List$cons,
+							$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+							A2(
+								$elm$core$List$cons,
+								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentCenterX + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.contentCenterY + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.link)))),
+								attrs))))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+				_List_fromArray(
+					[label])));
+	});
+var $mdgriffith$elm_ui$Internal$Model$Hover = {$: 'Hover'};
+var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
+	function (a, b) {
+		return {$: 'PseudoSelector', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle = F2(
+	function (fn, attr) {
+		switch (attr.$) {
+			case 'NoAttribute':
+				return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
+			case 'Describe':
+				var description = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Describe(description);
+			case 'AlignX':
+				var x = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$AlignX(x);
+			case 'AlignY':
+				var y = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$AlignY(y);
+			case 'Width':
+				var x = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Width(x);
+			case 'Height':
+				var x = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Height(x);
+			case 'Class':
+				var x = attr.a;
+				var y = attr.b;
+				return A2($mdgriffith$elm_ui$Internal$Model$Class, x, y);
+			case 'StyleClass':
+				var flag = attr.a;
+				var style = attr.b;
+				return A2($mdgriffith$elm_ui$Internal$Model$StyleClass, flag, style);
+			case 'Nearby':
+				var location = attr.a;
+				var elem = attr.b;
+				return A2(
+					$mdgriffith$elm_ui$Internal$Model$Nearby,
+					location,
+					A2($mdgriffith$elm_ui$Internal$Model$map, fn, elem));
+			case 'Attr':
+				var htmlAttr = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Attr(
+					A2($elm$virtual_dom$VirtualDom$mapAttribute, fn, htmlAttr));
+			default:
+				var fl = attr.a;
+				var trans = attr.b;
+				return A2($mdgriffith$elm_ui$Internal$Model$TransformComponent, fl, trans);
+		}
+	});
+var $mdgriffith$elm_ui$Internal$Model$removeNever = function (style) {
+	return A2($mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle, $elm$core$Basics$never, style);
+};
+var $mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper = F2(
+	function (attr, _v0) {
+		var styles = _v0.a;
+		var trans = _v0.b;
+		var _v1 = $mdgriffith$elm_ui$Internal$Model$removeNever(attr);
+		switch (_v1.$) {
+			case 'StyleClass':
+				var style = _v1.b;
+				return _Utils_Tuple2(
+					A2($elm$core$List$cons, style, styles),
+					trans);
+			case 'TransformComponent':
+				var flag = _v1.a;
+				var component = _v1.b;
+				return _Utils_Tuple2(
+					styles,
+					A2($mdgriffith$elm_ui$Internal$Model$composeTransformation, trans, component));
+			default:
+				return _Utils_Tuple2(styles, trans);
+		}
+	});
+var $mdgriffith$elm_ui$Internal$Model$unwrapDecorations = function (attrs) {
+	var _v0 = A3(
+		$elm$core$List$foldl,
+		$mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper,
+		_Utils_Tuple2(_List_Nil, $mdgriffith$elm_ui$Internal$Model$Untransformed),
+		attrs);
+	var styles = _v0.a;
+	var transform = _v0.b;
+	return A2(
+		$elm$core$List$cons,
+		$mdgriffith$elm_ui$Internal$Model$Transform(transform),
+		styles);
+};
+var $mdgriffith$elm_ui$Element$mouseOver = function (decs) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$hover,
+		A2(
+			$mdgriffith$elm_ui$Internal$Model$PseudoSelector,
+			$mdgriffith$elm_ui$Internal$Model$Hover,
+			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
+};
 var $author$project$Pages$Day8$rowAttributes = _List_fromArray(
 	[
 		$mdgriffith$elm_ui$Element$centerX,
 		$mdgriffith$elm_ui$Element$padding(10),
-		$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink)
+		$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
 	]);
-var $author$project$Pages$Day8$titleAttributes = $elm$core$List$concat(
-	_List_fromArray(
-		[
-			$author$project$Pages$Day8$commonAttributes,
-			_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$Font$extraBold,
-				$mdgriffith$elm_ui$Element$Font$size(62)
-			])
-		]));
+var $mdgriffith$elm_ui$Element$Border$widthXY = F2(
+	function (x, y) {
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$borderWidth,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$BorderWidth,
+				'b-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y))),
+				y,
+				x,
+				y,
+				x));
+	});
+var $mdgriffith$elm_ui$Element$Border$widthEach = function (_v0) {
+	var bottom = _v0.bottom;
+	var top = _v0.top;
+	var left = _v0.left;
+	var right = _v0.right;
+	return (_Utils_eq(top, bottom) && _Utils_eq(left, right)) ? (_Utils_eq(top, right) ? $mdgriffith$elm_ui$Element$Border$width(top) : A2($mdgriffith$elm_ui$Element$Border$widthXY, left, top)) : A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$borderWidth,
+		A5(
+			$mdgriffith$elm_ui$Internal$Model$BorderWidth,
+			'b-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left))))))),
+			top,
+			right,
+			bottom,
+			left));
+};
 var $author$project$Pages$Day8$view = function (model) {
+	var dict = $elm$core$Dict$fromList(model);
+	var location = A2(
+		$elm$core$Maybe$withDefault,
+		'',
+		A2($elm$core$Dict$get, 'location', dict));
+	var name = A2(
+		$elm$core$Maybe$withDefault,
+		'',
+		A2($elm$core$Dict$get, 'name', dict));
+	var age = A2(
+		$elm$core$Maybe$withDefault,
+		'',
+		A2($elm$core$Dict$get, 'age', dict));
 	return {
 		body: _List_fromArray(
 			[
@@ -21126,41 +22206,31 @@ var $author$project$Pages$Day8$view = function (model) {
 					[
 						$mdgriffith$elm_ui$Element$centerX,
 						$mdgriffith$elm_ui$Element$centerY,
-						$mdgriffith$elm_ui$Element$spacing(100)
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+						$mdgriffith$elm_ui$Element$padding(50),
+						$mdgriffith$elm_ui$Element$spacing(50),
+						$mdgriffith$elm_ui$Element$width(
+						A2($mdgriffith$elm_ui$Element$maximum, 1200, $mdgriffith$elm_ui$Element$fill))
 					]),
 				_List_fromArray(
 					[
 						A2(
 						$mdgriffith$elm_ui$Element$row,
-						$author$project$Pages$Day8$rowAttributes,
-						_List_fromArray(
-							[
-								A2(
-								$mdgriffith$elm_ui$Element$el,
-								$author$project$Pages$Day8$titleAttributes,
-								$mdgriffith$elm_ui$Element$text(model.box1))
-							])),
-						A2(
-						$mdgriffith$elm_ui$Element$row,
-						$author$project$Pages$Day8$rowAttributes,
-						_List_fromArray(
-							[
-								A2(
-								$mdgriffith$elm_ui$Element$el,
-								$author$project$Pages$Day8$commonAttributes,
-								$mdgriffith$elm_ui$Element$text(model.box2))
-							])),
-						A2(
-						$mdgriffith$elm_ui$Element$row,
-						$author$project$Pages$Day8$rowAttributes,
+						_Utils_ap($author$project$Pages$Day8$rowAttributes, $author$project$Pages$Day8$commonAttributes),
 						_List_fromArray(
 							[
 								A2(
 								$mdgriffith$elm_ui$Element$paragraph,
-								$author$project$Pages$Day8$paragraphAttributes,
+								_List_Nil,
 								_List_fromArray(
 									[
-										$mdgriffith$elm_ui$Element$text(model.box3)
+										$mdgriffith$elm_ui$Element$text('Hello! Greetings from '),
+										$mdgriffith$elm_ui$Element$text(location),
+										$mdgriffith$elm_ui$Element$text('. My name is '),
+										$mdgriffith$elm_ui$Element$text(name),
+										$mdgriffith$elm_ui$Element$text(' and I\'m '),
+										$mdgriffith$elm_ui$Element$text(age),
+										$mdgriffith$elm_ui$Element$text(' years old.')
 									]))
 							])),
 						A2(
@@ -21168,7 +22238,56 @@ var $author$project$Pages$Day8$view = function (model) {
 						$author$project$Pages$Day8$rowAttributes,
 						_List_fromArray(
 							[
-								$mdgriffith$elm_ui$Element$text('Hello!')
+								A2(
+								$mdgriffith$elm_ui$Element$column,
+								_List_fromArray(
+									[
+										$mdgriffith$elm_ui$Element$width(
+										$mdgriffith$elm_ui$Element$fillPortion(2))
+									]),
+								$author$project$Pages$Day8$form(model)),
+								A2(
+								$mdgriffith$elm_ui$Element$column,
+								_List_fromArray(
+									[
+										$mdgriffith$elm_ui$Element$width(
+										$mdgriffith$elm_ui$Element$fillPortion(3)),
+										$mdgriffith$elm_ui$Element$padding(20),
+										$mdgriffith$elm_ui$Element$alignTop
+									]),
+								_List_fromArray(
+									[
+										A2(
+										$mdgriffith$elm_ui$Element$paragraph,
+										_List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$htmlAttribute(
+												A2($elm$html$Html$Attributes$style, 'word-break', 'break-all'))
+											]),
+										_List_fromArray(
+											[
+												A2(
+												$mdgriffith$elm_ui$Element$link,
+												_List_fromArray(
+													[
+														$mdgriffith$elm_ui$Element$Font$color($phollyer$elm_ui_colors$Colors$Opaque$cornflowerblue),
+														$mdgriffith$elm_ui$Element$Border$color($phollyer$elm_ui_colors$Colors$Opaque$cornflowerblue),
+														$mdgriffith$elm_ui$Element$Border$dashed,
+														$mdgriffith$elm_ui$Element$Border$widthEach(
+														{bottom: 1, left: 0, right: 0, top: 0}),
+														$mdgriffith$elm_ui$Element$mouseOver(
+														_List_fromArray(
+															[
+																A2($mdgriffith$elm_ui$Element$Border$glow, $phollyer$elm_ui_colors$Colors$Opaque$cornflowerblue, 0.5)
+															]))
+													]),
+												{
+													label: $mdgriffith$elm_ui$Element$text(
+														$author$project$Pages$Day8$buildUrl(model)),
+													url: $author$project$Pages$Day8$buildUrl(model)
+												})
+											]))
+									]))
 							]))
 					]))
 			]),
@@ -21198,6 +22317,24 @@ var $author$project$Pages$Day9$update = F2(
 		var value = msg.a;
 		return _Utils_Tuple2(value, $elm$core$Platform$Cmd$none);
 	});
+var $mdgriffith$elm_ui$Internal$Model$AsTextColumn = {$: 'AsTextColumn'};
+var $mdgriffith$elm_ui$Internal$Model$asTextColumn = $mdgriffith$elm_ui$Internal$Model$AsTextColumn;
+var $mdgriffith$elm_ui$Element$textColumn = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asTextColumn,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Element$width(
+					A2(
+						$mdgriffith$elm_ui$Element$maximum,
+						750,
+						A2($mdgriffith$elm_ui$Element$minimum, 500, $mdgriffith$elm_ui$Element$fill))),
+				attrs),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
 var $author$project$Pages$Day9$view = function (model) {
 	return {
 		body: _List_fromArray(
@@ -21223,7 +22360,7 @@ var $author$project$Pages$Day9$view = function (model) {
 									_List_Nil,
 									_List_fromArray(
 										[
-											$elm$html$Html$text('Day 9')
+											$elm$html$Html$text('Astronomical info')
 										])))
 							])),
 						A2(
@@ -21231,18 +22368,18 @@ var $author$project$Pages$Day9$view = function (model) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								$mdgriffith$elm_ui$Element$html(
 								A2(
-									$elm$html$Html$p,
-									_List_Nil,
-									_List_fromArray(
-										[
-											$elm$html$Html$text('Nothing here yet for this day of challenge')
-										])))
+								$mdgriffith$elm_ui$Element$textColumn,
+								_List_Nil,
+								_List_fromArray(
+									[
+										$mdgriffith$elm_ui$Element$text('NOTIFICATIONS'),
+										$mdgriffith$elm_ui$Element$text('https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key=DEMO_KEY')
+									]))
 							]))
 					]))
 			]),
-		title: 'Day1'
+		title: 'Day 9'
 	};
 };
 var $author$project$Pages$Day9$page = $author$project$Spa$Page$application(
@@ -21359,48 +22496,10 @@ var $author$project$Pages$PageB$update = F2(
 	});
 var $author$project$Pages$PageB$Decrement = {$: 'Decrement'};
 var $author$project$Pages$PageB$Increment = {$: 'Increment'};
-var $mdgriffith$elm_ui$Element$paddingXY = F2(
-	function (x, y) {
-		if (_Utils_eq(x, y)) {
-			var f = x;
-			return A2(
-				$mdgriffith$elm_ui$Internal$Model$StyleClass,
-				$mdgriffith$elm_ui$Internal$Flag$padding,
-				A5(
-					$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-					'p-' + $elm$core$String$fromInt(x),
-					f,
-					f,
-					f,
-					f));
-		} else {
-			var yFloat = y;
-			var xFloat = x;
-			return A2(
-				$mdgriffith$elm_ui$Internal$Model$StyleClass,
-				$mdgriffith$elm_ui$Internal$Flag$padding,
-				A5(
-					$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-					'p-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y))),
-					yFloat,
-					xFloat,
-					yFloat,
-					xFloat));
-		}
-	});
 var $mdgriffith$elm_ui$Internal$Model$Right = {$: 'Right'};
 var $mdgriffith$elm_ui$Element$alignRight = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$Right);
 var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
 var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
-var $mdgriffith$elm_ui$Element$Input$hasFocusStyle = function (attr) {
-	if (((attr.$ === 'StyleClass') && (attr.b.$ === 'PseudoSelector')) && (attr.b.a.$ === 'Focus')) {
-		var _v1 = attr.b;
-		var _v2 = _v1.a;
-		return true;
-	} else {
-		return false;
-	}
-};
 var $mdgriffith$elm_ui$Element$Input$focusDefault = function (attrs) {
 	return A2($elm$core$List$any, $mdgriffith$elm_ui$Element$Input$hasFocusStyle, attrs) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Internal$Model$htmlClass('focusable');
 };
@@ -21441,7 +22540,6 @@ var $mdgriffith$elm_ui$Element$Input$onKey = F2(
 var $mdgriffith$elm_ui$Element$Input$onEnter = function (msg) {
 	return A2($mdgriffith$elm_ui$Element$Input$onKey, $mdgriffith$elm_ui$Element$Input$enter, msg);
 };
-var $mdgriffith$elm_ui$Internal$Flag$cursor = $mdgriffith$elm_ui$Internal$Flag$flag(21);
 var $mdgriffith$elm_ui$Element$pointer = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$cursor, $mdgriffith$elm_ui$Internal$Style$classes.cursorPointer);
 var $elm$html$Html$Attributes$tabindex = function (n) {
 	return A2(
@@ -21662,15 +22760,6 @@ var $author$project$Pages$Top$view = function (model) {
 };
 var $author$project$Pages$Top$page = $author$project$Spa$Page$application(
 	{init: $author$project$Pages$Top$init, load: $author$project$Pages$Top$load, save: $author$project$Pages$Top$save, subscriptions: $author$project$Pages$Top$subscriptions, update: $author$project$Pages$Top$update, view: $author$project$Pages$Top$view});
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
-};
 var $elm$core$Tuple$mapBoth = F3(
 	function (funcA, funcB, _v0) {
 		var x = _v0.a;
@@ -21736,7 +22825,7 @@ var $author$project$Spa$Document$map = F2(
 			title: doc.title
 		};
 	});
-var $author$project$Spa$Generated$Pages$upgrade = F3(
+var $author$project$Spa$Pages$upgrade = F3(
 	function (toModel, toMsg, page) {
 		var update_ = F2(
 			function (msg, model) {
@@ -21781,112 +22870,113 @@ var $author$project$Spa$Generated$Pages$upgrade = F3(
 		};
 		return {bundle: bundle_, init: init_, update: update_};
 	});
-var $author$project$Spa$Generated$Pages$pages = {
-	day1: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day1__Model, $author$project$Spa$Generated$Pages$Day1__Msg, $author$project$Pages$Day1$page),
-	day10: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day10__Model, $author$project$Spa$Generated$Pages$Day10__Msg, $author$project$Pages$Day10$page),
-	day11: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day11__Model, $author$project$Spa$Generated$Pages$Day11__Msg, $author$project$Pages$Day11$page),
-	day12: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day12__Model, $author$project$Spa$Generated$Pages$Day12__Msg, $author$project$Pages$Day12$page),
-	day13: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day13__Model, $author$project$Spa$Generated$Pages$Day13__Msg, $author$project$Pages$Day13$page),
-	day14: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day14__Model, $author$project$Spa$Generated$Pages$Day14__Msg, $author$project$Pages$Day14$page),
-	day15: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day15__Model, $author$project$Spa$Generated$Pages$Day15__Msg, $author$project$Pages$Day15$page),
-	day16: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day16__Model, $author$project$Spa$Generated$Pages$Day16__Msg, $author$project$Pages$Day16$page),
-	day17: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day17__Model, $author$project$Spa$Generated$Pages$Day17__Msg, $author$project$Pages$Day17$page),
-	day18: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day18__Model, $author$project$Spa$Generated$Pages$Day18__Msg, $author$project$Pages$Day18$page),
-	day19: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day19__Model, $author$project$Spa$Generated$Pages$Day19__Msg, $author$project$Pages$Day19$page),
-	day2: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day2__Model, $author$project$Spa$Generated$Pages$Day2__Msg, $author$project$Pages$Day2$page),
-	day20: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day20__Model, $author$project$Spa$Generated$Pages$Day20__Msg, $author$project$Pages$Day20$page),
-	day21: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day21__Model, $author$project$Spa$Generated$Pages$Day21__Msg, $author$project$Pages$Day21$page),
-	day22: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day22__Model, $author$project$Spa$Generated$Pages$Day22__Msg, $author$project$Pages$Day22$page),
-	day23: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day23__Model, $author$project$Spa$Generated$Pages$Day23__Msg, $author$project$Pages$Day23$page),
-	day24: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day24__Model, $author$project$Spa$Generated$Pages$Day24__Msg, $author$project$Pages$Day24$page),
-	day25: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day25__Model, $author$project$Spa$Generated$Pages$Day25__Msg, $author$project$Pages$Day25$page),
-	day26: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day26__Model, $author$project$Spa$Generated$Pages$Day26__Msg, $author$project$Pages$Day26$page),
-	day27: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day27__Model, $author$project$Spa$Generated$Pages$Day27__Msg, $author$project$Pages$Day27$page),
-	day28: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day28__Model, $author$project$Spa$Generated$Pages$Day28__Msg, $author$project$Pages$Day28$page),
-	day29: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day29__Model, $author$project$Spa$Generated$Pages$Day29__Msg, $author$project$Pages$Day29$page),
-	day3: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day3__Model, $author$project$Spa$Generated$Pages$Day3__Msg, $author$project$Pages$Day3$page),
-	day30: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day30__Model, $author$project$Spa$Generated$Pages$Day30__Msg, $author$project$Pages$Day30$page),
-	day4: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day4__Model, $author$project$Spa$Generated$Pages$Day4__Msg, $author$project$Pages$Day4$page),
-	day5: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day5__Model, $author$project$Spa$Generated$Pages$Day5__Msg, $author$project$Pages$Day5$page),
-	day6: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day6__Model, $author$project$Spa$Generated$Pages$Day6__Msg, $author$project$Pages$Day6$page),
-	day7: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day7__Model, $author$project$Spa$Generated$Pages$Day7__Msg, $author$project$Pages$Day7$page),
-	day8: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day8__Model, $author$project$Spa$Generated$Pages$Day8__Msg, $author$project$Pages$Day8$page),
-	day9: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Day9__Model, $author$project$Spa$Generated$Pages$Day9__Msg, $author$project$Pages$Day9$page),
-	notFound: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$NotFound__Model, $author$project$Spa$Generated$Pages$NotFound__Msg, $author$project$Pages$NotFound$page),
-	pageA: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$PageA__Model, $author$project$Spa$Generated$Pages$PageA__Msg, $author$project$Pages$PageA$page),
-	pageB: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$PageB__Model, $author$project$Spa$Generated$Pages$PageB__Msg, $author$project$Pages$PageB$page),
-	top: A3($author$project$Spa$Generated$Pages$upgrade, $author$project$Spa$Generated$Pages$Top__Model, $author$project$Spa$Generated$Pages$Top__Msg, $author$project$Pages$Top$page)
+var $author$project$Spa$Pages$pages = {
+	day1: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day1__Model, $author$project$Spa$Pages$Day1__Msg, $author$project$Pages$Day1$page),
+	day10: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day10__Model, $author$project$Spa$Pages$Day10__Msg, $author$project$Pages$Day10$page),
+	day11: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day11__Model, $author$project$Spa$Pages$Day11__Msg, $author$project$Pages$Day11$page),
+	day12: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day12__Model, $author$project$Spa$Pages$Day12__Msg, $author$project$Pages$Day12$page),
+	day13: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day13__Model, $author$project$Spa$Pages$Day13__Msg, $author$project$Pages$Day13$page),
+	day14: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day14__Model, $author$project$Spa$Pages$Day14__Msg, $author$project$Pages$Day14$page),
+	day15: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day15__Model, $author$project$Spa$Pages$Day15__Msg, $author$project$Pages$Day15$page),
+	day16: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day16__Model, $author$project$Spa$Pages$Day16__Msg, $author$project$Pages$Day16$page),
+	day17: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day17__Model, $author$project$Spa$Pages$Day17__Msg, $author$project$Pages$Day17$page),
+	day18: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day18__Model, $author$project$Spa$Pages$Day18__Msg, $author$project$Pages$Day18$page),
+	day19: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day19__Model, $author$project$Spa$Pages$Day19__Msg, $author$project$Pages$Day19$page),
+	day2: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day2__Model, $author$project$Spa$Pages$Day2__Msg, $author$project$Pages$Day2$page),
+	day20: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day20__Model, $author$project$Spa$Pages$Day20__Msg, $author$project$Pages$Day20$page),
+	day21: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day21__Model, $author$project$Spa$Pages$Day21__Msg, $author$project$Pages$Day21$page),
+	day22: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day22__Model, $author$project$Spa$Pages$Day22__Msg, $author$project$Pages$Day22$page),
+	day23: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day23__Model, $author$project$Spa$Pages$Day23__Msg, $author$project$Pages$Day23$page),
+	day24: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day24__Model, $author$project$Spa$Pages$Day24__Msg, $author$project$Pages$Day24$page),
+	day25: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day25__Model, $author$project$Spa$Pages$Day25__Msg, $author$project$Pages$Day25$page),
+	day26: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day26__Model, $author$project$Spa$Pages$Day26__Msg, $author$project$Pages$Day26$page),
+	day27: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day27__Model, $author$project$Spa$Pages$Day27__Msg, $author$project$Pages$Day27$page),
+	day28: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day28__Model, $author$project$Spa$Pages$Day28__Msg, $author$project$Pages$Day28$page),
+	day29: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day29__Model, $author$project$Spa$Pages$Day29__Msg, $author$project$Pages$Day29$page),
+	day3: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day3__Model, $author$project$Spa$Pages$Day3__Msg, $author$project$Pages$Day3$page),
+	day30: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day30__Model, $author$project$Spa$Pages$Day30__Msg, $author$project$Pages$Day30$page),
+	day4: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day4__Model, $author$project$Spa$Pages$Day4__Msg, $author$project$Pages$Day4$page),
+	day5: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day5__Model, $author$project$Spa$Pages$Day5__Msg, $author$project$Pages$Day5$page),
+	day6: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day6__Model, $author$project$Spa$Pages$Day6__Msg, $author$project$Pages$Day6$page),
+	day7: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day7__Model, $author$project$Spa$Pages$Day7__Msg, $author$project$Pages$Day7$page),
+	day8: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day8__Model, $author$project$Spa$Pages$Day8__Msg, $author$project$Pages$Day8$page),
+	day9: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Day9__Model, $author$project$Spa$Pages$Day9__Msg, $author$project$Pages$Day9$page),
+	notFound: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$NotFound__Model, $author$project$Spa$Pages$NotFound__Msg, $author$project$Pages$NotFound$page),
+	pageA: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$PageA__Model, $author$project$Spa$Pages$PageA__Msg, $author$project$Pages$PageA$page),
+	pageB: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$PageB__Model, $author$project$Spa$Pages$PageB__Msg, $author$project$Pages$PageB$page),
+	top: A3($author$project$Spa$Pages$upgrade, $author$project$Spa$Pages$Top__Model, $author$project$Spa$Pages$Top__Msg, $author$project$Pages$Top$page)
 };
-var $author$project$Spa$Generated$Pages$init = function (route) {
+var $author$project$Spa$Pages$init = function (route) {
 	switch (route.$) {
 		case 'Top':
-			return $author$project$Spa$Generated$Pages$pages.top.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.top.init(_Utils_Tuple0);
 		case 'Day1':
-			return $author$project$Spa$Generated$Pages$pages.day1.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day1.init(_Utils_Tuple0);
 		case 'Day10':
-			return $author$project$Spa$Generated$Pages$pages.day10.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day10.init(_Utils_Tuple0);
 		case 'Day11':
-			return $author$project$Spa$Generated$Pages$pages.day11.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day11.init(_Utils_Tuple0);
 		case 'Day12':
-			return $author$project$Spa$Generated$Pages$pages.day12.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day12.init(_Utils_Tuple0);
 		case 'Day13':
-			return $author$project$Spa$Generated$Pages$pages.day13.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day13.init(_Utils_Tuple0);
 		case 'Day14':
-			return $author$project$Spa$Generated$Pages$pages.day14.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day14.init(_Utils_Tuple0);
 		case 'Day15':
-			return $author$project$Spa$Generated$Pages$pages.day15.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day15.init(_Utils_Tuple0);
 		case 'Day16':
-			return $author$project$Spa$Generated$Pages$pages.day16.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day16.init(_Utils_Tuple0);
 		case 'Day17':
-			return $author$project$Spa$Generated$Pages$pages.day17.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day17.init(_Utils_Tuple0);
 		case 'Day18':
-			return $author$project$Spa$Generated$Pages$pages.day18.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day18.init(_Utils_Tuple0);
 		case 'Day19':
-			return $author$project$Spa$Generated$Pages$pages.day19.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day19.init(_Utils_Tuple0);
 		case 'Day2':
-			return $author$project$Spa$Generated$Pages$pages.day2.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day2.init(_Utils_Tuple0);
 		case 'Day20':
-			return $author$project$Spa$Generated$Pages$pages.day20.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day20.init(_Utils_Tuple0);
 		case 'Day21':
-			return $author$project$Spa$Generated$Pages$pages.day21.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day21.init(_Utils_Tuple0);
 		case 'Day22':
-			return $author$project$Spa$Generated$Pages$pages.day22.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day22.init(_Utils_Tuple0);
 		case 'Day23':
-			return $author$project$Spa$Generated$Pages$pages.day23.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day23.init(_Utils_Tuple0);
 		case 'Day24':
-			return $author$project$Spa$Generated$Pages$pages.day24.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day24.init(_Utils_Tuple0);
 		case 'Day25':
-			return $author$project$Spa$Generated$Pages$pages.day25.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day25.init(_Utils_Tuple0);
 		case 'Day26':
-			return $author$project$Spa$Generated$Pages$pages.day26.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day26.init(_Utils_Tuple0);
 		case 'Day27':
-			return $author$project$Spa$Generated$Pages$pages.day27.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day27.init(_Utils_Tuple0);
 		case 'Day28':
-			return $author$project$Spa$Generated$Pages$pages.day28.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day28.init(_Utils_Tuple0);
 		case 'Day29':
-			return $author$project$Spa$Generated$Pages$pages.day29.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day29.init(_Utils_Tuple0);
 		case 'Day3':
-			return $author$project$Spa$Generated$Pages$pages.day3.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day3.init(_Utils_Tuple0);
 		case 'Day30':
-			return $author$project$Spa$Generated$Pages$pages.day30.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day30.init(_Utils_Tuple0);
 		case 'Day4':
-			return $author$project$Spa$Generated$Pages$pages.day4.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day4.init(_Utils_Tuple0);
 		case 'Day5':
-			return $author$project$Spa$Generated$Pages$pages.day5.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day5.init(_Utils_Tuple0);
 		case 'Day6':
-			return $author$project$Spa$Generated$Pages$pages.day6.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day6.init(_Utils_Tuple0);
 		case 'Day7':
-			return $author$project$Spa$Generated$Pages$pages.day7.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day7.init(_Utils_Tuple0);
 		case 'Day8':
-			return $author$project$Spa$Generated$Pages$pages.day8.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day8.init(
+				{age: '', location: '', name: ''});
 		case 'Day9':
-			return $author$project$Spa$Generated$Pages$pages.day9.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.day9.init(_Utils_Tuple0);
 		case 'NotFound':
-			return $author$project$Spa$Generated$Pages$pages.notFound.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.notFound.init(_Utils_Tuple0);
 		case 'PageA':
-			return $author$project$Spa$Generated$Pages$pages.pageA.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.pageA.init(_Utils_Tuple0);
 		default:
-			return $author$project$Spa$Generated$Pages$pages.pageB.init(_Utils_Tuple0);
+			return $author$project$Spa$Pages$pages.pageB.init(_Utils_Tuple0);
 	}
 };
 var $author$project$Main$init = F3(
@@ -21895,7 +22985,7 @@ var $author$project$Main$init = F3(
 		var shared = _v0.a;
 		var sharedCmd = _v0.b;
 		var _v1 = A2(
-			$author$project$Spa$Generated$Pages$init,
+			$author$project$Spa$Pages$init,
 			$author$project$Main$fromUrl(url),
 			shared);
 		var page = _v1.a;
@@ -21912,115 +23002,115 @@ var $author$project$Main$init = F3(
 var $author$project$Shared$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
-var $author$project$Spa$Generated$Pages$bundle = function (bigModel) {
+var $author$project$Spa$Pages$bundle = function (bigModel) {
 	switch (bigModel.$) {
 		case 'Top__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.top.bundle(model);
+			return $author$project$Spa$Pages$pages.top.bundle(model);
 		case 'Day1__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day1.bundle(model);
+			return $author$project$Spa$Pages$pages.day1.bundle(model);
 		case 'Day10__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day10.bundle(model);
+			return $author$project$Spa$Pages$pages.day10.bundle(model);
 		case 'Day11__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day11.bundle(model);
+			return $author$project$Spa$Pages$pages.day11.bundle(model);
 		case 'Day12__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day12.bundle(model);
+			return $author$project$Spa$Pages$pages.day12.bundle(model);
 		case 'Day13__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day13.bundle(model);
+			return $author$project$Spa$Pages$pages.day13.bundle(model);
 		case 'Day14__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day14.bundle(model);
+			return $author$project$Spa$Pages$pages.day14.bundle(model);
 		case 'Day15__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day15.bundle(model);
+			return $author$project$Spa$Pages$pages.day15.bundle(model);
 		case 'Day16__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day16.bundle(model);
+			return $author$project$Spa$Pages$pages.day16.bundle(model);
 		case 'Day17__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day17.bundle(model);
+			return $author$project$Spa$Pages$pages.day17.bundle(model);
 		case 'Day18__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day18.bundle(model);
+			return $author$project$Spa$Pages$pages.day18.bundle(model);
 		case 'Day19__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day19.bundle(model);
+			return $author$project$Spa$Pages$pages.day19.bundle(model);
 		case 'Day2__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day2.bundle(model);
+			return $author$project$Spa$Pages$pages.day2.bundle(model);
 		case 'Day20__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day20.bundle(model);
+			return $author$project$Spa$Pages$pages.day20.bundle(model);
 		case 'Day21__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day21.bundle(model);
+			return $author$project$Spa$Pages$pages.day21.bundle(model);
 		case 'Day22__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day22.bundle(model);
+			return $author$project$Spa$Pages$pages.day22.bundle(model);
 		case 'Day23__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day23.bundle(model);
+			return $author$project$Spa$Pages$pages.day23.bundle(model);
 		case 'Day24__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day24.bundle(model);
+			return $author$project$Spa$Pages$pages.day24.bundle(model);
 		case 'Day25__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day25.bundle(model);
+			return $author$project$Spa$Pages$pages.day25.bundle(model);
 		case 'Day26__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day26.bundle(model);
+			return $author$project$Spa$Pages$pages.day26.bundle(model);
 		case 'Day27__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day27.bundle(model);
+			return $author$project$Spa$Pages$pages.day27.bundle(model);
 		case 'Day28__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day28.bundle(model);
+			return $author$project$Spa$Pages$pages.day28.bundle(model);
 		case 'Day29__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day29.bundle(model);
+			return $author$project$Spa$Pages$pages.day29.bundle(model);
 		case 'Day3__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day3.bundle(model);
+			return $author$project$Spa$Pages$pages.day3.bundle(model);
 		case 'Day30__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day30.bundle(model);
+			return $author$project$Spa$Pages$pages.day30.bundle(model);
 		case 'Day4__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day4.bundle(model);
+			return $author$project$Spa$Pages$pages.day4.bundle(model);
 		case 'Day5__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day5.bundle(model);
+			return $author$project$Spa$Pages$pages.day5.bundle(model);
 		case 'Day6__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day6.bundle(model);
+			return $author$project$Spa$Pages$pages.day6.bundle(model);
 		case 'Day7__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day7.bundle(model);
+			return $author$project$Spa$Pages$pages.day7.bundle(model);
 		case 'Day8__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day8.bundle(model);
+			return $author$project$Spa$Pages$pages.day8.bundle(model);
 		case 'Day9__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.day9.bundle(model);
+			return $author$project$Spa$Pages$pages.day9.bundle(model);
 		case 'NotFound__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.notFound.bundle(model);
+			return $author$project$Spa$Pages$pages.notFound.bundle(model);
 		case 'PageA__Model':
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.pageA.bundle(model);
+			return $author$project$Spa$Pages$pages.pageA.bundle(model);
 		default:
 			var model = bigModel.a;
-			return $author$project$Spa$Generated$Pages$pages.pageB.bundle(model);
+			return $author$project$Spa$Pages$pages.pageB.bundle(model);
 	}
 };
-var $author$project$Spa$Generated$Pages$subscriptions = A2(
+var $author$project$Spa$Pages$subscriptions = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Spa$Generated$Pages$bundle,
+	$author$project$Spa$Pages$bundle,
 	function ($) {
 		return $.subscriptions;
 	});
@@ -22035,7 +23125,7 @@ var $author$project$Main$subscriptions = function (model) {
 				A2(
 				$elm$core$Platform$Sub$map,
 				$author$project$Main$Pages,
-				$author$project$Spa$Generated$Pages$subscriptions(model.page))
+				$author$project$Spa$Pages$subscriptions(model.page))
 			]));
 };
 var $author$project$Spa$Document$css = '.skip-link {\n  position: absolute;\n  top: -40px;\n  left: 0;\n  background: #000000;\n  color: white;\n  padding: 8px;\n  z-index: 100;\n}\n\n.skip-link:focus {\n  top: 0;\n} ';
@@ -22299,16 +23389,16 @@ var $author$project$Spa$Document$toBrowserDocument = function (doc) {
 	};
 };
 var $elm$browser$Browser$Navigation$load = _Browser_load;
-var $author$project$Spa$Generated$Pages$load = A2(
+var $author$project$Spa$Pages$load = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Spa$Generated$Pages$bundle,
+	$author$project$Spa$Pages$bundle,
 	function ($) {
 		return $.load;
 	});
 var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
-var $author$project$Spa$Generated$Pages$save = A2(
+var $author$project$Spa$Pages$save = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Spa$Generated$Pages$bundle,
+	$author$project$Spa$Pages$bundle,
 	function ($) {
 		return $.save;
 	});
@@ -22360,7 +23450,7 @@ var $author$project$Shared$update = F2(
 	function (msg, model) {
 		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 	});
-var $author$project$Spa$Generated$Pages$update = F2(
+var $author$project$Spa$Pages$update = F2(
 	function (bigMsg, bigModel) {
 		var _v0 = _Utils_Tuple2(bigMsg, bigModel);
 		_v0$34:
@@ -22370,7 +23460,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Top__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.top.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.top.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22378,7 +23468,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day1__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day1.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day1.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22386,7 +23476,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day10__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day10.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day10.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22394,7 +23484,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day11__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day11.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day11.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22402,7 +23492,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day12__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day12.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day12.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22410,7 +23500,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day13__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day13.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day13.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22418,7 +23508,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day14__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day14.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day14.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22426,7 +23516,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day15__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day15.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day15.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22434,7 +23524,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day16__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day16.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day16.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22442,7 +23532,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day17__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day17.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day17.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22450,7 +23540,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day18__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day18.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day18.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22458,7 +23548,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day19__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day19.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day19.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22466,7 +23556,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day2__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day2.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day2.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22474,7 +23564,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day20__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day20.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day20.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22482,7 +23572,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day21__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day21.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day21.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22490,7 +23580,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day22__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day22.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day22.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22498,7 +23588,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day23__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day23.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day23.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22506,7 +23596,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day24__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day24.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day24.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22514,7 +23604,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day25__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day25.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day25.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22522,7 +23612,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day26__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day26.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day26.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22530,7 +23620,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day27__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day27.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day27.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22538,7 +23628,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day28__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day28.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day28.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22546,7 +23636,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day29__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day29.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day29.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22554,7 +23644,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day3__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day3.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day3.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22562,7 +23652,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day30__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day30.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day30.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22570,7 +23660,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day4__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day4.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day4.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22578,7 +23668,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day5__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day5.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day5.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22586,7 +23676,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day6__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day6.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day6.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22594,7 +23684,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day7__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day7.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day7.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22602,7 +23692,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day8__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day8.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day8.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22610,7 +23700,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'Day9__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.day9.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.day9.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22618,7 +23708,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'NotFound__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.notFound.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.notFound.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22626,7 +23716,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'PageA__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.pageA.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.pageA.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22634,7 +23724,7 @@ var $author$project$Spa$Generated$Pages$update = F2(
 					if (_v0.b.$ === 'PageB__Model') {
 						var msg = _v0.a.a;
 						var model = _v0.b.a;
-						return A2($author$project$Spa$Generated$Pages$pages.pageB.update, msg, model);
+						return A2($author$project$Spa$Pages$pages.pageB.update, msg, model);
 					} else {
 						break _v0$34;
 					}
@@ -22667,7 +23757,7 @@ var $author$project$Main$update = F2(
 					original,
 					{url: url});
 				var _v1 = A2(
-					$author$project$Spa$Generated$Pages$init,
+					$author$project$Spa$Pages$init,
 					$author$project$Main$fromUrl(url),
 					shared);
 				var page = _v1.a;
@@ -22677,7 +23767,7 @@ var $author$project$Main$update = F2(
 						model,
 						{
 							page: page,
-							shared: A2($author$project$Spa$Generated$Pages$save, page, shared)
+							shared: A2($author$project$Spa$Pages$save, page, shared)
 						}),
 					A2($elm$core$Platform$Cmd$map, $author$project$Main$Pages, pageCmd));
 			case 'Shared':
@@ -22685,7 +23775,7 @@ var $author$project$Main$update = F2(
 				var _v2 = A2($author$project$Shared$update, sharedMsg, model.shared);
 				var shared = _v2.a;
 				var sharedCmd = _v2.b;
-				var _v3 = A2($author$project$Spa$Generated$Pages$load, model.page, shared);
+				var _v3 = A2($author$project$Spa$Pages$load, model.page, shared);
 				var page = _v3.a;
 				var pageCmd = _v3.b;
 				return _Utils_Tuple2(
@@ -22700,10 +23790,10 @@ var $author$project$Main$update = F2(
 							])));
 			default:
 				var pageMsg = msg.a;
-				var _v4 = A2($author$project$Spa$Generated$Pages$update, pageMsg, model.page);
+				var _v4 = A2($author$project$Spa$Pages$update, pageMsg, model.page);
 				var page = _v4.a;
 				var pageCmd = _v4.b;
-				var shared = A2($author$project$Spa$Generated$Pages$save, page, model.shared);
+				var shared = A2($author$project$Spa$Pages$save, page, model.shared);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -22762,37 +23852,6 @@ var $mdgriffith$elm_ui$Element$image = F2(
 						$mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_Nil))
 					])));
 	});
-var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
-var $mdgriffith$elm_ui$Element$link = F2(
-	function (attrs, _v0) {
-		var url = _v0.url;
-		var label = _v0.label;
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asEl,
-			$mdgriffith$elm_ui$Internal$Model$NodeName('a'),
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$Attr(
-					$elm$html$Html$Attributes$href(url)),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Internal$Model$Attr(
-						$elm$html$Html$Attributes$rel('noopener noreferrer')),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-						A2(
-							$elm$core$List$cons,
-							$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-							A2(
-								$elm$core$List$cons,
-								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentCenterX + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.contentCenterY + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.link)))),
-								attrs))))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-				_List_fromArray(
-					[label])));
-	});
 var $author$project$Shared$linkAttrs = _List_fromArray(
 	[
 		$mdgriffith$elm_ui$Element$Font$color(
@@ -22800,92 +23859,6 @@ var $author$project$Shared$linkAttrs = _List_fromArray(
 	]);
 var $mdgriffith$elm_ui$Element$Font$center = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textCenter);
 var $mdgriffith$elm_ui$Internal$Model$Focus = {$: 'Focus'};
-var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
-	function (a, b) {
-		return {$: 'PseudoSelector', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle = F2(
-	function (fn, attr) {
-		switch (attr.$) {
-			case 'NoAttribute':
-				return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
-			case 'Describe':
-				var description = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Describe(description);
-			case 'AlignX':
-				var x = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$AlignX(x);
-			case 'AlignY':
-				var y = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$AlignY(y);
-			case 'Width':
-				var x = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Width(x);
-			case 'Height':
-				var x = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Height(x);
-			case 'Class':
-				var x = attr.a;
-				var y = attr.b;
-				return A2($mdgriffith$elm_ui$Internal$Model$Class, x, y);
-			case 'StyleClass':
-				var flag = attr.a;
-				var style = attr.b;
-				return A2($mdgriffith$elm_ui$Internal$Model$StyleClass, flag, style);
-			case 'Nearby':
-				var location = attr.a;
-				var elem = attr.b;
-				return A2(
-					$mdgriffith$elm_ui$Internal$Model$Nearby,
-					location,
-					A2($mdgriffith$elm_ui$Internal$Model$map, fn, elem));
-			case 'Attr':
-				var htmlAttr = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Attr(
-					A2($elm$virtual_dom$VirtualDom$mapAttribute, fn, htmlAttr));
-			default:
-				var fl = attr.a;
-				var trans = attr.b;
-				return A2($mdgriffith$elm_ui$Internal$Model$TransformComponent, fl, trans);
-		}
-	});
-var $mdgriffith$elm_ui$Internal$Model$removeNever = function (style) {
-	return A2($mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle, $elm$core$Basics$never, style);
-};
-var $mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper = F2(
-	function (attr, _v0) {
-		var styles = _v0.a;
-		var trans = _v0.b;
-		var _v1 = $mdgriffith$elm_ui$Internal$Model$removeNever(attr);
-		switch (_v1.$) {
-			case 'StyleClass':
-				var style = _v1.b;
-				return _Utils_Tuple2(
-					A2($elm$core$List$cons, style, styles),
-					trans);
-			case 'TransformComponent':
-				var flag = _v1.a;
-				var component = _v1.b;
-				return _Utils_Tuple2(
-					styles,
-					A2($mdgriffith$elm_ui$Internal$Model$composeTransformation, trans, component));
-			default:
-				return _Utils_Tuple2(styles, trans);
-		}
-	});
-var $mdgriffith$elm_ui$Internal$Model$unwrapDecorations = function (attrs) {
-	var _v0 = A3(
-		$elm$core$List$foldl,
-		$mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper,
-		_Utils_Tuple2(_List_Nil, $mdgriffith$elm_ui$Internal$Model$Untransformed),
-		attrs);
-	var styles = _v0.a;
-	var transform = _v0.b;
-	return A2(
-		$elm$core$List$cons,
-		$mdgriffith$elm_ui$Internal$Model$Transform(transform),
-		styles);
-};
 var $mdgriffith$elm_ui$Element$focused = function (decs) {
 	return A2(
 		$mdgriffith$elm_ui$Internal$Model$StyleClass,
@@ -22894,46 +23867,6 @@ var $mdgriffith$elm_ui$Element$focused = function (decs) {
 			$mdgriffith$elm_ui$Internal$Model$PseudoSelector,
 			$mdgriffith$elm_ui$Internal$Model$Focus,
 			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
-};
-var $mdgriffith$elm_ui$Internal$Model$Hover = {$: 'Hover'};
-var $mdgriffith$elm_ui$Element$mouseOver = function (decs) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$hover,
-		A2(
-			$mdgriffith$elm_ui$Internal$Model$PseudoSelector,
-			$mdgriffith$elm_ui$Internal$Model$Hover,
-			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
-};
-var $mdgriffith$elm_ui$Element$rgba = $mdgriffith$elm_ui$Internal$Model$Rgba;
-var $mdgriffith$elm_ui$Element$Border$widthXY = F2(
-	function (x, y) {
-		return A2(
-			$mdgriffith$elm_ui$Internal$Model$StyleClass,
-			$mdgriffith$elm_ui$Internal$Flag$borderWidth,
-			A5(
-				$mdgriffith$elm_ui$Internal$Model$BorderWidth,
-				'b-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y))),
-				y,
-				x,
-				y,
-				x));
-	});
-var $mdgriffith$elm_ui$Element$Border$widthEach = function (_v0) {
-	var bottom = _v0.bottom;
-	var top = _v0.top;
-	var left = _v0.left;
-	var right = _v0.right;
-	return (_Utils_eq(top, bottom) && _Utils_eq(left, right)) ? (_Utils_eq(top, right) ? $mdgriffith$elm_ui$Element$Border$width(top) : A2($mdgriffith$elm_ui$Element$Border$widthXY, left, top)) : A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$borderWidth,
-		A5(
-			$mdgriffith$elm_ui$Internal$Model$BorderWidth,
-			'b-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left))))))),
-			top,
-			right,
-			bottom,
-			left));
 };
 var $author$project$Shared$buttonAttrs = _List_fromArray(
 	[
@@ -22965,111 +23898,111 @@ var $author$project$Shared$buttonAttrs = _List_fromArray(
 		$mdgriffith$elm_ui$Element$Font$size(10)
 	]);
 var $elm$core$String$append = _String_append;
-var $author$project$Spa$Generated$Route$toString = function (route) {
+var $author$project$Spa$Route$toString = function (route) {
 	var segments = function () {
 		switch (route.$) {
 			case 'Top':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath]);
+					[$author$project$Spa$Route$basepath]);
 			case 'Day1':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day1']);
+					[$author$project$Spa$Route$basepath, 'day1']);
 			case 'Day10':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day10']);
+					[$author$project$Spa$Route$basepath, 'day10']);
 			case 'Day11':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day11']);
+					[$author$project$Spa$Route$basepath, 'day11']);
 			case 'Day12':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day12']);
+					[$author$project$Spa$Route$basepath, 'day12']);
 			case 'Day13':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day13']);
+					[$author$project$Spa$Route$basepath, 'day13']);
 			case 'Day14':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day14']);
+					[$author$project$Spa$Route$basepath, 'day14']);
 			case 'Day15':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day15']);
+					[$author$project$Spa$Route$basepath, 'day15']);
 			case 'Day16':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day16']);
+					[$author$project$Spa$Route$basepath, 'day16']);
 			case 'Day17':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day17']);
+					[$author$project$Spa$Route$basepath, 'day17']);
 			case 'Day18':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day18']);
+					[$author$project$Spa$Route$basepath, 'day18']);
 			case 'Day19':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day19']);
+					[$author$project$Spa$Route$basepath, 'day19']);
 			case 'Day2':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day2']);
+					[$author$project$Spa$Route$basepath, 'day2']);
 			case 'Day20':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day20']);
+					[$author$project$Spa$Route$basepath, 'day20']);
 			case 'Day21':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day21']);
+					[$author$project$Spa$Route$basepath, 'day21']);
 			case 'Day22':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day22']);
+					[$author$project$Spa$Route$basepath, 'day22']);
 			case 'Day23':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day23']);
+					[$author$project$Spa$Route$basepath, 'day23']);
 			case 'Day24':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day24']);
+					[$author$project$Spa$Route$basepath, 'day24']);
 			case 'Day25':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day25']);
+					[$author$project$Spa$Route$basepath, 'day25']);
 			case 'Day26':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day26']);
+					[$author$project$Spa$Route$basepath, 'day26']);
 			case 'Day27':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day27']);
+					[$author$project$Spa$Route$basepath, 'day27']);
 			case 'Day28':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day28']);
+					[$author$project$Spa$Route$basepath, 'day28']);
 			case 'Day29':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day29']);
+					[$author$project$Spa$Route$basepath, 'day29']);
 			case 'Day3':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day3']);
+					[$author$project$Spa$Route$basepath, 'day3']);
 			case 'Day30':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day30']);
+					[$author$project$Spa$Route$basepath, 'day30']);
 			case 'Day4':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day4']);
+					[$author$project$Spa$Route$basepath, 'day4']);
 			case 'Day5':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day5']);
+					[$author$project$Spa$Route$basepath, 'day5']);
 			case 'Day6':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day6']);
+					[$author$project$Spa$Route$basepath, 'day6']);
 			case 'Day7':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day7']);
+					[$author$project$Spa$Route$basepath, 'day7']);
 			case 'Day8':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day8']);
+					[$author$project$Spa$Route$basepath, 'day8']);
 			case 'Day9':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'day9']);
+					[$author$project$Spa$Route$basepath, 'day9']);
 			case 'NotFound':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'not-found']);
+					[$author$project$Spa$Route$basepath, 'not-found']);
 			case 'PageA':
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'page-a']);
+					[$author$project$Spa$Route$basepath, 'page-a']);
 			default:
 				return _List_fromArray(
-					[$author$project$Spa$Generated$Route$basepath, 'page-b']);
+					[$author$project$Spa$Route$basepath, 'page-b']);
 		}
 	}();
 	return A2(
@@ -23090,7 +24023,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 1')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day1)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day1)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23103,7 +24036,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 2')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day2)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day2)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23116,7 +24049,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 3')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day3)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day3)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23129,7 +24062,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 4')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day4)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day4)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23142,7 +24075,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 5')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day5)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day5)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23155,7 +24088,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 6')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day6)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day6)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23168,7 +24101,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 7')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day7)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day7)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23181,7 +24114,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 8')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day8)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day8)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23194,7 +24127,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 9')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day9)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day9)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23207,7 +24140,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 10')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day10)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day10)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23220,7 +24153,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 11')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day11)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day11)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23233,7 +24166,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 12')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day12)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day12)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23246,7 +24179,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 13')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day13)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day13)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23259,7 +24192,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 14')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day14)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day14)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23272,7 +24205,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 15')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day15)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day15)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23285,7 +24218,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 16')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day16)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day16)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23298,7 +24231,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 17')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day17)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day17)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23311,7 +24244,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 18')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day18)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day18)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23324,7 +24257,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 19')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day19)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day19)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23337,7 +24270,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 20')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day20)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day20)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23350,7 +24283,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 21')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day21)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day21)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23363,7 +24296,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 22')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day22)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day22)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23376,7 +24309,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 23')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day23)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day23)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23389,7 +24322,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 24')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day24)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day24)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23402,7 +24335,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 25')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day25)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day25)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23415,7 +24348,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 26')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day26)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day26)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23428,7 +24361,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 27')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day27)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day27)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23441,7 +24374,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 28')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day28)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day28)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23454,7 +24387,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 29')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day29)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day29)
 		}),
 		A2(
 		$mdgriffith$elm_ui$Element$link,
@@ -23467,7 +24400,7 @@ var $author$project$Shared$dayLinks = _List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$text('Day 30')
 					])),
-			url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Day30)
+			url: $author$project$Spa$Route$toString($author$project$Spa$Route$Day30)
 		})
 	]);
 var $author$project$Shared$navlinks = _Utils_ap(
@@ -23484,7 +24417,7 @@ var $author$project$Shared$navlinks = _Utils_ap(
 						[
 							$mdgriffith$elm_ui$Element$text('Top')
 						])),
-				url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$Top)
+				url: $author$project$Spa$Route$toString($author$project$Spa$Route$Top)
 			}),
 			A2(
 			$mdgriffith$elm_ui$Element$link,
@@ -23497,7 +24430,7 @@ var $author$project$Shared$navlinks = _Utils_ap(
 						[
 							$mdgriffith$elm_ui$Element$text('Page A')
 						])),
-				url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$PageA)
+				url: $author$project$Spa$Route$toString($author$project$Spa$Route$PageA)
 			}),
 			A2(
 			$mdgriffith$elm_ui$Element$link,
@@ -23510,44 +24443,10 @@ var $author$project$Shared$navlinks = _Utils_ap(
 						[
 							$mdgriffith$elm_ui$Element$text('Page B')
 						])),
-				url: $author$project$Spa$Generated$Route$toString($author$project$Spa$Generated$Route$PageB)
+				url: $author$project$Spa$Route$toString($author$project$Spa$Route$PageB)
 			})
 		]),
 	$author$project$Shared$dayLinks);
-var $mdgriffith$elm_ui$Internal$Model$paddingName = F4(
-	function (top, right, bottom, left) {
-		return 'pad-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left)))))));
-	});
-var $mdgriffith$elm_ui$Element$paddingEach = function (_v0) {
-	var top = _v0.top;
-	var right = _v0.right;
-	var bottom = _v0.bottom;
-	var left = _v0.left;
-	if (_Utils_eq(top, right) && (_Utils_eq(top, bottom) && _Utils_eq(top, left))) {
-		var topFloat = top;
-		return A2(
-			$mdgriffith$elm_ui$Internal$Model$StyleClass,
-			$mdgriffith$elm_ui$Internal$Flag$padding,
-			A5(
-				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-				'p-' + $elm$core$String$fromInt(top),
-				topFloat,
-				topFloat,
-				topFloat,
-				topFloat));
-	} else {
-		return A2(
-			$mdgriffith$elm_ui$Internal$Model$StyleClass,
-			$mdgriffith$elm_ui$Internal$Flag$padding,
-			A5(
-				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-				A4($mdgriffith$elm_ui$Internal$Model$paddingName, top, right, bottom, left),
-				top,
-				right,
-				bottom,
-				left));
-	}
-};
 var $mdgriffith$elm_ui$Element$rgba255 = F4(
 	function (red, green, blue, a) {
 		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, a);
@@ -23608,10 +24507,6 @@ var $mdgriffith$elm_ui$Internal$Model$extractSpacingAndPadding = function (attrs
 		_Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing),
 		attrs);
 };
-var $mdgriffith$elm_ui$Internal$Model$paddingNameFloat = F4(
-	function (top, right, bottom, left) {
-		return 'pad-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(top) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(right) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(bottom) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(left)))))));
-	});
 var $mdgriffith$elm_ui$Element$wrappedRow = F2(
 	function (attrs, children) {
 		var _v0 = $mdgriffith$elm_ui$Internal$Model$extractSpacingAndPadding(attrs);
@@ -23751,7 +24646,6 @@ var $author$project$Shared$view = F2(
 					$mdgriffith$elm_ui$Element$column,
 					_List_fromArray(
 						[
-							$mdgriffith$elm_ui$Element$spacing(30),
 							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 							$mdgriffith$elm_ui$Element$Background$color(
 							A4($mdgriffith$elm_ui$Element$rgba255, 255, 255, 255, 0.9))
@@ -23762,8 +24656,8 @@ var $author$project$Shared$view = F2(
 							$mdgriffith$elm_ui$Element$column,
 							_List_fromArray(
 								[
-									$mdgriffith$elm_ui$Element$padding(20),
 									$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+									$mdgriffith$elm_ui$Element$padding(20),
 									$mdgriffith$elm_ui$Element$Background$color(
 									A3($mdgriffith$elm_ui$Element$rgb255, 141, 166, 211))
 								]),
@@ -23864,10 +24758,7 @@ var $author$project$Shared$view = F2(
 							_List_fromArray(
 								[
 									$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-									$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-									$mdgriffith$elm_ui$Element$spacing(15),
-									$mdgriffith$elm_ui$Element$paddingEach(
-									{bottom: 300, left: 30, right: 30, top: 0})
+									$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
 								]),
 							page.body)
 						]))
@@ -23875,9 +24766,9 @@ var $author$project$Shared$view = F2(
 			title: page.title
 		};
 	});
-var $author$project$Spa$Generated$Pages$view = A2(
+var $author$project$Spa$Pages$view = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Spa$Generated$Pages$bundle,
+	$author$project$Spa$Pages$bundle,
 	function ($) {
 		return $.view;
 	});
@@ -23888,7 +24779,7 @@ var $author$project$Main$view = function (model) {
 			page: A2(
 				$author$project$Spa$Document$map,
 				$author$project$Main$Pages,
-				$author$project$Spa$Generated$Pages$view(model.page)),
+				$author$project$Spa$Pages$view(model.page)),
 			toMsg: $author$project$Main$Shared
 		},
 		model.shared);
@@ -23903,4 +24794,4 @@ var $author$project$Main$main = $elm$browser$Browser$application(
 		view: A2($elm$core$Basics$composeR, $author$project$Main$view, $author$project$Spa$Document$toBrowserDocument)
 	});
 _Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Url.Url":{"args":[],"type":"{ protocol : Url.Protocol, host : String.String, port_ : Maybe.Maybe Basics.Int, path : String.String, query : Maybe.Maybe String.String, fragment : Maybe.Maybe String.String }"},"Pages.NotFound.Msg":{"args":[],"type":"Basics.Never"},"Pages.PageA.Msg":{"args":[],"type":"Basics.Never"},"Pages.Day3.Model":{"args":[],"type":"List.List (List.List Basics.Bool)"}},"unions":{"Main.Msg":{"args":[],"tags":{"LinkClicked":["Browser.UrlRequest"],"UrlChanged":["Url.Url"],"Shared":["Shared.Msg"],"Pages":["Spa.Generated.Pages.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Maybe.Maybe":{"args":["a"],"tags":{"Just":["a"],"Nothing":[]}},"Shared.Msg":{"args":[],"tags":{"ReplaceMe":[]}},"Spa.Generated.Pages.Msg":{"args":[],"tags":{"Top__Msg":["Pages.Top.Msg"],"Day1__Msg":["Pages.Day1.Msg"],"Day10__Msg":["Pages.Day10.Msg"],"Day11__Msg":["Pages.Day11.Msg"],"Day12__Msg":["Pages.Day12.Msg"],"Day13__Msg":["Pages.Day13.Msg"],"Day14__Msg":["Pages.Day14.Msg"],"Day15__Msg":["Pages.Day15.Msg"],"Day16__Msg":["Pages.Day16.Msg"],"Day17__Msg":["Pages.Day17.Msg"],"Day18__Msg":["Pages.Day18.Msg"],"Day19__Msg":["Pages.Day19.Msg"],"Day2__Msg":["Pages.Day2.Msg"],"Day20__Msg":["Pages.Day20.Msg"],"Day21__Msg":["Pages.Day21.Msg"],"Day22__Msg":["Pages.Day22.Msg"],"Day23__Msg":["Pages.Day23.Msg"],"Day24__Msg":["Pages.Day24.Msg"],"Day25__Msg":["Pages.Day25.Msg"],"Day26__Msg":["Pages.Day26.Msg"],"Day27__Msg":["Pages.Day27.Msg"],"Day28__Msg":["Pages.Day28.Msg"],"Day29__Msg":["Pages.Day29.Msg"],"Day3__Msg":["Pages.Day3.Msg"],"Day30__Msg":["Pages.Day30.Msg"],"Day4__Msg":["Pages.Day4.Msg"],"Day5__Msg":["Pages.Day5.Msg"],"Day6__Msg":["Pages.Day6.Msg"],"Day7__Msg":["Pages.Day7.Msg"],"Day8__Msg":["Pages.Day8.Msg"],"Day9__Msg":["Pages.Day9.Msg"],"NotFound__Msg":["Pages.NotFound.Msg"],"PageA__Msg":["Pages.PageA.Msg"],"PageB__Msg":["Pages.PageB.Msg"]}},"Url.Protocol":{"args":[],"tags":{"Http":[],"Https":[]}},"String.String":{"args":[],"tags":{"String":[]}},"Browser.UrlRequest":{"args":[],"tags":{"Internal":["Url.Url"],"External":["String.String"]}},"Pages.Day1.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day10.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day11.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day12.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day13.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day14.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day15.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day16.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day17.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day18.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day19.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day2.Msg":{"args":[],"tags":{"NoOp":[]}},"Pages.Day20.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day21.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day22.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day23.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day24.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day25.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day26.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day27.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day28.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day29.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day3.Msg":{"args":[],"tags":{"Randomize":[],"AssignNewModel":["Pages.Day3.Model"]}},"Pages.Day30.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day4.Msg":{"args":[],"tags":{"SayHi":["Basics.Bool"],"Rotate":["Time.Posix"]}},"Pages.Day5.Msg":{"args":[],"tags":{"Toggle":["Basics.Int","Basics.Int","Basics.Bool"],"EasySetup":[]}},"Pages.Day6.Msg":{"args":[],"tags":{"ColorInputText":["String.String"],"BackgroundColorInputText":["String.String"]}},"Pages.Day7.Msg":{"args":[],"tags":{"NoOp":[]}},"Pages.Day8.Msg":{"args":[],"tags":{"NoOp":[]}},"Pages.Day9.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.PageB.Msg":{"args":[],"tags":{"Increment":[],"Decrement":[]}},"Pages.Top.Msg":{"args":[],"tags":{"Increment":[],"Decrement":[]}},"Basics.Never":{"args":[],"tags":{"JustOneMore":["Basics.Never"]}},"Basics.Bool":{"args":[],"tags":{"True":[],"False":[]}},"Basics.Float":{"args":[],"tags":{"Float":[]}},"List.List":{"args":["a"],"tags":{}},"Time.Posix":{"args":[],"tags":{"Posix":["Basics.Int"]}}}}})}});}(this));
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Url.Url":{"args":[],"type":"{ protocol : Url.Protocol, host : String.String, port_ : Maybe.Maybe Basics.Int, path : String.String, query : Maybe.Maybe String.String, fragment : Maybe.Maybe String.String }"},"Pages.NotFound.Msg":{"args":[],"type":"Basics.Never"},"Pages.PageA.Msg":{"args":[],"type":"Basics.Never"},"Pages.Day3.Model":{"args":[],"type":"List.List (List.List Basics.Bool)"}},"unions":{"Main.Msg":{"args":[],"tags":{"LinkClicked":["Browser.UrlRequest"],"UrlChanged":["Url.Url"],"Shared":["Shared.Msg"],"Pages":["Spa.Pages.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Maybe.Maybe":{"args":["a"],"tags":{"Just":["a"],"Nothing":[]}},"Shared.Msg":{"args":[],"tags":{"ReplaceMe":[]}},"Spa.Pages.Msg":{"args":[],"tags":{"Top__Msg":["Pages.Top.Msg"],"Day1__Msg":["Pages.Day1.Msg"],"Day10__Msg":["Pages.Day10.Msg"],"Day11__Msg":["Pages.Day11.Msg"],"Day12__Msg":["Pages.Day12.Msg"],"Day13__Msg":["Pages.Day13.Msg"],"Day14__Msg":["Pages.Day14.Msg"],"Day15__Msg":["Pages.Day15.Msg"],"Day16__Msg":["Pages.Day16.Msg"],"Day17__Msg":["Pages.Day17.Msg"],"Day18__Msg":["Pages.Day18.Msg"],"Day19__Msg":["Pages.Day19.Msg"],"Day2__Msg":["Pages.Day2.Msg"],"Day20__Msg":["Pages.Day20.Msg"],"Day21__Msg":["Pages.Day21.Msg"],"Day22__Msg":["Pages.Day22.Msg"],"Day23__Msg":["Pages.Day23.Msg"],"Day24__Msg":["Pages.Day24.Msg"],"Day25__Msg":["Pages.Day25.Msg"],"Day26__Msg":["Pages.Day26.Msg"],"Day27__Msg":["Pages.Day27.Msg"],"Day28__Msg":["Pages.Day28.Msg"],"Day29__Msg":["Pages.Day29.Msg"],"Day3__Msg":["Pages.Day3.Msg"],"Day30__Msg":["Pages.Day30.Msg"],"Day4__Msg":["Pages.Day4.Msg"],"Day5__Msg":["Pages.Day5.Msg"],"Day6__Msg":["Pages.Day6.Msg"],"Day7__Msg":["Pages.Day7.Msg"],"Day8__Msg":["Pages.Day8.Msg"],"Day9__Msg":["Pages.Day9.Msg"],"NotFound__Msg":["Pages.NotFound.Msg"],"PageA__Msg":["Pages.PageA.Msg"],"PageB__Msg":["Pages.PageB.Msg"]}},"Url.Protocol":{"args":[],"tags":{"Http":[],"Https":[]}},"String.String":{"args":[],"tags":{"String":[]}},"Browser.UrlRequest":{"args":[],"tags":{"Internal":["Url.Url"],"External":["String.String"]}},"Pages.Day1.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day10.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day11.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day12.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day13.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day14.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day15.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day16.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day17.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day18.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day19.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day2.Msg":{"args":[],"tags":{"NoOp":[]}},"Pages.Day20.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day21.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day22.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day23.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day24.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day25.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day26.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day27.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day28.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day29.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day3.Msg":{"args":[],"tags":{"Randomize":[],"AssignNewModel":["Pages.Day3.Model"]}},"Pages.Day30.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.Day4.Msg":{"args":[],"tags":{"SayHi":["Basics.Bool"],"Rotate":["Time.Posix"]}},"Pages.Day5.Msg":{"args":[],"tags":{"Toggle":["Basics.Int","Basics.Int","Basics.Bool"],"EasySetup":[]}},"Pages.Day6.Msg":{"args":[],"tags":{"ColorInputText":["String.String"],"BackgroundColorInputText":["String.String"]}},"Pages.Day7.Msg":{"args":[],"tags":{"NoOp":[]}},"Pages.Day8.Msg":{"args":[],"tags":{"Set":["String.String","String.String"]}},"Pages.Day9.Msg":{"args":[],"tags":{"Set":["Basics.Float"]}},"Pages.PageB.Msg":{"args":[],"tags":{"Increment":[],"Decrement":[]}},"Pages.Top.Msg":{"args":[],"tags":{"Increment":[],"Decrement":[]}},"Basics.Never":{"args":[],"tags":{"JustOneMore":["Basics.Never"]}},"Basics.Bool":{"args":[],"tags":{"True":[],"False":[]}},"Basics.Float":{"args":[],"tags":{"Float":[]}},"List.List":{"args":["a"],"tags":{}},"Time.Posix":{"args":[],"tags":{"Posix":["Basics.Int"]}}}}})}});}(this));

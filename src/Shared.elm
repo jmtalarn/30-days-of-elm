@@ -24,18 +24,23 @@ import Url exposing (Url)
 
 
 type alias Flags =
-    ()
+    { starter : { nasaApiKey : String } }
 
 
 type alias Model =
     { url : Url
     , key : Key
+    , nasaApiKey : String
     }
 
 
 init : Flags -> Url -> Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model url key
+    let
+        nasaApiKey =
+            flags.starter.nasaApiKey
+    in
+    ( Model url key nasaApiKey
     , Cmd.none
     )
 

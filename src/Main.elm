@@ -59,6 +59,9 @@ type alias Model =
 init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
     let
+        _ =
+            Debug.log "flags on main" flags
+
         ( shared, sharedCmd ) =
             Shared.init flags url key
 
