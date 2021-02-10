@@ -44,8 +44,8 @@ jobs:
               with:
                   envkey_DEBUG: false
                   NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
-                  directory: ./
-                  file_name: .env
+                  # directory: ./
+                  # file_name: .env
 
             - name: Run build elm-starter
               run: npm run elm-starter:build
