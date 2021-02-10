@@ -14,8 +14,8 @@ import Browser
 import Browser.Navigation as Nav
 import Shared exposing (Flags, urls)
 import Spa.Document as Document exposing (Document)
-import Spa.Generated.Pages as Pages
-import Spa.Generated.Route as Route exposing (Route)
+import Spa.Pages as Pages
+import Spa.Route as Route exposing (Route)
 import Starter.ConfMain
 import Url exposing (Url)
 
