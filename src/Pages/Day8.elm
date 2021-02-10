@@ -198,7 +198,8 @@ view model =
                 [ column [ width <| fillPortion 2 ] <| form model
                 , column [ width <| fillPortion 3, padding 20, alignTop ]
                     [ paragraph [ htmlAttribute <| Html.Attributes.style "word-break" "break-all" ]
-                        [ Element.link
+                        [ Element.text "Click the following link in order to reload page and use the query parameters in the model"
+                        , Element.link
                             [ Font.color Colors.Opaque.cornflowerblue
                             , Border.color Colors.Opaque.cornflowerblue
                             , Border.dashed
