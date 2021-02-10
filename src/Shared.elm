@@ -15,7 +15,7 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Spa.Document exposing (Document)
-import Spa.Generated.Route as Route
+import Spa.Route as Route
 import Url exposing (Url)
 
 

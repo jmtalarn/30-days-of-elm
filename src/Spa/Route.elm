@@ -1,4 +1,4 @@
-module Spa.Generated.Route exposing
+module Spa.Route exposing
     ( Route(..)
     , fromUrl
     , toString

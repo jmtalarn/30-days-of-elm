@@ -10,19 +10,19 @@ Run ```npm run dev``` which will start Elm reactor on port 8000 by default.
 
 Build a range slider and show the value in a p tag
 
-[src](src/Day1.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day1)
+[src](src/Day1.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day1)
 
 ### Day 2 - HTML element for each item in list
 
 Display a p tag for each item in an array
 
-[src](src/Day2.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day2)
+[src](src/Day2.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day2)
 
 ### Day 3 - Random checkbox grid
 
 10x10 grid of checkboxes, which will be randomly checked when a button is clicked
 
-[src](src/Day3.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day3)
+[src](src/Day3.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day3)
 
 ### Day4 - Toggle visibility
 
@@ -30,26 +30,31 @@ Display a p tag for each item in an array
 
 Extra ball - Checkbox to say hi!
 
-[src](src/Day4.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day4)
+[src](src/Day4.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day4)
 
 ### Day5 - "Lights out" game
 * 5x5 checkboxes 
 * when clicking one, left, right,up,down neighbors also get toggled
 * The goal is uncheck all the checkboxes
 
-[src](src/Day5.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day5)
+[src](src/Day5.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day5)
 
 ### Day6 - Accessible background colors
 Generate color, and checking whether black or white text is the most readable, [according to Web Content Accessibility Guidelines (WCAG) standards](https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head).
 
-[src](src/Day6.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day6)
+[src](src/Day6.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day6)
 
 ### Day7 - Centering div and content
 Using ```elm-ui``` to center some divs and their content.
 
-[src](src/Day7.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day7)
+[src](src/Day7.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day7)
 
-### Day8 - Centering div and content
+### Day8 - Data from JS and auto-reload
 Data from JS and auto-reload on save
 
-[src](src/Day8.elm) [result](https://mystifying-leavitt-9c33d7.netlify.app/day8)
+[src](src/Day8.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day8)
+
+### Day9 - Astronomy data from Python in Elm
+Read data from a backend in order to show it on an Elm app.
+
+[src](src/Day9.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day9)

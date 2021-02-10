@@ -1,4 +1,4 @@
-module Spa.Generated.Pages exposing
+module Spa.Pages exposing
     ( Model
     , Msg
     , init
@@ -45,8 +45,8 @@ import Pages.PageB
 import Pages.Top
 import Shared
 import Spa.Document as Document exposing (Document)
-import Spa.Generated.Route as Route exposing (Route)
 import Spa.Page exposing (Page)
+import Spa.Route as Route exposing (Route)
 import Spa.Url as Url
 
 
