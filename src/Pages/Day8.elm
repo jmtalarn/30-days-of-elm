@@ -186,7 +186,7 @@ view model =
     in
     { title = "Day 8"
     , body =
-        [ column [ centerX, centerY, width fill, paddingXY 300 50, spacing 50 ]
+        [ column [ centerX, centerY, width fill, padding 50, spacing 50, width (fill |> maximum 1200) ]
             [ row
                 (rowAttributes ++ commonAttributes)
                 [ Element.paragraph
@@ -195,8 +195,8 @@ view model =
                 ]
             , row
                 rowAttributes
-                [ column [ width <| fillPortion 3 ] <| form model
-                , column [ width <| fillPortion 2, padding 20, alignTop ]
+                [ column [ width <| fillPortion 2 ] <| form model
+                , column [ width <| fillPortion 3, padding 20, alignTop ]
                     [ paragraph [ htmlAttribute <| Html.Attributes.style "word-break" "break-all" ]
                         [ Element.link
                             [ Font.color Colors.Opaque.cornflowerblue
