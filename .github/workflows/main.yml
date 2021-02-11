@@ -40,12 +40,10 @@ jobs:
             # - name: Run build elm-spa
             #   run: npm run build:elm-spa
 
-            - name: Dump NASA_API_KEY
+            - name: Run build elm-starter
               env:
                   NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
-              run: echo "$NASA_API_KEY"
-            - name: Run build elm-starter
-              run: npm run elm-starter:build
+              run: NASA_API_KEY=$NASA_API_KEY npm run elm-starter:build
 
             - name: Remove old docs folder
               run: rm -rf ./docs
