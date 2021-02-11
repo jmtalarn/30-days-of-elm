@@ -76,3 +76,7 @@ Next binary number with same number of 1's using elm-binary package
 
 [src](src/Day12.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day12)
 
+### Day13 - Simple line chart
+Visualize values jumps of previous Day within a given range
+
+[src](src/Day13.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day13)
