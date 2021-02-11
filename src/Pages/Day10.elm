@@ -34,12 +34,12 @@ type alias Params =
 
 
 type alias Model =
-    { mousePosition : ( Int, Int ), root : ( Int, Int ) }
+    { mousePosition : ( Int, Int ), rootXY : ( ( Int, Int ), ( Int, Int ) ) }
 
 
 init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
 init shared { params } =
-    ( { mousePosition = ( 0, 0 ), root = ( 0, 0 ) }, getRootXY )
+    ( { mousePosition = ( 0, 0 ), rootXY = ( ( 0, 0 ), ( 0, 0 ) ) }, getRootXY )
 
 
 type Msg
@@ -52,9 +52,9 @@ getRootXY =
     Task.attempt GotRootXY <| getElement "the_element"
 
 
-relativeToRoot : ( Int, Int ) -> ( Int, Int ) -> ( Int, Int )
-relativeToRoot ( x, y ) ( rootX, rootY ) =
-    if x < rootX || y < rootY then
+relativeToRoot : ( Int, Int ) -> ( ( Int, Int ), ( Int, Int ) ) -> ( Int, Int )
+relativeToRoot ( x, y ) ( ( rootX, rootY ), ( finalX, finalY ) ) =
+    if x < rootX || y < rootY || x > finalX || y > finalY then
         ( 0, 0 )
 
     else
@@ -65,21 +65,21 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Set x y ->
-            let
-                elementX =
-                    first model.root
-
-                elementY =
-                    second model.root
-            in
-            ( { model | mousePosition = relativeToRoot ( x, y ) model.root }
+            ( { model | mousePosition = relativeToRoot ( x, y ) model.rootXY }
             , Cmd.none
             )
 
         GotRootXY result ->
             case result of
                 Ok { element } ->
-                    ( { model | root = ( round element.x, round element.y ) }, Cmd.none )
+                    ( { model
+                        | rootXY =
+                            ( ( round element.x, round element.y )
+                            , ( round (element.x + element.width), round (element.y + element.height) )
+                            )
+                      }
+                    , Cmd.none
+                    )
 
                 Err error ->
                     ( model, Cmd.none )
