@@ -58,3 +58,9 @@ Data from JS and auto-reload on save
 Read data from a backend in order to show it on an Elm app.
 
 [src](src/Day9.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day9)
+
+### Day10 - Mouse coordinates
+Read data from a backend in order to show it on an Elm app.
+
+[src](src/Day10.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day10)
+Get the X and Y position of the mouse pointer
