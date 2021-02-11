@@ -42,7 +42,7 @@ jobs:
 
             - name: Dump NASA_API_KEY
               env:
-                  NASA_API_KEY: ${{ toJSON(NASA_API_KEY) }}
+                  NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
               run: echo "$NASA_API_KEY"
             - name: Run build elm-starter
               run: npm run elm-starter:build
