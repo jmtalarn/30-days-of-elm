@@ -2,7 +2,7 @@ module Pages.Day12 exposing (..)
 
 -- import Html.Attributes exposing (..)
 
-import Binary exposing (Bits, add)
+import Binary exposing (Bits, add, empty)
 import Colors.Opaque exposing (grey)
 import Element exposing (..)
 import Element.Font as Font exposing (size)
@@ -101,7 +101,11 @@ subscriptions model =
 
 printBits : Bits -> String
 printBits number =
-    String.concat <| List.map String.fromInt (Binary.toIntegers number)
+    if number == empty then
+        "凸"
+
+    else
+        String.concat <| List.map String.fromInt (Binary.toIntegers number)
 
 
 view : Model -> Document Msg
@@ -115,7 +119,7 @@ view model =
             ]
             [ row [] [ html <| h1 [] [ Html.text "Day 12" ] ]
             , row [] [ html <| h3 [] [ Html.text "Next number with same amount of ones in binary representation" ] ]
-            , row [ Font.size 10 ] [ Element.text "elm-binary edition" ]
+            , row [ Font.color Colors.Opaque.crimson, rotate -0.3, scale 1.2, Font.extraBold, moveUp 180, moveRight 200 ] [ Element.text "elm-binary edition" ]
             , row [ spacing 20 ]
                 [ column
                     [ spacing 10, centerY ]
