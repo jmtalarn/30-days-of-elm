@@ -70,3 +70,9 @@ Next binary number with same number of 1's
 
 [src](src/Day11.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day11)
 
+
+### Day12 - Next binary number with same number of 1's
+Next binary number with same number of 1's using elm-binary package
+
+[src](src/Day12.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day12)
+
