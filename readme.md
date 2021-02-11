@@ -60,7 +60,13 @@ Read data from a backend in order to show it on an Elm app.
 [src](src/Day9.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day9)
 
 ### Day10 - Mouse coordinates
-Read data from a backend in order to show it on an Elm app.
+Get the X and Y position of the mouse pointer
 
 [src](src/Day10.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day10)
-Get the X and Y position of the mouse pointer
+
+
+### Day11 - Next binary number with same number of 1's
+Next binary number with same number of 1's
+
+[src](src/Day11.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day11)
+
