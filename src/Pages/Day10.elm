@@ -1,19 +1,20 @@
 module Pages.Day10 exposing (..)
 
--- import Html.Attributes exposing (..)
-
-import Colors.Opaque exposing (grey)
+import Browser.Dom exposing (getElement)
+import Browser.Events exposing (onMouseMove)
 import Element exposing (..)
-import Element.Background as Background
-import Element.Border as Border
-import Element.Font as Font exposing (size)
-import Element.Input as Input exposing (..)
-import Html exposing (h1, p)
+import Element.Font as Font exposing (center, size)
+import Html exposing (h1)
+import Html.Attributes as HtmlAttributes exposing (id)
 import Html.Events exposing (onInput)
+import Json.Decode as Decode
 import Shared
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url exposing (Url)
+import Svg.Attributes exposing (result)
+import Task
+import Tuple exposing (first, second)
 
 
 page : Page Params Model Msg
@@ -33,23 +34,55 @@ type alias Params =
 
 
 type alias Model =
-    Float
+    { mousePosition : ( Int, Int ), root : ( Int, Int ) }
 
 
 init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
 init shared { params } =
-    ( 0, Cmd.none )
+    ( { mousePosition = ( 0, 0 ), root = ( 0, 0 ) }, getRootXY )
 
 
 type Msg
-    = Set Float
+    = Set Int Int
+    | GotRootXY (Result Browser.Dom.Error Browser.Dom.Element)
+
+
+getRootXY : Cmd Msg
+getRootXY =
+    Task.attempt GotRootXY <| getElement "the_element"
+
+
+relativeToRoot : ( Int, Int ) -> ( Int, Int ) -> ( Int, Int )
+relativeToRoot ( x, y ) ( rootX, rootY ) =
+    if x < rootX || y < rootY then
+        ( 0, 0 )
+
+    else
+        ( x - rootX, y - rootY )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg _ =
+update msg model =
     case msg of
-        Set value ->
-            ( value, Cmd.none )
+        Set x y ->
+            let
+                elementX =
+                    first model.root
+
+                elementY =
+                    second model.root
+            in
+            ( { model | mousePosition = relativeToRoot ( x, y ) model.root }
+            , Cmd.none
+            )
+
+        GotRootXY result ->
+            case result of
+                Ok { element } ->
+                    ( { model | root = ( round element.x, round element.y ) }, Cmd.none )
+
+                Err error ->
+                    ( model, Cmd.none )
 
 
 save : Model -> Shared.Model -> Shared.Model
@@ -64,20 +97,27 @@ load shared model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    onMouseMove
+        (Decode.map2 Set
+            (Decode.field "pageX" Decode.int)
+            (Decode.field "pageY" Decode.int)
+        )
 
 
 view : Model -> Document Msg
-view model =
-    { title = "Day1"
+view { mousePosition } =
+    { title = "Day 10"
     , body =
         [ column
             [ centerX
             , padding 40
             , Font.size 30
+            , width fill
+            , htmlAttribute <| HtmlAttributes.id "the_element"
+            , htmlAttribute <| HtmlAttributes.style "cursor" "crosshair"
             ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 10" ] ]
-            , row [] [ html <| p [] [ Html.text "Nothing here yet for this day of challenge" ] ]
+            [ row [ centerX ] [ html <| h1 [] [ Html.text "Mouse coordinates" ] ]
+            , row [ width fill, centerX ] [ paragraph [ Font.center ] [ Element.text <| String.fromInt <| first mousePosition, Element.text " , ", Element.text <| String.fromInt <| second mousePosition ] ]
             ]
         ]
     }
