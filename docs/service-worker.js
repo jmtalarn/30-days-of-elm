@@ -17,7 +17,7 @@ const precacheAndRoute = workbox.precaching.precacheAndRoute;
 precacheAndRoute( 
 [
     {
-        "url": "/30-days-of-elm/elm-0.0.9-6dca7cb.min.js",
+        "url": "/30-days-of-elm/elm-0.0.9-228138a.min.js",
         "revision": "0.0.9"
     },
     {
@@ -183,6 +183,10 @@ precacheAndRoute(
     {
         "url": "/30-days-of-elm/icons/64.png",
         "revision": "711d2d9c1419ce5aa111c19928da0851d0025702"
+    },
+    {
+        "url": "/30-days-of-elm/images/earth-clip-rotating-17.gif",
+        "revision": "f4b364a7472ca4f75b1e95a17003fd401831e53a"
     }
 ]
 );
