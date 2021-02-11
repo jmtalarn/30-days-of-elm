@@ -17,7 +17,7 @@ const precacheAndRoute = workbox.precaching.precacheAndRoute;
 precacheAndRoute( 
 [
     {
-        "url": "/30-days-of-elm/elm-0.0.9-228138a.min.js",
+        "url": "/30-days-of-elm/elm-0.0.9-57ea170.min.js",
         "revision": "0.0.9"
     },
     {
