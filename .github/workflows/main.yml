@@ -39,14 +39,11 @@ jobs:
             # Runs a set of commands using the runners shell
             # - name: Run build elm-spa
             #   run: npm run build:elm-spa
-            - name: Make envfile
-              uses: SpicyPizza/create-envfile@v1
-              with:
-                  envkey_DEBUG: false
-                  NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
-                  # directory: ./
-                  # file_name: .env
 
+            - name: Dump NASA_API_KEY
+              env:
+                  NASA_API_KEY: ${{ toJSON(NASA_API_KEY) }}
+              run: echo "$NASA_API_KEY"
             - name: Run build elm-starter
               run: npm run elm-starter:build
 
