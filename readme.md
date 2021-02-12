@@ -80,3 +80,9 @@ Next binary number with same number of 1's using elm-binary package
 Visualize values jumps of previous Day within a given range
 
 [src](src/Day13.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day13)
+
+### Day14 - Four CodeWars katas
+Solve 4 katas (puzzles/problems) at [https://www.codewars.com/] 
+
+[src](src/Day14.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day14)
+
