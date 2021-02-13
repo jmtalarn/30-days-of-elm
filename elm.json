@@ -20,6 +20,7 @@
             "elm/url": "1.0.0",
             "fredcy/elm-parseint": "2.0.1",
             "icidasset/elm-binary": "2.1.0",
+            "klazuka/elm-json-tree-view": "2.1.0",
             "mdgriffith/elm-ui": "1.1.7",
             "phollyer/elm-ui-colors": "3.0.0",
             "terezka/line-charts": "2.0.1"
