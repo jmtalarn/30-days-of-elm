@@ -82,6 +82,19 @@ type Msg
     | ParseText
 
 
+printParsed : Parsed -> String
+printParsed parsed =
+    case parsed of
+        Book ean title author ->
+            "This is a Book, with ean " ++ ean ++ " titled " ++ title ++ " writen by " ++ author
+
+        User id name email ->
+            "this is a User with an id " ++ id ++ " called " ++ name ++ " and you can email him/her to " ++ email
+
+        Nothing ->
+            "This is NOTHING I can decode, parse and show."
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg ( text, parsed ) =
     case msg of
@@ -177,7 +190,7 @@ view model =
                         { onPress = Just ParseText, label = Element.text "Press to parse 🔀" }
                     ]
                 , column [ width fill, alignTop, paddingXY 0 25, Font.extraLight ]
-                    [ Element.text <| Debug.toString <| parsed ]
+                    [ Element.paragraph [] [ Element.text <| printParsed <| parsed ] ]
                 ]
             ]
         ]
