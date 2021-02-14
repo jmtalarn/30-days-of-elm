@@ -87,7 +87,9 @@ Solve 4 katas (puzzles/problems) at [https://www.codewars.com/]
 [src](src/Day14.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day14)
 
 ### Day15 - Struggling with JSON :|
+Do some stuff with JSON
 [src](src/Day15.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day15)
 
 ### Day16 - Struggling slightly less with JSON
+Deal with JSON with some JSON decoding
 [src](src/Day16.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day16)
