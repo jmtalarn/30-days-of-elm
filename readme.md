@@ -93,3 +93,11 @@ Do some stuff with JSON
 ### Day16 - Struggling slightly less with JSON
 Deal with JSON with some JSON decoding
 [src](src/Day16.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day16)
+
+### Day17 - I decoded some JSON!
+Decode some JSON, presenting the data or the error
+[src](src/Day17.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day17)
+
+### Day18 - Decoding JSON from a Python backend
+Decoded some JSON from Python backend in Elm
+[src](src/Day18.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day18)
