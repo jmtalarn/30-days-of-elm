@@ -2,6 +2,7 @@ module Pages.Day18 exposing (..)
 
 -- import Html.Attributes exposing (..)
 
+import Animation exposing (deg, interrupt, px, to)
 import Colors.Opaque exposing (grey)
 import Date
 import Element exposing (..)
@@ -24,11 +25,14 @@ import Loading as Loader
         )
 import Material.Icons.Outlined as Outlined exposing (cake, card_giftcard, email, home, phone)
 import Material.Icons.Types exposing (Coloring(..))
+import Process exposing (sleep)
 import Shared
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url exposing (Url)
+import Task exposing (perform)
 import Time exposing (utc)
+import Tuple exposing (first, second)
 
 
 page : Page Params Model Msg
@@ -122,48 +126,112 @@ type alias RandomUser =
 
 
 type alias Model =
-    Response
+    ( Response, Animation.State )
 
 
 init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
 init shared { params } =
-    ( Loading, getRandomUser )
+    ( ( Loading
+      , Animation.style
+            [ Animation.rotate3d (deg 0) (deg 0) (deg 0)
+            ]
+      )
+    , getRandomUser
+    )
 
 
 type Msg
     = GotRandomUser (Result Http.Error RandomUser)
     | GetRandomUser
+    | Animate Animation.Msg
+    | StartFlip
+    | EndFlip (Result Http.Error RandomUser)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
+update msg ( response, style ) =
     case msg of
         GotRandomUser result ->
             case result of
                 Ok randomUser ->
-                    ( Success randomUser, Cmd.none )
+                    let
+                        newStyle =
+                            Animation.interrupt
+                                [ Animation.to
+                                    [ Animation.rotate3d (deg 0) (deg 0) (deg 0)
+                                    ]
+                                ]
+                                style
+                    in
+                    ( ( Success randomUser, newStyle ), Cmd.none )
 
                 Err error ->
                     let
-                        _ =
-                            Debug.log "GotRandomUser" (Debug.toString error)
+                        newStyle =
+                            Animation.interrupt
+                                [ Animation.to
+                                    [ Animation.rotate3d (deg 0) (deg 0) (deg 0)
+                                    ]
+                                ]
+                                style
                     in
-                    ( Failure, Cmd.none )
+                    ( ( Failure, newStyle ), Cmd.none )
 
         GetRandomUser ->
-            ( Loading, getRandomUser )
+            let
+                newStyle =
+                    Animation.interrupt
+                        [ Animation.to
+                            [ Animation.rotate3d (deg 0) (deg 180) (deg 0)
+                            ]
+                        ]
+                        style
+            in
+            ( ( Loading, newStyle ), getRandomUser )
+
+        Animate animMsg ->
+            ( ( response, Animation.update animMsg style ), Cmd.none )
+
+        EndFlip result ->
+            let
+                newStyle =
+                    Animation.interrupt
+                        [ Animation.to
+                            [ Animation.rotate3d (deg 0) (deg 90) (deg 0)
+                            ]
+                        ]
+                        style
+            in
+            ( ( response, newStyle ), delay 500 (GotRandomUser result) )
+
+        StartFlip ->
+            let
+                newStyle =
+                    Animation.interrupt
+                        [ Animation.to
+                            [ Animation.rotate3d (deg 0) (deg 90) (deg 0)
+                            ]
+                        ]
+                        style
+            in
+            ( ( response, newStyle ), delay 500 GetRandomUser )
 
 
 getRandomUser : Cmd Msg
 getRandomUser =
-    Http.get { url = "https://randomuser.me/api/", expect = Http.expectJson GotRandomUser randomUserDecoder }
+    Http.get { url = "https://randomuser.me/api/", expect = Http.expectJson EndFlip randomUserDecoder }
+
+
+delay : Float -> msg -> Cmd msg
+delay time msg =
+    sleep time |> Task.perform (\_ -> msg)
 
 
 renderUserCard : RandomUser -> List (Element Msg)
 renderUserCard user =
     [ column
         [ alignTop ]
-        [ Element.image [ width <| px 200, Border.rounded 500, clip, Border.width 1 ] { src = user.picture.large, description = "The avatar for this user" } ]
+        [ Element.image [ width <| Element.px 200, Border.rounded 500, clip, Border.width 1 ] { src = user.picture.large, description = "The avatar for this user" } ]
     , column
         [ alignTop
         , spacing 10
@@ -264,13 +332,13 @@ load shared model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
+subscriptions ( response, style ) =
+    Animation.subscription Animate [ style ]
 
 
-renderCardContent : Model -> List (Element Msg)
-renderCardContent model =
-    case model of
+renderCardContent : Response -> List (Element Msg)
+renderCardContent response =
+    case response of
         Loading ->
             [ column
                 [ Font.size 58, centerX ]
@@ -289,8 +357,16 @@ renderCardContent model =
 
 
 renderResult : Model -> Element Msg
-renderResult model =
-    column [ width fill, htmlAttribute <| HtmlAttributes.style "cursor" "pointer", Events.onClick GetRandomUser ]
+renderResult ( response, style ) =
+    column
+        ([ width fill
+         , htmlAttribute <| HtmlAttributes.style "cursor" "pointer"
+         , Events.onClick StartFlip
+         ]
+            ++ (List.map Element.htmlAttribute <|
+                    Animation.render style
+               )
+        )
         [ row
             [ spacing 10
             , padding 10
@@ -302,10 +378,10 @@ renderResult model =
                 , blur = 20
                 , color = Colors.Opaque.slategray
                 }
-            , width <| px 600
-            , height <| px 300
+            , width <| Element.px 600
+            , height <| Element.px 300
             ]
-            (renderCardContent model)
+            (renderCardContent response)
         ]
 
 
