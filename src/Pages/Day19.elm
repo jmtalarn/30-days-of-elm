@@ -3,17 +3,22 @@ module Pages.Day19 exposing (..)
 -- import Html.Attributes exposing (..)
 
 import Colors.Opaque exposing (grey)
-import Element exposing (..)
+import Element
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
-import Html exposing (h1, p)
+import Html exposing (Html, h1, p)
 import Html.Events exposing (onInput)
 import Shared
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url exposing (Url)
+import Svg exposing (..)
+import Svg.Attributes as SVGAttrs exposing (..)
+import Task
+import Time
+import TimeZone
 
 
 page : Page Params Model Msg
@@ -32,24 +37,59 @@ type alias Params =
     ()
 
 
+type alias TimeZoneAndName =
+    { zone : Time.Zone, name : String }
+
+
 type alias Model =
-    Float
+    ( ( TimeZoneAndName, TimeZoneAndName, TimeZoneAndName ), Time.Posix )
 
 
 init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
 init shared { params } =
-    ( 0, Cmd.none )
+    ( ( ( TimeZoneAndName (TimeZone.america__los_angeles ()) "America/Los Angeles"
+        , TimeZoneAndName Time.utc ""
+        , TimeZoneAndName (TimeZone.asia__tokyo ()) "Asia/Tokyo"
+        )
+      , Time.millisToPosix 0
+      )
+    , TimeZone.getZone |> Task.attempt AdjustTimeZone
+    )
 
 
 type Msg
-    = Set Float
+    = Tick Time.Posix
+    | AdjustTimeZone (Result TimeZone.Error ( String, Time.Zone ))
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg _ =
+update msg ( zones, time ) =
     case msg of
-        Set value ->
-            ( value, Cmd.none )
+        Tick newTime ->
+            ( ( zones, newTime )
+            , Cmd.none
+            )
+
+        AdjustTimeZone result ->
+            let
+                ( la, _, tk ) =
+                    zones
+
+                newZone =
+                    case result of
+                        Ok ( zoneName, zone ) ->
+                            TimeZoneAndName
+                                zone
+                                zoneName
+
+                        Err error ->
+                            TimeZoneAndName
+                                Time.utc
+                                "UTC"
+            in
+            ( ( ( la, newZone, tk ), time )
+            , Cmd.none
+            )
 
 
 save : Model -> Shared.Model -> Shared.Model
@@ -64,20 +104,95 @@ load shared model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    Time.every 1000 Tick
+
+
+clock : ( TimeZoneAndName, Time.Posix ) -> Element.Element Msg
+clock ( { zone, name }, time ) =
+    let
+        hour =
+            toFloat (Time.toHour zone time)
+
+        minute =
+            toFloat (Time.toMinute zone time)
+
+        second =
+            toFloat (Time.toSecond zone time)
+    in
+    Element.column [ Element.centerX, Font.size 15 ]
+        [ Element.row [ Element.centerX ]
+            [ Element.html <|
+                svg
+                    [ viewBox "0 0 200 200"
+                    , width "200"
+                    , height "200"
+                    ]
+                    [ defs
+                        []
+                        [ linearGradient
+                            [ id "backgroundGradient"
+                            ]
+                            [ stop
+                                [ offset "10%"
+                                , stopColor "darkred"
+                                ]
+                                []
+                            , stop
+                                [ offset "80%"
+                                , stopColor "midnightblue"
+                                ]
+                                []
+                            ]
+                        ]
+                    , circle [ cx "100", cy "100", r "60", fill "url('#backgroundGradient')" ] []
+                    , hand 6 40 (hour / 12) "white"
+                    , hand 4 50 (minute / 60) "white"
+                    , hand 2 50 (second / 60) "tomato"
+                    ]
+            ]
+        , Element.row [ Element.centerX ] [ Element.text name ]
+        ]
+
+
+hand : Int -> Float -> Float -> String -> Svg msg
+hand width length turns color =
+    let
+        t =
+            2 * pi * (turns - 0.25)
+
+        x =
+            100 + length * cos t
+
+        y =
+            100 + length * sin t
+    in
+    line
+        [ x1 "100"
+        , y1 "100"
+        , x2 (String.fromFloat x)
+        , y2 (String.fromFloat y)
+        , stroke color
+        , strokeWidth (String.fromInt width)
+        , strokeLinecap "round"
+        ]
+        []
 
 
 view : Model -> Document Msg
-view model =
-    { title = "Day1"
+view ( ( la, here, tk ), time ) =
+    { title = "Day 19"
     , body =
-        [ column
-            [ centerX
-            , padding 40
+        [ Element.column
+            [ Element.centerX
+            , Element.padding 40
             , Font.size 30
             ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 19" ] ]
-            , row [] [ html <| p [] [ Html.text "Nothing here yet for this day of challenge" ] ]
+            [ Element.row [ Element.centerX ] [ Element.html <| h1 [] [ Html.text "Day 19" ] ]
+            , Element.row []
+                [ clock ( la, time )
+                , clock ( here, time )
+                , clock ( tk, time )
+                ]
             ]
         ]
     }
