@@ -25,6 +25,7 @@
             "icidasset/elm-binary": "2.1.0",
             "icidasset/elm-material-icons": "5.0.0",
             "justinmimbs/date": "3.2.1",
+            "justinmimbs/timezone-data": "4.0.2",
             "klazuka/elm-json-tree-view": "2.1.0",
             "mdgriffith/elm-style-animation": "4.0.0",
             "mdgriffith/elm-ui": "1.1.7",

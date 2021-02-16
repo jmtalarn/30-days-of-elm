@@ -3,7 +3,7 @@
 https://dev.to/kristianpedersen/30-days-of-elm-intro-2lo2
 
 ## Start the project
-Run ```npm run dev``` which will start Elm reactor on port 8000 by default. 
+Run ```npm run elm-starter:start``` which will start Elm reactor on port 8000 by default. 
 
 ## Challenges
 ### Day 1 - Range slider value in p tag
@@ -101,3 +101,6 @@ Decode some JSON, presenting the data or the error
 ### Day18 - Decoding JSON from a Python backend
 Decoded some JSON from Python backend in Elm
 [src](src/Day18.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day18)
+
+### Day19 - Basic time
+[src](src/Day19.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day19)
