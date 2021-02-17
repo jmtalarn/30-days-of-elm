@@ -104,3 +104,6 @@ Decoded some JSON from Python backend in Elm
 
 ### Day19 - Basic time
 [src](src/Day19.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day19)
+
+### Day20 - Getting the browser's width and height
+[src](src/Day20.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day20)
