@@ -118,6 +118,12 @@ htmlToReinject flags =
                                 }
                             }
                         );"""
+                        ++ """
+                            window.addEventListener('scroll', ()=>{
+                                window.ElmApp.ports.scrolled.send(true);
+                            });
+                            
+                        """
                         ++ Starter.SnippetJavascript.portChangeMeta
                     )
                 ]
