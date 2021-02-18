@@ -12,7 +12,6 @@ import Shared
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url exposing (Url)
-import Svg.Attributes exposing (result)
 import Task
 import Tuple exposing (first, second)
 
