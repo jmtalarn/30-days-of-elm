@@ -17,7 +17,7 @@ const precacheAndRoute = workbox.precaching.precacheAndRoute;
 precacheAndRoute( 
 [
     {
-        "url": "/30-days-of-elm/elm-0.0.9-21a0917.min.js",
+        "url": "/30-days-of-elm/elm-0.0.9-9f3d736.min.js",
         "revision": "0.0.9"
     },
     {
@@ -187,6 +187,46 @@ precacheAndRoute(
     {
         "url": "/30-days-of-elm/images/earth-clip-rotating-17.gif",
         "revision": "f4b364a7472ca4f75b1e95a17003fd401831e53a"
+    },
+    {
+        "url": "/30-days-of-elm/images/earth.svg",
+        "revision": "6f02410aa6ecde5cc3b67ae77f08ace330f4c5e9"
+    },
+    {
+        "url": "/30-days-of-elm/images/jupiter.svg",
+        "revision": "7961f41d801a77d1697d65b7c494d542cfd75f3f"
+    },
+    {
+        "url": "/30-days-of-elm/images/mars.svg",
+        "revision": "af65f209bf0c1754fdc29419650ba37925330df3"
+    },
+    {
+        "url": "/30-days-of-elm/images/mercury.svg",
+        "revision": "5757a62c9afde6c01259393fd5828dad206b98fb"
+    },
+    {
+        "url": "/30-days-of-elm/images/neptune.svg",
+        "revision": "afaa2ae9e4572e6c6626228143e9d0e4cddcc485"
+    },
+    {
+        "url": "/30-days-of-elm/images/pluto.svg",
+        "revision": "17873b1670cb45588998b6c4cfb04c6e58fca261"
+    },
+    {
+        "url": "/30-days-of-elm/images/saturn.svg",
+        "revision": "caf8031d703ee60ce6255630fda2d4ec13eb4870"
+    },
+    {
+        "url": "/30-days-of-elm/images/sun.svg",
+        "revision": "d556482276daa2c112f30b957e2987773eebc160"
+    },
+    {
+        "url": "/30-days-of-elm/images/uranus.svg",
+        "revision": "c46dafd21ec2cde387f085f03bca03bfc38f5b34"
+    },
+    {
+        "url": "/30-days-of-elm/images/venus.svg",
+        "revision": "293fc5cd204a2e650f155984c06192f27a6a7f74"
     }
 ]
 );
