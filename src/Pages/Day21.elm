@@ -259,9 +259,6 @@ drawSolarSystem planets speed =
         planetsCorrectedAndSorted =
             List.map2 (\d p -> { p | distance = d + proportionalOrbit p.distance }) corrections planetsSorted
 
-        _ =
-            Debug.log "swWidht" svgWidth
-
         sw =
             String.fromFloat svgWidth
     in
