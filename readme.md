@@ -107,3 +107,6 @@ Decoded some JSON from Python backend in Elm
 
 ### Day20 - Getting the browser's width and height
 [src](src/Day20.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day20)
+
+### Day21 - Planet list -> SVG drawings
+[src](src/Day21.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day21)
