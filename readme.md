@@ -110,3 +110,7 @@ Decoded some JSON from Python backend in Elm
 
 ### Day21 - Planet list -> SVG drawings
 [src](src/Day21.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day21)
+
+### Day22 - Simple codewars.com challenges
+Just practice some basics doing 6 codewars challenges
+[src](src/Day22.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day22)
