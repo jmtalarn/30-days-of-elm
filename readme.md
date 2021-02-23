@@ -114,3 +114,7 @@ Decoded some JSON from Python backend in Elm
 ### Day22 - Simple codewars.com challenges
 Just practice some basics doing 6 codewars challenges
 [src](src/Day22.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day22)
+
+### Day23 - Simple layout with elm-ui
+You click a chess board position, and the program finds a valid sequence of moves where the knight visits every position on the board
+[src](src/Day23.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day23)
