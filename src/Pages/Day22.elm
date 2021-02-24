@@ -175,10 +175,6 @@ solveKata8 { upspeed, downspeed, desiredheight, days } =
 
 growingPlant : Int -> Int -> Int -> Int -> Int -> Int
 growingPlant upspeed downspeed desiredheight currentheight days =
-    let
-        _ =
-            Debug.log "growingplant " { upspeed = upspeed, downspeed = downspeed, desiredheight = desiredheight, currentheight = currentheight, days = days }
-    in
     if desiredheight == 0 then
         0
 
@@ -246,9 +242,6 @@ solveKata6 ( code, decoded ) =
                 String.join " / " <|
                     String.split "   "
                         (String.trim code)
-
-        _ =
-            Debug.log "letters" letters
     in
     ( code, List.map morseCodes.get letters |> String.join "" )
 
