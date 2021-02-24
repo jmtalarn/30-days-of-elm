@@ -15,10 +15,13 @@ import Element.Input as Input exposing (..)
 import Html exposing (h1, p)
 import Html.Attributes
 import Html.Events exposing (onInput)
+import Maybe
 import Shared
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url exposing (Url)
+import Svg exposing (..)
+import Svg.Attributes as SvgAttrs exposing (..)
 import Tuple exposing (first, second)
 
 
@@ -59,13 +62,6 @@ update msg ( size, ( startingRow, startingCol ) ) =
             ( ( round value, ( ' ', -1 ) ), Cmd.none )
 
         SetFirstMove row col ->
-            let
-                dummy =
-                    startSolveBoard ( size, ( row, col ) )
-
-                _ =
-                    Debug.log ("solvableBoard [" ++ String.fromInt (List.length dummy) ++ "]") dummy
-            in
             ( ( size, ( row, col ) ), Cmd.none )
 
 
@@ -140,8 +136,8 @@ borderColor ( row, col ) ( srow, scol ) =
         ]
 
     else
-        [ Border.color Colors.Opaque.gainsboro
-        , Border.width 1
+        [--     Border.color Colors.Opaque.gainsboro
+         -- , Border.width 1
         ]
 
 
@@ -152,8 +148,8 @@ drawCell ( size, ( startingRow, startingCol ) ) row col =
     in
     Element.column
         ([ Font.color Colors.Opaque.gray
-         , width <| px (round sz.width)
-         , height <| px (round sz.width)
+         , Element.width <| px (round sz.width)
+         , Element.height <| px (round sz.width)
          , Background.color <| blackOrWhite row col
          , pointer
          ]
@@ -211,6 +207,12 @@ drawBoard model =
 possibleMoves : List Char -> List Int -> ( Char, Int ) -> List ( Char, Int )
 possibleMoves rows cols ( row, col ) =
     let
+        maxRow =
+            Maybe.withDefault 0 <| Dict.get (Maybe.withDefault ' ' (List.maximum rows)) dictLetterToInt
+
+        maxCol =
+            Maybe.withDefault 0 (List.maximum cols)
+
         dictLetterToInt =
             Dict.fromList <| List.map2 Tuple.pair rows cols
 
@@ -221,13 +223,13 @@ possibleMoves rows cols ( row, col ) =
             [ ( i - 2, j - 1 ), ( i - 2, j + 1 ), ( i - 1, j - 2 ), ( i - 1, j + 2 ), ( i + 1, j - 2 ), ( i + 1, j + 2 ), ( i + 2, j - 1 ), ( i + 2, j + 1 ) ]
 
         availableNextMoves =
-            List.filter (\( x, y ) -> not (x <= 0 || y <= 0)) <| nextMoves (Maybe.withDefault -1 <| Dict.get row dictLetterToInt) col
+            List.filter (\( x, y ) -> (x > 0 && x <= maxRow) && (y > 0 && y <= maxCol)) <| nextMoves (Maybe.withDefault -1 <| Dict.get row dictLetterToInt) col
     in
     List.map (\( x, y ) -> ( Maybe.withDefault ' ' <| Dict.get x dictIntToLetter, y )) availableNextMoves
 
 
-startSolveBoard : Model -> List ( Char, Int )
-startSolveBoard model =
+solveBoard : Model -> List ( Char, Int )
+solveBoard model =
     let
         size =
             first model
@@ -238,16 +240,14 @@ startSolveBoard model =
         cols =
             List.range 1 size
 
-        board =
-            Dict.fromList <| (List.map (\a -> ( a, 0 )) <| cartesian Tuple.pair rows cols)
-
-        sz =
-            sizes (toFloat size)
-
+        -- board =
+        --     Dict.fromList <| (List.map (\a -> ( a, 0 )) <| cartesian Tuple.pair rows cols)
+        -- sz =
+        --     sizes (toFloat size)
         p0 =
             second model
     in
-    knightTour rows cols [ p0 ] p0 size 1
+    knightTour rows cols [] p0 size 0
 
 
 knightTour : List Char -> List Int -> List ( Char, Int ) -> ( Char, Int ) -> Int -> Int -> List ( Char, Int )
@@ -260,44 +260,108 @@ knightTour rows cols sol currentPos size stepCount =
             Maybe.withDefault ( ' ', -1 ) <| List.head <| List.take 1 nextMoves
     in
     if stepCount == (size * size) || List.isEmpty nextMoves then
-        let
-            dummy =
-                Debug.log ("FIIIIN" ++ String.fromInt stepCount ++ "-" ++ String.fromInt (size * size) ++ "-") ( currentPos, size, stepCount )
-        in
-        sol
+        sol ++ [ currentPos ]
 
     else
-        knightTour rows cols (nextPos :: sol) nextPos size (stepCount + 1)
+        knightTour rows cols (sol ++ [ currentPos ]) nextPos size (stepCount + 1)
 
 
+drawSolution : Model -> Element Msg
+drawSolution ( size, p0 ) =
+    let
+        sz =
+            sizes <| toFloat size
 
--- knightTour : List Char -> List Int -> List ( Char, Int ) -> ( Char, Int ) -> List ( Char, Int ) -> Int -> Int -> List ( Char, Int )
--- knightTour rows cols sol ( posRow, posCol ) nextMoves size stepCount =
---     let
---         dummy =
---             Debug.log ("WTF- S TE P " ++ String.fromInt stepCount ++ "-" ++ String.fromInt (size * size) ++ "-") ( ( posRow, posCol ), size, stepCount )
---     in
---     if stepCount == (size * size) then
---         let
---             _ =
---                 Debug.log ("""Ja som al cap del carrer """ ++ String.fromInt stepCount ++ "") stepCount
---         in
---         sol
---     else
---         let
---             _ =
---                 Debug.log ("""In a middle step """ ++ String.fromInt stepCount ++ "") stepCount
---         in
---         List.map
---             (\nextPos ->
---                 if List.member nextPos sol then
---                     []
---                 else
---                     knightTour rows cols (nextPos :: sol) nextPos (List.filter (\a -> not <| List.member a sol) <| possibleMoves rows cols nextPos) size (stepCount + 1)
---             )
---             nextMoves
---             |> List.filter (\a -> List.length a == 25)
---             |> List.concat
+        up =
+            toFloat (round (toFloat size * sz.width))
+
+        right =
+            0
+
+        rows =
+            List.take size letters
+
+        cols =
+            List.range 1 size
+
+        dictLetterToInt =
+            Dict.fromList <| List.map2 Tuple.pair rows cols
+
+        toCircle ( y, x ) =
+            circle
+                [ cx <| String.fromFloat x
+                , cy <| String.fromFloat y
+                , r <| String.fromFloat (sz.width / 4)
+                , SvgAttrs.fill "#1E90FF"
+                ]
+                []
+
+        ( rowp0, colp0 ) =
+            p0
+    in
+    if rowp0 == ' ' && colp0 == -1 then
+        Element.el [] (Element.text "")
+
+    else
+        let
+            solution =
+                solveBoard ( size, p0 )
+
+            cellCenter x =
+                x + (sz.width / 2)
+
+            offset index =
+                (index - 1) * sz.width
+
+            charInt2xy ( a, i ) =
+                ( Dict.get a dictLetterToInt
+                    |> Maybe.withDefault 0
+                    |> toFloat
+                    |> offset
+                    |> cellCenter
+                , i
+                    |> toFloat
+                    |> offset
+                    |> cellCenter
+                )
+
+            circles =
+                solution
+                    |> List.map charInt2xy
+                    |> List.map toCircle
+
+            length =
+                List.length circles
+
+            paths =
+                let
+                    pointsA =
+                        List.take (length - 1) <| List.map charInt2xy solution
+
+                    pointsB =
+                        List.drop 1 <| List.map charInt2xy solution
+                in
+                List.map2
+                    (\( ay, ax ) ( by, bx ) ->
+                        Svg.path
+                            [ d ("M" ++ String.fromFloat ax ++ " " ++ String.fromFloat ay ++ " " ++ String.fromFloat bx ++ " " ++ String.fromFloat by)
+                            , strokeWidth "4"
+                            , stroke "red"
+                            ]
+                            []
+                    )
+                    pointsA
+                    pointsB
+        in
+        Element.el [ moveUp up, moveRight right, onClick (SetFirstMove ' ' -1) ]
+            (Element.html <|
+                svg
+                    [ SvgAttrs.width <| String.fromFloat (sz.width * toFloat size)
+                    , SvgAttrs.height <| String.fromFloat (sz.width * toFloat size)
+                    , viewBox ("0 0 " ++ String.fromFloat (sz.width * toFloat size) ++ " " ++ String.fromFloat (sz.width * toFloat size))
+                    ]
+                    (paths ++ circles)
+            )
 
 
 view : Model -> Document Msg
@@ -310,12 +374,17 @@ view model =
     , body =
         [ column
             [ centerX
-            , padding 40
-            , spacing 20
+            , Element.padding 40
+            , Element.spacing 20
             , Font.size 30
             ]
             [ row [ centerX ] (drawHeader size)
-            , row [] [ drawBoard model ]
+            , row []
+                [ column []
+                    [ drawBoard model
+                    , drawSolution model
+                    ]
+                ]
             ]
         ]
     }
