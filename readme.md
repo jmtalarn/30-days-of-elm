@@ -123,3 +123,7 @@ You click a chess board position, and the program finds a valid sequence of move
 ```Msg``` vs ```msg``` and weird type annotations.
 <https://gist.github.com/JoelQ/98c5c6a17fd82d8ddd932a75eceb4276>
 [src](src/Day24.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day24)
+
+### Day25 - Displaying a List (List String)
+Basic chess board view from a 8x8 List. Ok, I've already did this on day 23 but I placed inversed rows and cols so I will correct it here to show the correct naming of the cells in chess.
+[src](src/Day25.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day25)
