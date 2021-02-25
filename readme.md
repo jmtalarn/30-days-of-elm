@@ -120,5 +120,6 @@ You click a chess board position, and the program finds a valid sequence of move
 [src](src/Day23.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day23)
 
 ### Day24 - msg vs Msg
-```Msg``` vs ```msg``` and weird type annotations
+```Msg``` vs ```msg``` and weird type annotations.
+<https://gist.github.com/JoelQ/98c5c6a17fd82d8ddd932a75eceb4276>
 [src](src/Day24.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day24)

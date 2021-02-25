@@ -6,9 +6,9 @@ import Colors.Opaque exposing (grey)
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
-import Element.Font as Font exposing (size)
+import Element.Font as Font
 import Element.Input as Input exposing (..)
-import Html exposing (h1, input, p)
+import Html exposing (h1, h3)
 import Html.Events exposing (onInput)
 import Json.Decode
 import Json.Encode
@@ -54,10 +54,10 @@ inputValueToString : InputValue String -> String
 inputValueToString inputValue =
     case inputValue of
         Assured anything ->
-            "The input value is assured. It is something on it : " ++ anything ++ "."
+            "The input value is assured. You can be sure this message is true : " ++ anything ++ "."
 
         Doubtful num anything ->
-            "The input is doubtful with a " ++ String.fromFloat num ++ "% of chances to be trusty. There is something on it : " ++ anything ++ "."
+            "The input is doubtful with a " ++ String.fromFloat num ++ "% of chances to be trusty. This is the message : " ++ anything ++ "."
 
         NoIdea ->
             "The input is completely doubtful, it cannot be trusted at all."
@@ -151,9 +151,10 @@ view model =
             [ centerX
             , padding 40
             , Font.size 30
+            , spacing 40
             ]
             [ row [ centerX ] [ html <| h1 [] [ Html.text "Day 24" ] ]
-            , row [ spacing 60 ]
+            , row [ spacing 60, centerX ]
                 [ column [ alignTop, spacing 20, width <| px 400 ]
                     [ Input.text
                         [ Font.extraLight, width fill ]
@@ -188,6 +189,129 @@ view model =
                         }
                     ]
                 , column [ alignTop, Font.extraLight, width <| px 400 ] [ Element.paragraph [] [ Element.text (inputValueToString model) ] ]
+                ]
+            , row [ width <| fillPortion 2 ] [ html <| h3 [] [ Html.text "Fix this `List`" ] ]
+            , row [ spacing 20 ]
+                [ textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Border.width 1, Border.color Colors.Opaque.crimson, Border.dashed ]
+                    [ Element.paragraph []
+                        [ Element.text <| """fixThis : List a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis = [ "hello", "world" ]""" ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                , textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Font.color Colors.Opaque.gray ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : List a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis = [ ]""" ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis ++ ["hello" ,"world" ] """ ]
+                    ]
+                ]
+            , row [ width <| fillPortion 2 ] [ html <| h3 [] [ Html.text "Fix this `Maybe`" ] ]
+            , row [ spacing 20 ]
+                [ textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Border.width 1, Border.color Colors.Opaque.crimson, Border.dashed ]
+                    [ Element.paragraph []
+                        [ Element.text <| """fixThis : Maybe a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis = Just "hello" """ ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                , textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Font.color Colors.Opaque.gray ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Maybe a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis = Nothing """ ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| (Maybe.withDefault "" fixThis) ++ "Hello" """ ]
+                    ]
+                ]
+            , row [ width <| fillPortion 2 ] [ html <| h3 [] [ Html.text "Fix this `Html`" ] ]
+            , row [ spacing 20 ]
+                [ textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Border.width 1, Border.color Colors.Opaque.crimson, Border.dashed ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis =""" ]
+                    , Element.paragraph [] [ Element.text <| """    div [ onClick "hello" ] []""" ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                , textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Font.color Colors.Opaque.gray ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis =""" ]
+                    , Element.paragraph [] [ Element.text <| """    div [] []""" ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                ]
+            , row [ width <| fillPortion 2 ] [ html <| h3 [] [ Html.text "Fix this `Result 1`" ] ]
+            , row [ spacing 20 ]
+                [ textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Border.width 1, Border.color Colors.Opaque.crimson, Border.dashed ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Result String a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Ok "hello" """ ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                , textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Font.color Colors.Opaque.gray ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Result String a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Err "hello" """ ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                ]
+            , row [ width <| fillPortion 2 ] [ html <| h3 [] [ Html.text "Fix this `Result 2`" ] ]
+            , row [ spacing 20 ]
+                [ textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Border.width 1, Border.color Colors.Opaque.crimson, Border.dashed ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Result a String""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Err "error" """ ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                , textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Font.color Colors.Opaque.gray ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : Result a String""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Ok "hello" """ ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                ]
+            , row [ width <| fillPortion 2 ] [ html <| h3 [] [ Html.text "Fix this `Function`" ] ]
+            , row [ spacing 20 ]
+                [ textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Border.width 1, Border.color Colors.Opaque.crimson, Border.dashed ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : a -> a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis arg =""" ]
+                    , Element.paragraph [] [ Element.text <| """    String.toUpper arg""" ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
+                , textColumn [ alignTop, spacing 10, padding 5, width <| px 600, Font.family [ Font.monospace ], Font.size 20, Font.color Colors.Opaque.gray ]
+                    [ Element.paragraph [] [ Element.text <| """fixThis : a -> a""" ]
+                    , Element.paragraph [] [ Element.text <| """fixThis arg = arg""" ]
+                    , Element.paragraph [] [ Element.text <| """ """ ]
+                    , Element.paragraph [] [ Element.text <| """main : Html a""" ]
+                    , Element.paragraph [] [ Element.text <| """main =""" ]
+                    , Element.paragraph [] [ Element.text <| """    Html.text <| Debug.toString <| fixThis """ ]
+                    ]
                 ]
             ]
         ]
