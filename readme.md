@@ -118,3 +118,7 @@ Just practice some basics doing 6 codewars challenges
 ### Day23 - Simple layout with elm-ui
 You click a chess board position, and the program finds a valid sequence of moves where the knight visits every position on the board
 [src](src/Day23.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day23)
+
+### Day24 - msg vs Msg
+```Msg``` vs ```msg``` and weird type annotations
+[src](src/Day24.elm) [result](https://jmtalarn.github.io/30-days-of-elm/day24)
