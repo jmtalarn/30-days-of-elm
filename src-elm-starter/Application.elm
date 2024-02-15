@@ -56,9 +56,6 @@ view _ =
                             , dirIgnoredByGit = "NOT-AVAILABLE [dirIgnoredByGit]"
                             , dirTemp = "NOT-AVAILABLE [dirTemp]"
                             , fileElmWorker = "NOT-AVAILABLE [fileElmWorker]"
-
-                            -- From .env
-                            , nasaApiKey = "NOT_AVAILABLE [nasaApiKey]"
                             }
                 ]
             ]

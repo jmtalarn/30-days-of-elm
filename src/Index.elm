@@ -1,14 +1,16 @@
-module Index exposing (htmlToReinject, index)
+module Index exposing
+    ( htmlToReinjectInBody
+    , htmlToReinjectInHead
+    , index
+    )
 
 import Html.String exposing (..)
 import Html.String.Attributes exposing (..)
 import Html.String.Extra exposing (..)
 import Main
-import Starter.ConfMeta
 import Starter.FileNames
 import Starter.Flags
 import Starter.Icon
-import Starter.SnippetCss
 import Starter.SnippetHtml
 import Starter.SnippetJavascript
 
@@ -32,6 +34,7 @@ index flags =
                    , meta [ name "description", content flags.description ] []
                    , meta [ name "viewport", content "width=device-width, initial-scale=1, shrink-to-fit=no" ] []
                    , meta [ httpEquiv "x-ua-compatible", content "ie=edge" ] []
+                   , link [ rel "canonical", href flags.homepage ] []
                    , link [ rel "icon", href (Starter.Icon.iconFileName relative 64) ] []
                    , link [ rel "apple-touch-icon", href (Starter.Icon.iconFileName relative 152) ] []
                    , style_ []
@@ -56,77 +59,66 @@ index flags =
                     , version = flags.version
                     }
             )
-        , body [] <| htmlToReinject flags
+        , body []
+            ([]
+                -- Friendly message in case Javascript is disabled
+                ++ (if flags.env == "dev" then
+                        Starter.SnippetHtml.messageYouNeedToEnableJavascript
+
+                    else
+                        Starter.SnippetHtml.messageEnableJavascriptForBetterExperience
+                   )
+                -- "Loading..." message
+                ++ Starter.SnippetHtml.messageLoading
+                -- The DOM node that Elm will take over
+                ++ [ div [ id "elm" ] [] ]
+                -- Activating the "Loading..." message
+                ++ Starter.SnippetHtml.messageLoadingOn
+                -- Loading Elm code
+                ++ [ script [ src (relative ++ fileNames.outputCompiledJsProd) ] [] ]
+                -- Elm finished to load, de-activating the "Loading..." message
+                ++ Starter.SnippetHtml.messageLoadingOff
+                -- Loading utility for pretty console formatting
+                ++ Starter.SnippetHtml.prettyConsoleFormatting relative flags.env
+                -- Signature "Made with ❤ and Elm"
+                ++ [ script [] [ textUnescaped Starter.SnippetJavascript.signature ] ]
+                -- Initializing "window.ElmStarter"
+                ++ [ script [] [ textUnescaped <| Starter.SnippetJavascript.metaInfo flags ] ]
+                -- Let's start Elm!
+                ++ [ Html.String.Extra.script []
+                        [ Html.String.textUnescaped
+                            ("""
+                            var node = document.getElementById('elm');
+                            window.ElmApp = Elm.Main.init(
+                                { node: node
+                                , flags:
+                                    { starter : """
+                                ++ Starter.SnippetJavascript.metaInfoData flags
+                                ++ """ 
+                                    , width: window.innerWidth
+                                    , height: window.innerHeight
+                                    , languages: window.navigator.userLanguages || window.navigator.languages || []
+                                    , locationHref: location.href
+                                    }
+                                }
+                            );"""
+                                ++ Starter.SnippetJavascript.portOnUrlChange
+                                ++ Starter.SnippetJavascript.portPushUrl
+                                ++ Starter.SnippetJavascript.portChangeMeta
+                            )
+                        ]
+                   ]
+                -- Register the Service Worker, we are a PWA!
+                ++ [ script [] [ textUnescaped (Starter.SnippetJavascript.registerServiceWorker relative) ] ]
+            )
         ]
 
 
-htmlToReinject : Starter.Flags.Flags -> List (Html.String.Html msg)
-htmlToReinject flags =
-    let
-        relative =
-            Starter.Flags.toRelative flags
-
-        fileNames =
-            Starter.FileNames.fileNames flags.version flags.commit
-    in
+htmlToReinjectInHead : a -> List b
+htmlToReinjectInHead _ =
     []
-        -- Friendly message in case Javascript is disabled
-        ++ (if flags.env == "dev" then
-                Starter.SnippetHtml.messageYouNeedToEnableJavascript
 
-            else
-                Starter.SnippetHtml.messageEnableJavascriptForBetterExperience
-           )
-        -- Initializing "window.ElmStarter"
-        ++ [ script [] [ textUnescaped <| Starter.SnippetJavascript.metaInfo flags ] ]
-        -- Loading Elm code
-        ++ [ script [ src (relative ++ fileNames.outputCompiledJsProd) ] [] ]
-        -- Elm finished to load, de-activating the "Loading..." message
-        -- ++ Starter.SnippetHtml.messageLoadingOff
-        -- Loading utility for pretty console formatting
-        ++ Starter.SnippetHtml.prettyConsoleFormatting relative flags.env
-        -- Signature "Made with ❤ and Elm"
-        ++ [ Html.String.Extra.script [] [ Html.String.textUnescaped Starter.SnippetJavascript.signature ] ]
-        -- Let's start Elm!
-        ++ [ Html.String.Extra.script []
-                [ Html.String.textUnescaped
-                    ("""
-                        // Need to remove this node otherwise Elm doesn't work
-                        // because it seems that Elm detect that a similar part
-                        // of the DOM already exists and it trys to hydrate, but
-                        // the code is buggy.
-                        // Infact, not removing this node, the links in the
-                        // application reload the browser also if they are
-                        // internal.
 
-                        var node = document.getElementById('elm');
-                        if (node) { node.remove(); }
-
-                        window.ElmApp = Elm.Main.init(
-                            { flags:
-                                
-                                // From package.jspn
-                                { starter : """
-                        ++ Starter.SnippetJavascript.metaInfoData flags
-                        ++ """ 
-                                
-                                // Others
-                                , width: window.innerWidth
-                                , height: window.innerHeight
-                                , languages: window.navigator.userLanguages || window.navigator.languages || []
-                                , locationHref: location.href
-                                }
-                            }
-                        );"""
-                        ++ """
-                            window.addEventListener('scroll', ()=>{
-                                window.ElmApp.ports.scrolled.send(true);
-                            });
-                            
-                        """
-                        ++ Starter.SnippetJavascript.portChangeMeta
-                    )
-                ]
-           ]
-        -- Register the Service Worker, we are a PWA!
-        ++ [ Html.String.Extra.script [] [ Html.String.textUnescaped (Starter.SnippetJavascript.registerServiceWorker relative) ] ]
+htmlToReinjectInBody : a -> List b
+htmlToReinjectInBody _ =
+    []
