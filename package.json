@@ -44,5 +44,7 @@
 		"puppeteer-core": "^11.0.0",
 		"terser": "^5.9.0"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"dotenv": "^16.4.4"
+	}
 }

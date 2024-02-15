@@ -58,6 +58,7 @@ type alias Flags =
     , dirAssets : String
     , fileElmWorker : String
     , assets : List ( String, String )
+    , nasaApiKey : String
     }
 
 
@@ -105,6 +106,7 @@ encoder flags =
         , ( "dirAssets", Json.Encode.string flags.dirAssets )
         , ( "fileElmWorker", Json.Encode.string flags.fileElmWorker )
         , ( "assets", Json.Encode.list (Json.Encode.list Json.Encode.string) (List.map (\( a, b ) -> [ a, b ]) flags.assets) )
+        , ( "nasaApiKey", Json.Encode.string flags.nasaApiKey )
         ]
 
 
