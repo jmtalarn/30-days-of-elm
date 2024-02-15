@@ -10,7 +10,7 @@ import Json.Encode
 import Main
 import Starter.ConfMain
 import Starter.ConfMeta
-import Starter.ElmLive
+import Starter.ElmGo
 import Starter.FileNames
 import Starter.Flags
 import Starter.Icon
@@ -46,7 +46,8 @@ type alias Conf msg =
     , file : Starter.Flags.File
     , fileNames : Starter.FileNames.FileNames
     , fileIndexHtml : Html.String.Html msg
-    , htmlToReinject : List (Html.String.Html msg)
+    , htmlToReinjectInBody : List (Html.String.Html msg)
+    , htmlToReinjectInHead : List (Html.String.Html msg)
     , iconsForManifest : List Int
     , portBuild : Int
     , portDev : Int
@@ -63,7 +64,8 @@ conf_ flags =
         , file = Starter.Flags.file flags
         , fileNames = Starter.FileNames.fileNames flags.version flags.commit
         , fileIndexHtml = Index.index flags
-        , htmlToReinject = Index.htmlToReinject flags
+        , htmlToReinjectInBody = Index.htmlToReinjectInBody flags
+        , htmlToReinjectInHead = Index.htmlToReinjectInHead flags
         , iconsForManifest = Starter.Icon.iconsForManifest
         , portBuild = Starter.ConfMeta.confMeta.portBuild
         , portDev = Starter.ConfMeta.confMeta.portDev
@@ -100,17 +102,17 @@ encoder conf =
             , indexHtml = relative ++ conf.fileNames.indexHtml
             , relative = relative
             , port_ = conf.portDev
-            , compilation = Starter.ElmLive.Debug
-            , verbose = Starter.ElmLive.VerboseNo
-            , pushstate = Starter.ElmLive.PushstateYes
-            , reload = Starter.ElmLive.ReloadYes
-            , hotReload = Starter.ElmLive.HotReloadYes
-            , ssl = Starter.ElmLive.SslNo
+            , compilation = Starter.ElmGo.Debug
+            , verbose = Starter.ElmGo.VerboseNo
+            , pushstate = Starter.ElmGo.PushstateYes
+            , reload = Starter.ElmGo.ReloadYes
+            , hotReload = Starter.ElmGo.HotReloadYes
+            , ssl = Starter.ElmGo.SslNo
             , dirBin = .bin (Starter.Flags.dir conf.flags)
             , certificatesFolder = conf.dir.elmStartSrc
             }
-                |> Starter.ElmLive.elmLive
-                |> Starter.ElmLive.encoder
+                |> Starter.ElmGo.elmGo
+                |> Starter.ElmGo.encoder
           )
         , ( "serverStatic"
           , { elmFileToCompile = .mainElm (Starter.Flags.file conf.flags)
@@ -119,17 +121,17 @@ encoder conf =
             , indexHtml = relative ++ conf.fileNames.indexHtml
             , relative = relative
             , port_ = conf.portStatic
-            , compilation = Starter.ElmLive.Optimize
-            , verbose = Starter.ElmLive.VerboseNo
-            , pushstate = Starter.ElmLive.PushstateYes
-            , reload = Starter.ElmLive.ReloadNo
-            , hotReload = Starter.ElmLive.HotReloadNo
-            , ssl = Starter.ElmLive.SslNo
+            , compilation = Starter.ElmGo.Optimize
+            , verbose = Starter.ElmGo.VerboseNo
+            , pushstate = Starter.ElmGo.PushstateYes
+            , reload = Starter.ElmGo.ReloadNo
+            , hotReload = Starter.ElmGo.HotReloadNo
+            , ssl = Starter.ElmGo.SslNo
             , dirBin = .bin (Starter.Flags.dir conf.flags)
             , certificatesFolder = conf.dir.elmStartSrc
             }
-                |> Starter.ElmLive.elmLive
-                |> Starter.ElmLive.encoder
+                |> Starter.ElmGo.elmGo
+                |> Starter.ElmGo.encoder
           )
         , ( "serverBuild"
           , { elmFileToCompile = .mainElm (Starter.Flags.file conf.flags)
@@ -138,17 +140,17 @@ encoder conf =
             , indexHtml = conf.fileNames.indexHtml
             , relative = relative
             , port_ = conf.portBuild
-            , compilation = Starter.ElmLive.Normal
-            , verbose = Starter.ElmLive.VerboseNo
-            , pushstate = Starter.ElmLive.PushstateNo
-            , reload = Starter.ElmLive.ReloadNo
-            , hotReload = Starter.ElmLive.HotReloadNo
-            , ssl = Starter.ElmLive.SslNo
+            , compilation = Starter.ElmGo.Normal
+            , verbose = Starter.ElmGo.VerboseNo
+            , pushstate = Starter.ElmGo.PushstateNo
+            , reload = Starter.ElmGo.ReloadNo
+            , hotReload = Starter.ElmGo.HotReloadNo
+            , ssl = Starter.ElmGo.SslNo
             , dirBin = .bin (Starter.Flags.dir conf.flags)
             , certificatesFolder = conf.dir.elmStartSrc
             }
-                |> Starter.ElmLive.elmLive
-                |> Starter.ElmLive.encoder
+                |> Starter.ElmGo.elmGo
+                |> Starter.ElmGo.encoder
           )
         , ( "headless", Json.Encode.bool True )
         , ( "startingDomain"
@@ -163,8 +165,14 @@ encoder conf =
         , ( "snapshotHeight", Json.Encode.int <| Maybe.withDefault 350 <| String.toInt <| Maybe.withDefault "" <| conf.flags.snapshotHeight )
         , ( "snapshotFileName", Json.Encode.string fileNames.snapshot )
         , ( "mainConf", Starter.ConfMain.encoder Main.conf )
-        , ( "htmlToReinject"
-          , conf.htmlToReinject
+        , ( "htmlToReinjectInBody"
+          , conf.htmlToReinjectInBody
+                |> List.map (\html -> Html.String.toString Starter.ConfMeta.confMeta.indentation html)
+                |> String.join ""
+                |> Json.Encode.string
+          )
+        , ( "htmlToReinjectInHead"
+          , conf.htmlToReinjectInHead
                 |> List.map (\html -> Html.String.toString Starter.ConfMeta.confMeta.indentation html)
                 |> String.join ""
                 |> Json.Encode.string
