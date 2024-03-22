@@ -1,7 +1,7 @@
 {
 	"version": "0.0.14",
-	"name": "elm-starter",
-	"nameLong": "elm-starter - An Elm-based bootstrapper for Elm applications",
+	"name": "30-days-of-elm",
+	"nameLong": "30 days of elm challenge",
 	"description": "An Elm-based light way to setup a fully fledged Elm PWA.",
 	"author": "Luca Mugnaini",
 	"twitterSite": "lucamug",
