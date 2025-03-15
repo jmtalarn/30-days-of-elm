@@ -1,4 +1,4 @@
-module Pages.Day9 exposing (..)
+module Pages.Day9 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -17,30 +17,25 @@ import Http
 import Json.Decode exposing (Decoder, bool, decodeString, field, float, index, list, string)
 import List exposing (sortBy)
 import Maybe
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Task
 import Time exposing (Month(..), Posix, toDay, toMonth, toYear, utc)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
-        { init = init
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
+        { init = init shared
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type Response
@@ -53,8 +48,8 @@ type alias Model =
     { response : Response, date : String, nasaApiKey : String }
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : Shared.Model -> ( Model, Cmd Msg )
+init shared =
     ( Model Loading "" shared.nasaApiKey, now )
 
 
@@ -86,16 +81,6 @@ update msg model =
             ( { model | date = date }, getAsteroids model )
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
@@ -119,26 +104,27 @@ getPaddingLeft asteroids asteroid =
     round <| (((b - a) * (asteroid.distance - min)) / (max - min) + a)
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 9"
     , body =
-        [ column
-            [ paddingXY 40 0
-            , Font.size 20
-            , Element.width Element.fill
-            ]
-            [ row
-                [ Element.width Element.fill, spaceEvenly ]
-                [ html <| h1 [] [ Html.text "Close asteroids" ], datepicker model ]
-            , row [ Element.width Element.fill ]
-                [ column [ Element.width <| fillPortion 1 ] [ Element.image [ Element.width <| px 100 ] { src = "/30-days-of-elm/images/earth-clip-rotating-17.gif", description = "Image of a rotating Earth planet." } ]
-                , column [ Element.width <| fillPortion 5 ]
-                    [ column [ Element.spacing 10, Border.dashed, Border.color Colors.Opaque.deepskyblue, Border.widthEach { bottom = 0, left = 2, right = 0, top = 0 } ] (renderResult model.response)
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ paddingXY 40 0
+                    , Font.size 20
+                    , Element.width Element.fill
                     ]
-                ]
-            ]
-        ]
+                    [ row
+                        [ Element.width Element.fill, spaceEvenly ]
+                        [ html <| h1 [] [ Html.text "Close asteroids" ], datepicker model ]
+                    , row [ Element.width Element.fill ]
+                        [ column [ Element.width <| fillPortion 1 ] [ Element.image [ Element.width <| px 100 ] { src = "./images/earth-clip-rotating-17.gif", description = "Image of a rotating Earth planet." } ]
+                        , column [ Element.width <| fillPortion 5 ]
+                            [ column [ Element.spacing 10, Border.dashed, Border.color Colors.Opaque.deepskyblue, Border.widthEach { bottom = 0, left = 2, right = 0, top = 0 } ] (renderResult model.response)
+                            ]
+                        ]
+                    ]
     }
 
 

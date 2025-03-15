@@ -1,4 +1,4 @@
-module Pages.Day23 exposing (..)
+module Pages.Day23 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -16,37 +16,32 @@ import Html exposing (h1, p)
 import Html.Attributes
 import Html.Events exposing (onInput)
 import Maybe
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Svg exposing (..)
 import Svg.Attributes as SvgAttrs exposing (..)
 import Tuple exposing (first, second)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Model =
     ( Int, ( Char, Int ) )
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( ( 8, ( ' ', -1 ) ), Cmd.none )
 
 
@@ -63,16 +58,6 @@ update msg ( size, ( startingRow, startingCol ) ) =
 
         SetFirstMove row col ->
             ( ( size, ( row, col ) ), Cmd.none )
-
-
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -364,7 +349,7 @@ drawSolution ( size, p0 ) =
             )
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     let
         size =
@@ -372,19 +357,20 @@ view model =
     in
     { title = "Day 23"
     , body =
-        [ column
-            [ centerX
-            , Element.padding 40
-            , Element.spacing 20
-            , Font.size 30
-            ]
-            [ row [ centerX ] (drawHeader size)
-            , row []
-                [ column []
-                    [ drawBoard model
-                    , drawSolution model
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , Element.padding 40
+                    , Element.spacing 20
+                    , Font.size 30
                     ]
-                ]
-            ]
-        ]
+                    [ row [ centerX ] (drawHeader size)
+                    , row []
+                        [ column []
+                            [ drawBoard model
+                            , drawSolution model
+                            ]
+                        ]
+                    ]
     }

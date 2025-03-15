@@ -1,4 +1,4 @@
-module Pages.Day18 exposing (..)
+module Pages.Day18 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -25,30 +25,25 @@ import Loading as Loader
         )
 import Material.Icons.Outlined as Outlined exposing (cake, card_giftcard, email, home, phone)
 import Material.Icons.Types exposing (Coloring(..))
+import Page
 import Process exposing (sleep)
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Task exposing (perform)
 import Time exposing (utc)
 import Tuple exposing (first, second)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type Response
@@ -129,8 +124,8 @@ type alias Model =
     ( Response, Animation.State )
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( ( Loading
       , Animation.style
             [ Animation.rotate3d (deg 0) (deg 0) (deg 0)
@@ -321,16 +316,6 @@ randomUserDecoder =
     field "results" (index 0 randomUser)
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions ( response, style ) =
     Animation.subscription Animate [ style ]
@@ -385,17 +370,18 @@ renderResult ( response, style ) =
         ]
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 18"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 30
-            ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 18" ] ]
-            , row [] [ renderResult model ]
-            ]
-        ]
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , padding 40
+                    , Font.size 30
+                    ]
+                    [ row [] [ html <| h1 [] [ Html.text "Day 18" ] ]
+                    , row [] [ renderResult model ]
+                    ]
     }

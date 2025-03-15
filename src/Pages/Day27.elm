@@ -1,83 +1,155 @@
-module Pages.Day27 exposing (..)
+module Pages.Day27 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
-import Colors.Opaque exposing (grey)
+import Colors.Opaque exposing (dimgray, grey)
 import Element exposing (..)
 import Element.Background as Background
-import Element.Border as Border
+import Element.Border as Border exposing (..)
 import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
-import Html exposing (h1, p)
+import Html exposing (h1, p, s)
 import Html.Events exposing (onInput)
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
 
 
-type alias Params =
-    ()
-
-
 type alias Model =
-    Float
+    { draft : String
+    , messages : List String
+    , status : Bool
+    }
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
-    ( 0, Cmd.none )
+init : ( Model, Cmd Msg )
+init =
+    ( { draft = "", messages = [], status = False }, Cmd.none )
 
 
 type Msg
-    = Set Float
+    = DraftChanged String
+    | Send
+    | Connect
+    | Disconnect
+    | Recv String
+    | StatusConnected Bool
+
+
+buttonAttrs =
+    [ Element.width fill
+    , padding 10
+    , spacing 10
+    , Background.color Colors.Opaque.dodgerblue
+    , Border.rounded 5
+    , Font.size 20
+    , Font.color Colors.Opaque.white
+    , Border.shadow { offset = ( 2, 2 ), size = 1, blur = 5, color = dimgray }
+    ]
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg _ =
+update msg model =
     case msg of
-        Set value ->
-            ( value, Cmd.none )
+        DraftChanged draft ->
+            ( { model | draft = draft }
+            , Cmd.none
+            )
 
+        Connect ->
+            ( model, Shared.socketConnect () )
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
+        Disconnect ->
+            ( model, Shared.socketDisconnect () )
 
+        Send ->
+            ( { model | draft = "" }
+            , Shared.socketSendMessage model.draft
+            )
 
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
+        StatusConnected status ->
+            ( { model | status = status }, Cmd.none )
+
+        Recv message ->
+            ( { model | messages = model.messages ++ [ message ] }
+            , Cmd.none
+            )
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
+subscriptions _ =
+    Sub.batch [ Shared.socketMessageReceiver Recv, Shared.socketStatusReceiver StatusConnected ]
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
-    { title = "Day1"
+    { title = "Day27"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 30
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , height fill
+                    , Element.width fill
+                    ]
+                    [ row [] [ html <| h1 [] [ Html.text "Day 27" ] ]
+                    , row [ Element.height fill, Element.width fill ] [ webSocketEchoChat model ]
+                    ]
+    }
+
+
+webSocketEchoChat model =
+    column
+        [ centerX
+        , padding 40
+        , Font.size 20
+        , Element.width fill
+        , Element.height fill
+        ]
+        [ row
+            [ Element.width fill ]
+            [ if model.status then
+                button buttonAttrs
+                    { onPress = Just Disconnect, label = Element.text "Disconnect" }
+
+              else
+                button
+                    buttonAttrs
+                    { onPress = Just Connect, label = Element.text "Connect" }
             ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 27" ] ]
-            , row [] [ html <| p [] [ Html.text "Nothing here yet for this day of challenge" ] ]
+        , row [ Element.width fill, height fill ]
+            [ column
+                [ Element.width fill, height fill, Border.width 1, spacing 8, padding 8 ]
+              <|
+                List.map (\msg -> Element.text msg) model.messages
+            ]
+        , row [ Element.width fill ]
+            [ Input.text [ Element.width <| fillPortion 5 ]
+                { onChange = DraftChanged
+                , placeholder = Just (placeholder [] <| Element.text "Write here your message...")
+                , label = labelLeft [] <| Element.text "Message"
+                , text = model.draft
+                }
+            , button ((Element.width <| fillPortion 1) :: buttonAttrs)
+                { onPress =
+                    if model.status then
+                        Just Send
+
+                    else
+                        Nothing
+                , label = Element.text "Send"
+                }
             ]
         ]
-    }

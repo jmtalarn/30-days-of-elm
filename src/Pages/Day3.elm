@@ -1,4 +1,4 @@
-module Pages.Day3 exposing (..)
+module Pages.Day3 exposing (Model, Msg, page)
 
 import Browser
 import Element exposing (html)
@@ -6,27 +6,22 @@ import Html exposing (Html, button, div, input, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import List exposing (concat, repeat)
+import Page
 import Random
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 headsOrTails : Random.Generator Bool
@@ -43,21 +38,11 @@ type alias Model =
     List (List Bool)
 
 
-init : Shared.Model -> Url params -> ( Model, Cmd Msg )
-init _ _ =
+init : ( Model, Cmd Msg )
+init =
     ( repeat 10 <| repeat 10 <| True
     , Cmd.none
     )
-
-
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -80,11 +65,11 @@ update msg model =
             ( newModel, Cmd.none )
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 3"
     , body =
-        [ html <|
+        UI.layout <|
             div
                 [ style "margin" "0 auto"
                 , style "width" "80%"
@@ -117,7 +102,6 @@ view model =
                     ]
                     [ text "Randomize it" ]
                 ]
-        ]
     }
 
 

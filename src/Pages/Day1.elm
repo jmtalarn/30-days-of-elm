@@ -1,4 +1,4 @@
-module Pages.Day1 exposing (..)
+module Pages.Day1 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -10,34 +10,29 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (h1)
 import Html.Events exposing (onInput)
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Model =
     Float
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( 0, Cmd.none )
 
 
@@ -52,60 +47,51 @@ update msg _ =
             ( value, Cmd.none )
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 1"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 30
-            ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 1" ] ]
-            , row []
-                [ Input.slider
-                    [ Element.behindContent
-                        (Element.el
-                            [ Element.width Element.fill
-                            , Element.height (Element.px 2)
-                            , Element.centerY
-                            , Background.color grey
-                            , Border.rounded 2
-                            ]
-                            Element.none
-                        )
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , padding 40
+                    , Font.size 30
                     ]
-                    { onChange = Set
-                    , min = 0
-                    , max = 100
-                    , label =
-                        Input.labelAbove []
-                            (Element.text "Slide to change the number")
-                    , thumb = Input.defaultThumb
-                    , step = Just 1
-                    , value = model
-                    }
-                ]
-            , row []
-                [ paragraph
-                    [ Font.family [ Font.monospace ] ]
-                    [ Element.text (String.fromFloat model) ]
-                ]
-            ]
-        ]
+                    [ row [] [ html <| h1 [] [ Html.text "Day 1" ] ]
+                    , row []
+                        [ Input.slider
+                            [ Element.behindContent
+                                (Element.el
+                                    [ Element.width Element.fill
+                                    , Element.height (Element.px 2)
+                                    , Element.centerY
+                                    , Background.color grey
+                                    , Border.rounded 2
+                                    ]
+                                    Element.none
+                                )
+                            ]
+                            { onChange = Set
+                            , min = 0
+                            , max = 100
+                            , label =
+                                Input.labelAbove []
+                                    (Element.text "Slide to change the number")
+                            , thumb = Input.defaultThumb
+                            , step = Just 1
+                            , value = model
+                            }
+                        ]
+                    , row []
+                        [ paragraph
+                            [ Font.family [ Font.monospace ] ]
+                            [ Element.text (String.fromFloat model) ]
+                        ]
+                    ]
     }

@@ -1,4 +1,4 @@
-module Pages.Day21 exposing (..)
+module Pages.Day21 exposing (Model, Msg, page)
 
 import Colors.Opaque
 import Element
@@ -8,32 +8,27 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input
 import Html exposing (Html, h1)
 import Html.Attributes
+import Page
+import Request exposing (Request)
 import Shared
 import Simple.Animated as Animated
 import Simple.Animation as Animation exposing (Animation)
 import Simple.Animation.Property as P
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Time
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Model =
@@ -77,8 +72,8 @@ planetsList =
 -- ]
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( ( planetsList, 4000 ), Cmd.none )
 
 
@@ -97,38 +92,29 @@ update msg ( list, speed ) =
             ( ( list, newSpeed ), Cmd.none )
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Time.every 1000 Tick
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view ( planets, speed ) =
     { title = "Day 21"
     , body =
-        [ Element.column
-            [ Element.width Element.fill
-            , Font.size 30
-            , Element.centerX
-            ]
-            [ Element.row [ Element.width Element.fill, Element.spacing 100 ]
-                [ Element.column [ Element.centerX ] [ Element.html <| h1 [] [ Html.text "Planets obsession" ] ]
-                , Element.column [ Element.centerX ] [ speedInput speed ]
-                ]
-            , Element.row [ Element.centerX ]
-                [ Element.html <| drawSolarSystem planets speed ]
-            ]
-        ]
+        UI.layout <|
+            Element.layout [] <|
+                Element.column
+                    [ Element.width Element.fill
+                    , Font.size 30
+                    , Element.centerX
+                    ]
+                    [ Element.row [ Element.width Element.fill, Element.spacing 100 ]
+                        [ Element.column [ Element.centerX ] [ Element.html <| h1 [] [ Html.text "Planets obsession" ] ]
+                        , Element.column [ Element.centerX ] [ speedInput speed ]
+                        ]
+                    , Element.row [ Element.centerX ]
+                        [ Element.html <| drawSolarSystem planets speed ]
+                    ]
     }
 
 
@@ -354,7 +340,7 @@ drawPlanet planet speed =
                     planet.rotationalPeriod
                     speed
                 )
-                [ xlinkHref ("/30-days-of-elm/images/" ++ String.toLower planet.name ++ ".svg")
+                [ xlinkHref ("./images/" ++ String.toLower planet.name ++ ".svg")
                 , width <| String.fromFloat diam
                 , height <| String.fromFloat diam
                 , Html.Attributes.attribute "transform-origin" (String.fromFloat (diam / 2) ++ " " ++ String.fromFloat (diam / 2))
@@ -401,7 +387,7 @@ speedInput value =
 drawSun : Svg msg
 drawSun =
     image
-        [ xlinkHref "/30-days-of-elm/images/sun.svg"
+        [ xlinkHref "./images/sun.svg"
         , x (String.fromFloat ((svgWidth / 2) - 100)) --center minus radius of the planet
         , y (String.fromFloat ((svgWidth / 2) - 100))
         , width "200"

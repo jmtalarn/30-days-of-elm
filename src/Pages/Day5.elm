@@ -1,4 +1,4 @@
-module Pages.Day5 exposing (..)
+module Pages.Day5 exposing (Model, Msg, page)
 
 import Array exposing (Array, append, foldr, fromList, get, set, toList)
 import Element exposing (html)
@@ -6,28 +6,23 @@ import Html exposing (Html, button, div, h1, input, p, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import List exposing (all, member, repeat)
+import Page
 import Platform.Cmd exposing (Cmd)
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Task
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias CheckboxRecord =
@@ -38,8 +33,8 @@ type alias Model =
     Array (Array CheckboxRecord)
 
 
-init : Shared.Model -> Url params -> ( Model, Cmd Msg )
-init _ _ =
+init : ( Model, Cmd Msg )
+init =
     ( Array.map
         (\n ->
             Array.map
@@ -63,16 +58,6 @@ init _ _ =
 subscriptions : Model -> Sub Msg
 subscriptions _ =
     Sub.none
-
-
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
 
 
 type Msg
@@ -172,11 +157,11 @@ htmlIf el cond =
         text ""
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 5"
     , body =
-        [ html <|
+        UI.layout <|
             div
                 [ style "margin" "0 auto"
 
@@ -220,7 +205,6 @@ view model =
                         model
                     )
                 ]
-        ]
     }
 
 

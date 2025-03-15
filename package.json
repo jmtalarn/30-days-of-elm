@@ -1,50 +1,20 @@
 {
-	"version": "0.0.14",
 	"name": "30-days-of-elm",
-	"nameLong": "30 days of elm challenge",
-	"description": "An Elm-based light way to setup a fully fledged Elm PWA.",
-	"author": "Luca Mugnaini",
-	"twitterSite": "lucamug",
-	"twitterCreator": "lucamug",
-	"homepage": "https://jmtalarn.github.io/30-days-of-elm",
-	"license": "BSD-3-Clause",
-	"snapshotWidth": 700,
-	"snapshotHeight": 350,
-	"themeColor": {
-		"red": 15,
-		"green": 85,
-		"blue": 123
-	},
+	"version": "1.0.0",
+	"description": "",
 	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:lucamug/elm-starter"
-	},
 	"scripts": {
-		"start": "node ./src-elm-starter/elm-starter start",
-		"build": "node ./src-elm-starter/elm-starter build",
-		"serverBuild": "node ./src-elm-starter/elm-starter serverBuild",
-		"elm-starter:boot": "node ./src-elm-starter/elm-starter boot",
-		"elm-starter:start": "node ./src-elm-starter/elm-starter start",
-		"elm-starter:generateDevFiles": "node ./src-elm-starter/elm-starter generateDevFiles",
-		"elm-starter:build": "node ./src-elm-starter/elm-starter build",
-		"elm-starter:buildExpectingTheServerRunning": "node ./src-elm-starter/elm-starter buildExpectingTheServerRunning",
-		"elm-starter:serverBuild": "node ./src-elm-starter/elm-starter serverBuild",
-		"elm-starter:serverDev": "node ./src-elm-starter/elm-starter serverDev",
-		"elm-starter:serverStatic": "node ./src-elm-starter/elm-starter serverStatic",
-		"elm-starter:watchStartElm": "node ./src-elm-starter/elm-starter watchStartElm"
+		"dev": "node elm-constants.js && elm-spa server",
+		"build": "node elm-constants.js &&  elm-spa build"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"elm": "^0.19.1-6",
+		"elm-format": "^0.8.7",
+		"elm-spa": "^6.0.6"
 	},
 	"devDependencies": {
-		"chokidar-cli": "^3.0.0",
-		"concurrently": "^6.5.1",
-		"elm": "^0.19.1-6",
-		"elm-go": "^5.0.20",
-		"html-minifier": "^4.0.0",
-		"puppeteer": "^11.0.0",
-		"puppeteer-core": "^11.0.0",
-		"terser": "^5.29.2"
-	},
-	"dependencies": {
-		"dotenv": "^16.4.5"
+		"dotenv": "^16.4.7"
 	}
 }

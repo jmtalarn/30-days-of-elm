@@ -1,4 +1,7 @@
-port module Pages.Day20 exposing (..)
+module Pages.Day20 exposing (Model, Msg, page)
+
+--port module Pages.Day20 exposing (Model, Msg, page)
+-- import Pages.Day18 exposing (Response(..))
 
 import Browser.Dom exposing (Viewport, getElement, getViewport)
 import Browser.Events exposing (onResize)
@@ -11,33 +14,24 @@ import Html exposing (h1)
 import Html.Attributes as HtmlAttributes exposing (id)
 import Html.Events exposing (onInput)
 import Json.Decode as Decode
-import Pages.Day18 exposing (Response(..))
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Svg.Attributes exposing (result)
 import Task
 import Tuple exposing (first, second)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-port scrolled : (Bool -> msg) -> Sub msg
-
-
-type alias Params =
-    ()
 
 
 type Model
@@ -46,8 +40,8 @@ type Model
     | Success Viewport
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( Loading, getNewViewport )
 
 
@@ -68,21 +62,11 @@ update msg model =
             ( Loading, getNewViewport )
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions _ =
     Sub.batch
         [ onResize (\_ _ -> GetNewViewport)
-        , scrolled (\_ -> GetNewViewport)
+        , Shared.scrolled (\_ -> GetNewViewport)
         ]
 
 
@@ -124,7 +108,7 @@ loremipsum =
     "Reprehenderit consequat et ullamco laboris occaecat quis qui veniam. Ut veniam consequat dolore dolor duis eu fugiat exercitation veniam aliqua. Ea ut proident qui eu deserunt. Incididunt exercitation occaecat anim voluptate excepteur non qui ullamco enim nulla consequat ullamco. Fugiat ullamco non amet sunt labore. Aliqua sunt aute Lorem dolore sunt sunt. Excepteur do incididunt anim Lorem officia.Ad reprehenderit ea sit est irure fugiat velit laborum eu minim nulla id cillum commodo. Ullamco non commodo fugiat id incididunt consequat irure anim culpa ut officia sint nisi. Ut pariatur excepteur aliquip qui dolore ea fugiat amet officia et. Pariatur minim in culpa ea occaecat do nulla excepteur est ipsum consequat ipsum elit. Sint laborum eiusmod Lorem irure elit commodo quis aliquip.\n\nEu est esse Lorem eiusmod reprehenderit ipsum consequat deserunt esse. Do amet laboris elit proident anim esse. Enim consequat aliquip laborum veniam ullamco nulla consectetur non quis occaecat cupidatat. Minim pariatur velit dolore mollit excepteur dolore quis laboris anim pariatur. Est eu velit ullamco consectetur reprehenderit excepteur et proident dolore fugiat cillum ad sunt. Commodo exercitation excepteur labore proident.\n\nAliqua consequat occaecat in commodo. Enim voluptate id ullamco nulla nulla cupidatat tempor voluptate. Tempor aliqua quis nostrud enim cupidatat veniam voluptate dolore culpa dolore proident magna mollit. Quis nostrud culpa nulla irure fugiat culpa Lorem voluptate veniam occaecat. Elit irure sunt reprehenderit esse aute. Ullamco nulla exercitation qui culpa et veniam enim irure ea non anim sunt et sint.\n\nAliquip in eu aliquip ea est excepteur duis aliqua cillum sit consectetur qui. Cupidatat velit mollit ea id. Sit cillum incididunt nostrud irure aliqua culpa enim aliqua magna velit aliqua qui minim. Esse anim exercitation aliquip labore quis occaecat nisi quis enim aliquip. Eu culpa ex eiusmod reprehenderit eiusmod duis tempor. Pariatur do reprehenderit et consequat consequat excepteur. Do officia proident sit enim tempor ex dolore sit minim ut ipsum reprehenderit incididunt.\n\nAnim consequat ex anim cupidatat duis sit. Occaecat eiusmod aute et laboris elit laboris incididunt eu enim dolor adipisicing proident dolor. Mollit eu ea et et excepteur non culpa minim Lorem occaecat dolore minim. Amet irure aliquip sit ut qui veniam aute aute nisi enim ipsum.\n\nSint aliquip sint ut cillum sunt enim aute excepteur do est. Officia nulla aute consectetur nisi incididunt. Do mollit nulla proident anim consectetur non mollit. Dolor dolor non do labore proident cillum veniam elit ut irure.\n\nIncididunt irure eiusmod ad consectetur in. Culpa qui aliqua eu eu eiusmod sint reprehenderit nisi sunt veniam dolor. Amet mollit ut cupidatat reprehenderit qui enim magna laboris qui in. Occaecat sunt incididunt nulla et pariatur Lorem irure."
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     let
         content =
@@ -140,33 +124,34 @@ view model =
     in
     { title = "Day 20"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 30
-            , width fill
-            ]
-            [ row [ centerX ] [ html <| h1 [] [ Html.text "Viewport size" ] ]
-            , row [ centerX, padding 40, spacing 50 ] [ paragraph [ spacing 15, Font.extraLight, Font.size 10 ] (List.repeat 100 (Element.text loremipsum)) ]
-            , row
-                [ width fill
-                , Element.htmlAttribute <| HtmlAttributes.style "top" "15rem"
-                , Element.htmlAttribute <| HtmlAttributes.style "right" "5rem"
-                , Element.htmlAttribute <| HtmlAttributes.style "position" "fixed"
-                ]
-                [ column
-                    [ alignRight
-                    , width <| px 300
-                    , height <| px 175
-                    , Font.size 15
-                    , padding 20
-                    , Border.rounded 15
-                    , Border.shadow { offset = ( 5, 5 ), size = 10, blur = 25, color = Colors.Opaque.dimgray }
-                    , Element.Background.color Colors.Opaque.lemonchiffon
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , padding 40
+                    , Font.size 30
+                    , width fill
                     ]
-                    [ content
+                    [ row [ centerX ] [ html <| h1 [] [ Html.text "Viewport size" ] ]
+                    , row [ centerX, padding 40, spacing 50 ] [ paragraph [ spacing 15, Font.extraLight, Font.size 10 ] (List.repeat 100 (Element.text loremipsum)) ]
+                    , row
+                        [ width fill
+                        , Element.htmlAttribute <| HtmlAttributes.style "top" "15rem"
+                        , Element.htmlAttribute <| HtmlAttributes.style "right" "5rem"
+                        , Element.htmlAttribute <| HtmlAttributes.style "position" "fixed"
+                        ]
+                        [ column
+                            [ alignRight
+                            , width <| px 300
+                            , height <| px 175
+                            , Font.size 15
+                            , padding 20
+                            , Border.rounded 15
+                            , Border.shadow { offset = ( 5, 5 ), size = 10, blur = 25, color = Colors.Opaque.dimgray }
+                            , Element.Background.color Colors.Opaque.lemonchiffon
+                            ]
+                            [ content
+                            ]
+                        ]
                     ]
-                ]
-            ]
-        ]
     }

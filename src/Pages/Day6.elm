@@ -1,4 +1,4 @@
-module Pages.Day6 exposing (..)
+module Pages.Day6 exposing (Model, Msg, page)
 
 -- import Debug
 
@@ -10,23 +10,22 @@ import Html exposing (input)
 import Html.Attributes as HtmlAttributes
 import Html.Events exposing (onInput)
 import List exposing (foldl)
+import Page
 import ParseInt exposing (parseIntHex)
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import String exposing (left, right, slice)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
 
 
@@ -35,16 +34,12 @@ type Msg
     | BackgroundColorInputText String
 
 
-type alias Params =
-    ()
-
-
 type alias Model =
     { backgroundColor : String, fontColor : String }
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd msg )
-init _ _ =
+init : ( Model, Cmd Msg )
+init =
     ( { backgroundColor = "#FF5533", fontColor = "#F0F0F0" }, Cmd.none )
 
 
@@ -138,16 +133,6 @@ subscriptions model =
     Sub.none
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 elementIf : Element msg -> Bool -> Element msg
 elementIf el cond =
     if cond then
@@ -157,64 +142,65 @@ elementIf el cond =
         text ""
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 6 "
     , body =
-        [ column [ width fill, height fill, Background.color <| fromRgb255 <| hexToRgb model.backgroundColor ]
-            [ row [ centerX, spacing 10, width fill, Font.size 30, padding 20, Font.extraBold, Font.color <| fromRgb255 <| hexToRgb model.fontColor ] [ Element.text "Day 6  -  Accessible constrast colors" ]
-            , row
-                [ centerX, padding 10, spacing 10, width fill ]
-                [ column [ padding 10, centerX, width (fill |> minimum 300), Font.color <| fromRgb255 <| hexToRgb model.fontColor ] [ Element.text "Pick a background color" ]
-                , column [ padding 10, centerX, width fill ]
-                    [ Html.input
-                        [ HtmlAttributes.style "height" "2rem"
-                        , HtmlAttributes.style "width" "10rem"
-                        , HtmlAttributes.style "text-align" "center"
-                        , HtmlAttributes.id "pick-color"
-                        , HtmlAttributes.type_ "color"
-                        , onInput BackgroundColorInputText
-                        , HtmlAttributes.value model.backgroundColor
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column [ width fill, height fill, Background.color <| fromRgb255 <| hexToRgb model.backgroundColor ]
+                    [ row [ centerX, spacing 10, width fill, Font.size 30, padding 20, Font.extraBold, Font.color <| fromRgb255 <| hexToRgb model.fontColor ] [ Element.text "Day 6  -  Accessible constrast colors" ]
+                    , row
+                        [ centerX, padding 10, spacing 10, width fill ]
+                        [ column [ padding 10, centerX, width (fill |> minimum 300), Font.color <| fromRgb255 <| hexToRgb model.fontColor ] [ Element.text "Pick a background color" ]
+                        , column [ padding 10, centerX, width fill ]
+                            [ Html.input
+                                [ HtmlAttributes.style "height" "2rem"
+                                , HtmlAttributes.style "width" "10rem"
+                                , HtmlAttributes.style "text-align" "center"
+                                , HtmlAttributes.id "pick-color"
+                                , HtmlAttributes.type_ "color"
+                                , onInput BackgroundColorInputText
+                                , HtmlAttributes.value model.backgroundColor
+                                ]
+                                []
+                                |> html
+                            ]
                         ]
-                        []
-                        |> html
-                    ]
-                ]
-            , row
-                [ centerX, padding 10, spacing 10, width fill ]
-                [ column [ padding 10, centerX, width (fill |> minimum 300), Font.color <| fromRgb255 <| hexToRgb model.fontColor ] [ Element.text "Pick a font color" ]
-                , column [ padding 10, centerX, width fill ]
-                    [ Html.input
-                        [ HtmlAttributes.style "height" "2rem"
-                        , HtmlAttributes.style "width" "10rem"
-                        , HtmlAttributes.style "text-align" "center"
-                        , HtmlAttributes.id "pick-color"
-                        , HtmlAttributes.type_ "color"
-                        , onInput ColorInputText
-                        , HtmlAttributes.value model.fontColor
+                    , row
+                        [ centerX, padding 10, spacing 10, width fill ]
+                        [ column [ padding 10, centerX, width (fill |> minimum 300), Font.color <| fromRgb255 <| hexToRgb model.fontColor ] [ Element.text "Pick a font color" ]
+                        , column [ padding 10, centerX, width fill ]
+                            [ Html.input
+                                [ HtmlAttributes.style "height" "2rem"
+                                , HtmlAttributes.style "width" "10rem"
+                                , HtmlAttributes.style "text-align" "center"
+                                , HtmlAttributes.id "pick-color"
+                                , HtmlAttributes.type_ "color"
+                                , onInput ColorInputText
+                                , HtmlAttributes.value model.fontColor
+                                ]
+                                []
+                                |> html
+                            ]
                         ]
-                        []
-                        |> html
+                    , row [ width fill ]
+                        [ column []
+                            [ Element.el [ Font.size 48, Font.color <| rgb255 128 255 170, width (fill |> minimum 50 |> maximum 50) ] <| elementIf (text "✓") <| checkcontrastvalid model.fontColor model.backgroundColor True ]
+                        , column [ width fill ]
+                            [ Element.el
+                                [ height fill, centerX, centerY, Font.size 112, padding 20, Font.extraBold, Font.color <| fromRgb255 <| hexToRgb model.fontColor ]
+                                (text "Hello !!")
+                            ]
+                        ]
+                    , row [ width fill ]
+                        [ column []
+                            [ Element.el [ Font.size 48, Font.color <| rgb255 128 255 170, width (fill |> minimum 50 |> maximum 50) ] <| elementIf (text "✓") <| checkcontrastvalid model.fontColor model.backgroundColor False ]
+                        , column [ width fill ]
+                            [ paragraph
+                                [ padding 10, height fill, Font.color <| fromRgb255 <| hexToRgb model.fontColor ]
+                                [ Element.text "Et dolore pariatur laboris dolore sint. Laboris eu eu anim eu proident. Occaecat adipisicing tempor ullamco esse ad sint. Exercitation tempor reprehenderit amet ullamco non non ipsum sit esse Lorem. Nulla sit fugiat ut nisi ea aliquip consequat quis." ]
+                            ]
+                        ]
                     ]
-                ]
-            , row [ width fill ]
-                [ column []
-                    [ Element.el [ Font.size 48, Font.color <| rgb255 128 255 170, width (fill |> minimum 50 |> maximum 50) ] <| elementIf (text "✓") <| checkcontrastvalid model.fontColor model.backgroundColor True ]
-                , column [ width fill ]
-                    [ Element.el
-                        [ height fill, centerX, centerY, Font.size 112, padding 20, Font.extraBold, Font.color <| fromRgb255 <| hexToRgb model.fontColor ]
-                        (text "Hello !!")
-                    ]
-                ]
-            , row [ width fill ]
-                [ column []
-                    [ Element.el [ Font.size 48, Font.color <| rgb255 128 255 170, width (fill |> minimum 50 |> maximum 50) ] <| elementIf (text "✓") <| checkcontrastvalid model.fontColor model.backgroundColor False ]
-                , column [ width fill ]
-                    [ paragraph
-                        [ padding 10, height fill, Font.color <| fromRgb255 <| hexToRgb model.fontColor ]
-                        [ Element.text "Et dolore pariatur laboris dolore sint. Laboris eu eu anim eu proident. Occaecat adipisicing tempor ullamco esse ad sint. Exercitation tempor reprehenderit amet ullamco non non ipsum sit esse Lorem. Nulla sit fugiat ut nisi ea aliquip consequat quis." ]
-                    ]
-                ]
-            ]
-        ]
     }

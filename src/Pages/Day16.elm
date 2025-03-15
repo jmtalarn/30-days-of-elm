@@ -1,4 +1,4 @@
-module Pages.Day16 exposing (..)
+module Pages.Day16 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -14,27 +14,22 @@ import Html.Attributes as HtmlAttributes
 import Html.Events exposing (onInput)
 import Json.Decode as Decode exposing (Decoder, Error, oneOf, string)
 import Json.Decode.Pipeline exposing (required)
+import Page
+import Request exposing (Request)
 import Result
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type Parsed
@@ -72,8 +67,8 @@ type alias Model =
     ( String, Parsed )
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( ( "", Nothing ), Cmd.none )
 
 
@@ -115,22 +110,12 @@ parseText text =
             Nothing
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     let
         ( text, parsed ) =
@@ -138,69 +123,70 @@ view model =
     in
     { title = "Day 16"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 20
-            , height fill
-            , width fill
-            ]
-            [ row [ centerX ] [ html <| h1 [] [ Html.text "Day 16" ] ]
-            , row [ width fill, height fill, spacing 50 ]
-                [ column [ width fill, height fill, spacing 16 ]
-                    [ Input.multiline [ height (fill |> minimum 500), width fill, Font.extraLight ]
-                        { onChange = SetText
-                        , text = text
-                        , placeholder =
-                            Just
-                                (Input.placeholder
-                                    []
-                                    (Element.text """There are just two valid Json structures to parse: 
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , padding 40
+                    , Font.size 20
+                    , height fill
+                    , width fill
+                    ]
+                    [ row [ centerX ] [ html <| h1 [] [ Html.text "Day 16" ] ]
+                    , row [ width fill, height fill, spacing 50 ]
+                        [ column [ width fill, height fill, spacing 16 ]
+                            [ Input.multiline [ height (fill |> minimum 500), width fill, Font.extraLight ]
+                                { onChange = SetText
+                                , text = text
+                                , placeholder =
+                                    Just
+                                        (Input.placeholder
+                                            []
+                                            (Element.text """There are just two valid Json structures to parse: 
                      
                                        A User which has this shape {"id": String, "name": String, "email": String } or a Book which has the following shape { "ean": String, "title": String, "author": String }
                                         """)
-                                )
-                        , label =
-                            Input.labelAbove []
-                                (Element.text "Raw json text")
-                        , spellcheck = False
-                        }
-                    , Input.button
-                        [ width fill
-                        , padding 20
-                        , Background.color Colors.Opaque.lightsteelblue
-                        , Border.shadow
-                            { blur = 5
-                            , color = Colors.Alpha.black 0.2
-                            , offset = ( 2, 2 )
-                            , size = 0
-                            }
-                        , Border.rounded 5
-                        , Font.center
-                        , Font.color Colors.Opaque.blanchedalmond
-                        , mouseOver
-                            [ Border.shadow
-                                { blur = 2
-                                , color = Colors.Alpha.black 0
-                                , offset = ( 2, 2 )
-                                , size = 0
+                                        )
+                                , label =
+                                    Input.labelAbove []
+                                        (Element.text "Raw json text")
+                                , spellcheck = False
                                 }
+                            , Input.button
+                                [ width fill
+                                , padding 20
+                                , Background.color Colors.Opaque.lightsteelblue
+                                , Border.shadow
+                                    { blur = 5
+                                    , color = Colors.Alpha.black 0.2
+                                    , offset = ( 2, 2 )
+                                    , size = 0
+                                    }
+                                , Border.rounded 5
+                                , Font.center
+                                , Font.color Colors.Opaque.blanchedalmond
+                                , mouseOver
+                                    [ Border.shadow
+                                        { blur = 2
+                                        , color = Colors.Alpha.black 0
+                                        , offset = ( 2, 2 )
+                                        , size = 0
+                                        }
+                                    ]
+                                ]
+                                { onPress = Just ParseText, label = Element.text "Press to parse 🔀" }
+                            ]
+                        , column [ width fill, height fill, alignTop, paddingXY 0 25, Font.extraLight ]
+                            [ Element.paragraph
+                                [ height (fillPortion 6) ]
+                                [ Element.text <| printParsed <| parsed ]
+                            , Element.paragraph
+                                [ Font.bold, height (fillPortion 1) ]
+                                [ Element.text "Psst! There is a hint here to copy and paste..." ]
+                            , Element.paragraph
+                                [ Font.family [ Font.monospace ], Font.extraLight, height (fillPortion 1) ]
+                                [ Element.text """The following for a user {"id": String, "name": String, "email": String } and this for a book { "ean": String, "title": String, "author": String } """ ]
                             ]
                         ]
-                        { onPress = Just ParseText, label = Element.text "Press to parse 🔀" }
                     ]
-                , column [ width fill, height fill, alignTop, paddingXY 0 25, Font.extraLight ]
-                    [ Element.paragraph
-                        [ height (fillPortion 6) ]
-                        [ Element.text <| printParsed <| parsed ]
-                    , Element.paragraph
-                        [ Font.bold, height (fillPortion 1) ]
-                        [ Element.text "Psst! There is a hint here to copy and paste..." ]
-                    , Element.paragraph
-                        [ Font.family [ Font.monospace ], Font.extraLight, height (fillPortion 1) ]
-                        [ Element.text """The following for a user {"id": String, "name": String, "email": String } and this for a book { "ean": String, "title": String, "author": String } """ ]
-                    ]
-                ]
-            ]
-        ]
     }

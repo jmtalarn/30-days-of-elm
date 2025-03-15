@@ -1,4 +1,4 @@
-module Pages.Day8 exposing (..)
+module Pages.Day8 exposing (Model, Msg, page)
 
 import Browser
 import Colors.Opaque exposing (cyan, dimgray, fuchsia)
@@ -12,21 +12,20 @@ import Html exposing (Html)
 import Html.Attributes
 import List exposing (concat)
 import Maybe
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
-        { init = init
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
+        { init = init shared req.query
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
 
 
@@ -42,17 +41,17 @@ type alias Model =
     List ( String, String )
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd msg )
-init _ url =
+init : Shared.Model -> Dict.Dict String String -> ( Model, Cmd msg )
+init _ query =
     let
         name =
-            Maybe.withDefault "" <| Dict.get "name" url.query
+            Maybe.withDefault "" <| Dict.get "name" query
 
         age =
-            Maybe.withDefault "" <| Dict.get "age" url.query
+            Maybe.withDefault "" <| Dict.get "age" query
 
         location =
-            Maybe.withDefault "" <| Dict.get "location" url.query
+            Maybe.withDefault "" <| Dict.get "location" query
     in
     ( [ ( "name", name ), ( "age", age ), ( "location", location ) ], Cmd.none )
 
@@ -66,16 +65,6 @@ update msg model =
     case msg of
         Set field value ->
             ( Dict.toList <| Dict.insert field value dict, Cmd.none )
-
-
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -169,7 +158,7 @@ form model =
     ]
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     let
         dict =
@@ -186,32 +175,33 @@ view model =
     in
     { title = "Day 8"
     , body =
-        [ column [ centerX, centerY, width fill, padding 50, spacing 50, width (fill |> maximum 1200) ]
-            [ row
-                (rowAttributes ++ commonAttributes)
-                [ Element.paragraph
-                    []
-                    [ text "Hello! Greetings from ", text location, text ". My name is ", text name, text " and I'm ", text age, text " years old." ]
-                ]
-            , row
-                rowAttributes
-                [ column [ width <| fillPortion 2 ] <| form model
-                , column [ width <| fillPortion 3, padding 20, alignTop ]
-                    [ paragraph [ htmlAttribute <| Html.Attributes.style "word-break" "break-all" ]
-                        [ Element.text "Click the following link in order to reload page and use the query parameters in the model"
-                        , Element.link
-                            [ Font.color Colors.Opaque.cornflowerblue
-                            , Border.color Colors.Opaque.cornflowerblue
-                            , Border.dashed
-                            , Border.widthEach { bottom = 1, left = 0, right = 0, top = 0 }
-                            , mouseOver [ Border.glow Colors.Opaque.cornflowerblue 0.5 ]
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column [ centerX, centerY, width fill, padding 50, spacing 50, width (fill |> maximum 1200) ]
+                    [ row
+                        (rowAttributes ++ commonAttributes)
+                        [ Element.paragraph
+                            []
+                            [ text "Hello! Greetings from ", text location, text ". My name is ", text name, text " and I'm ", text age, text " years old." ]
+                        ]
+                    , row
+                        rowAttributes
+                        [ column [ width <| fillPortion 2 ] <| form model
+                        , column [ width <| fillPortion 3, padding 20, alignTop ]
+                            [ paragraph [ htmlAttribute <| Html.Attributes.style "word-break" "break-all" ]
+                                [ Element.text "Click the following link in order to reload page and use the query parameters in the model"
+                                , Element.link
+                                    [ Font.color Colors.Opaque.cornflowerblue
+                                    , Border.color Colors.Opaque.cornflowerblue
+                                    , Border.dashed
+                                    , Border.widthEach { bottom = 1, left = 0, right = 0, top = 0 }
+                                    , mouseOver [ Border.glow Colors.Opaque.cornflowerblue 0.5 ]
+                                    ]
+                                    { url = buildUrl model
+                                    , label = text <| buildUrl model
+                                    }
+                                ]
                             ]
-                            { url = buildUrl model
-                            , label = text <| buildUrl model
-                            }
                         ]
                     ]
-                ]
-            ]
-        ]
     }
