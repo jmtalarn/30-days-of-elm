@@ -1,4 +1,4 @@
-module Pages.Day19 exposing (..)
+module Pages.Day19 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -10,31 +10,26 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (Html, h1, p)
 import Html.Events exposing (onInput)
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Svg exposing (..)
 import Svg.Attributes as SVGAttrs exposing (..)
 import Task
 import Time
 import TimeZone
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias TimeZoneAndName =
@@ -45,8 +40,8 @@ type alias Model =
     ( ( TimeZoneAndName, TimeZoneAndName, TimeZoneAndName ), Time.Posix )
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( ( ( TimeZoneAndName (TimeZone.america__los_angeles ()) "America/Los Angeles"
         , TimeZoneAndName Time.utc ""
         , TimeZoneAndName (TimeZone.asia__tokyo ()) "Asia/Tokyo"
@@ -90,16 +85,6 @@ update msg ( zones, time ) =
             ( ( ( la, newZone, tk ), time )
             , Cmd.none
             )
-
-
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -178,21 +163,22 @@ hand width length turns color =
         []
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view ( ( la, here, tk ), time ) =
     { title = "Day 19"
     , body =
-        [ Element.column
-            [ Element.centerX
-            , Element.padding 40
-            , Font.size 30
-            ]
-            [ Element.row [ Element.centerX ] [ Element.html <| h1 [] [ Html.text "Day 19" ] ]
-            , Element.row []
-                [ clock ( la, time )
-                , clock ( here, time )
-                , clock ( tk, time )
-                ]
-            ]
-        ]
+        UI.layout <|
+            Element.layout [] <|
+                Element.column
+                    [ Element.centerX
+                    , Element.padding 40
+                    , Font.size 30
+                    ]
+                    [ Element.row [ Element.centerX ] [ Element.html <| h1 [] [ Html.text "Day 19" ] ]
+                    , Element.row []
+                        [ clock ( la, time )
+                        , clock ( here, time )
+                        , clock ( tk, time )
+                        ]
+                    ]
     }

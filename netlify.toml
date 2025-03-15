@@ -1,4 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "elm-stuff/elm-starter-files/build/"
-    

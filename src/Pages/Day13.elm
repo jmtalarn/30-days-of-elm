@@ -1,9 +1,8 @@
-module Pages.Day13 exposing (..)
+module Pages.Day13 exposing (Model, Msg, page)
 
--- import Html.Attributes exposing (..)
 -- import Pages.Day12 exposing (nextNumberWithSameAmountOfOnes)
 
-import Binary
+import Binary exposing (Bits, add, empty)
 import Colors.Opaque exposing (grey)
 import Element exposing (..)
 import Element.Background as Background
@@ -25,34 +24,44 @@ import LineChart.Interpolation as Interpolation
 import LineChart.Junk as Junk
 import LineChart.Legends as Legends
 import LineChart.Line as Line
-import List exposing (indexedMap)
-import Pages.Day12 exposing (nextNumberWithSameAmountOfOnes)
+import List exposing (filter, foldl, indexedMap)
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Svg exposing (Svg)
 import Tuple exposing (first, second)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Model =
     ( List ( Float, Float ), List ( Float, Float ) )
+
+
+nextNumberWithSameAmountOfOnes : Bits -> Bits -> Bits
+nextNumberWithSameAmountOfOnes number nextNumber =
+    let
+        numberOnes =
+            foldl (+) 0 <| Binary.toIntegers number
+
+        nextNumberOnes =
+            foldl (+) 0 <| Binary.toIntegers nextNumber
+    in
+    if numberOnes == nextNumberOnes then
+        nextNumber
+
+    else
+        nextNumberWithSameAmountOfOnes number (Binary.add (Binary.fromIntegers [ 1 ]) nextNumber)
 
 
 getNextNumber : Int -> Int
@@ -60,8 +69,8 @@ getNextNumber number =
     Binary.toDecimal <| nextNumberWithSameAmountOfOnes (Binary.fromDecimal number) (Binary.fromDecimal (number + 1))
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     let
         range =
             List.range 1 100
@@ -91,36 +100,27 @@ update _ model =
     ( model, Cmd.none )
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 13"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 30
-            ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 13 - Visualize pair of values of Day 12" ] ]
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , padding 40
+                    , Font.size 30
+                    ]
+                    [ row [] [ html <| h1 [] [ Html.text "Day 13 - Visualize pair of values of Day 12" ] ]
 
-            -- , row [] [ Element.paragraph [] (List.map (\( a, b ) -> Element.text <| "[" ++ String.fromFloat a ++ "," ++ String.fromFloat b ++ "]") model) ]
-            , row [ Font.size 15, width fill ] [ html <| chart model ]
-            ]
-        ]
+                    -- , row [] [ Element.paragraph [] (List.map (\( a, b ) -> Element.text <| "[" ++ String.fromFloat a ++ "," ++ String.fromFloat b ++ "]") model) ]
+                    , row [ Font.size 15, width fill ] [ html <| chart model ]
+                    ]
     }
 
 

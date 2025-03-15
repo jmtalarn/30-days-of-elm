@@ -1,4 +1,4 @@
-module Pages.Day12 exposing (..)
+module Pages.Day12 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -11,36 +11,31 @@ import Html exposing (h1, h3)
 import Html.Attributes as HtmlAttributes exposing (type_)
 import Html.Events exposing (onInput)
 import List exposing (filter, foldl)
+import Page
 import ParseInt exposing (parseInt)
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import String exposing (fromInt, split)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Model =
     { number : String, numberBinary : Bits, nextNumber : String, nextNumberBinary : Bits }
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( Model "0" Binary.empty "0" Binary.empty, Cmd.none )
 
 
@@ -68,11 +63,6 @@ update msg _ =
             ( Model number binaryNumber nextNumber binaryNextNumber, Cmd.none )
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
 nextNumberWithSameAmountOfOnes : Bits -> Bits -> Bits
 nextNumberWithSameAmountOfOnes number nextNumber =
     let
@@ -89,11 +79,6 @@ nextNumberWithSameAmountOfOnes number nextNumber =
         nextNumberWithSameAmountOfOnes number (Binary.add (Binary.fromIntegers [ 1 ]) nextNumber)
 
 
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
@@ -108,44 +93,45 @@ printBits number =
         String.concat <| List.map String.fromInt (Binary.toIntegers number)
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 12"
     , body =
-        [ column
-            [ centerX
-            , padding 40
-            , Font.size 30
-            ]
-            [ row [] [ html <| h1 [] [ Html.text "Day 12" ] ]
-            , row [] [ html <| h3 [] [ Html.text "Next number with same amount of ones in binary representation" ] ]
-            , row [ Font.color Colors.Opaque.crimson, rotate -0.3, scale 1.2, Font.extraBold, moveUp 180, moveRight 200 ] [ Element.text "elm-binary edition" ]
-            , row [ spacing 20 ]
-                [ column
-                    [ spacing 10, centerY ]
-                    [ Input.text
-                        [ htmlAttribute <| type_ "number"
-                        , Font.extraLight
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ centerX
+                    , padding 40
+                    , Font.size 30
+                    ]
+                    [ row [] [ html <| h1 [] [ Html.text "Day 12" ] ]
+                    , row [] [ html <| h3 [] [ Html.text "Next number with same amount of ones in binary representation" ] ]
+                    , row [ Font.color Colors.Opaque.crimson, rotate -0.3, scale 1.2, Font.extraBold, moveUp 180, moveRight 200 ] [ Element.text "elm-binary edition" ]
+                    , row [ spacing 20 ]
+                        [ column
+                            [ spacing 10, centerY ]
+                            [ Input.text
+                                [ htmlAttribute <| type_ "number"
+                                , Font.extraLight
+                                ]
+                                { onChange = Set
+                                , text = model.number
+                                , placeholder = Just (Input.placeholder [] (Element.text "Write a number here"))
+                                , label =
+                                    Input.labelAbove []
+                                        (Element.text "Write a number here")
+                                }
+                            ]
+                        , column [ spacing 15 ]
+                            [ Element.text "Your number in binary representation"
+                            , el [ Font.extraLight ]
+                                (Element.text <| printBits model.numberBinary)
+                            , Element.text
+                                "Next number with same amount of ones"
+                            , el [ Font.extraLight ] (Element.text <| model.nextNumber)
+                            , Element.text "Number above in binary representation"
+                            , el [ Font.extraLight ] (Element.text <| printBits model.nextNumberBinary)
+                            ]
                         ]
-                        { onChange = Set
-                        , text = model.number
-                        , placeholder = Just (Input.placeholder [] (Element.text "Write a number here"))
-                        , label =
-                            Input.labelAbove []
-                                (Element.text "Write a number here")
-                        }
                     ]
-                , column [ spacing 15 ]
-                    [ Element.text "Your number in binary representation"
-                    , el [ Font.extraLight ]
-                        (Element.text <| printBits model.numberBinary)
-                    , Element.text
-                        "Next number with same amount of ones"
-                    , el [ Font.extraLight ] (Element.text <| model.nextNumber)
-                    , Element.text "Number above in binary representation"
-                    , el [ Font.extraLight ] (Element.text <| printBits model.nextNumberBinary)
-                    ]
-                ]
-            ]
-        ]
     }

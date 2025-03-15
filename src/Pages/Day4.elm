@@ -1,49 +1,34 @@
-module Pages.Day4 exposing (..)
+module Pages.Day4 exposing (Model, Msg, page)
 
 import Element exposing (html)
 import Html exposing (Html, div, h1, input, label, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onCheck)
+import Page
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import Time
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Model =
     { show : Bool, degrees : Int }
 
 
-init : Shared.Model -> Url params -> ( Model, Cmd msg )
-init _ _ =
+init : ( Model, Cmd Msg )
+init =
     ( { show = False, degrees = 0 }, Cmd.none )
-
-
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -80,11 +65,11 @@ getRotateStyleValue rotate =
     "rotate(" ++ String.fromInt rotate ++ "deg)"
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     { title = "Day 4"
     , body =
-        [ html <|
+        UI.layout <|
             div
                 [ style "display" "flex"
                 , style "flex-direction" "column"
@@ -111,5 +96,4 @@ view model =
                     )
                     model.show
                 ]
-        ]
     }

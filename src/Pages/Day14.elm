@@ -1,4 +1,4 @@
-module Pages.Day14 exposing (..)
+module Pages.Day14 exposing (Model, Msg, page)
 
 -- import Html.Attributes exposing (..)
 
@@ -11,30 +11,25 @@ import Element.Input as Input exposing (..)
 import Html exposing (h1, h3)
 import Html.Events exposing (onInput)
 import List exposing (foldl, map, map2)
+import Page
 import Parser exposing (float, run)
 import Regex
+import Request exposing (Request)
 import Shared
-import Spa.Document exposing (Document)
-import Spa.Page as Page exposing (Page)
-import Spa.Url exposing (Url)
 import String exposing (split, toInt)
 import Tuple exposing (first)
+import UI
+import View exposing (View)
 
 
-page : Page Params Model Msg
-page =
-    Page.application
+page : Shared.Model -> Request -> Page.With Model Msg
+page shared req =
+    Page.element
         { init = init
         , update = update
-        , subscriptions = subscriptions
         , view = view
-        , save = save
-        , load = load
+        , subscriptions = subscriptions
         }
-
-
-type alias Params =
-    ()
 
 
 type alias Kata1 =
@@ -57,8 +52,8 @@ type alias Model =
     { kata1 : Kata1, kata2 : Kata2, kata3 : Kata3, kata4 : Kata4 }
 
 
-init : Shared.Model -> Url Params -> ( Model, Cmd Msg )
-init shared { params } =
+init : ( Model, Cmd Msg )
+init =
     ( Model (Kata1 0 2.0 0 0 0 0) (Kata2 0 "") (Kata3 0 0 0) (Kata4 "" ""), Cmd.none )
 
 
@@ -218,16 +213,6 @@ solveKata1 kata1 =
         solveKata1 { kata1 | population = populationOnNextYear, years = oneMoreYear }
 
 
-save : Model -> Shared.Model -> Shared.Model
-save model shared =
-    shared
-
-
-load : Shared.Model -> Model -> ( Model, Cmd Msg )
-load shared model =
-    ( model, Cmd.none )
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
@@ -380,7 +365,7 @@ viewKata4 kata4 =
     ]
 
 
-view : Model -> Document Msg
+view : Model -> View Msg
 view model =
     let
         { kata1, kata2, kata3, kata4 } =
@@ -388,16 +373,17 @@ view model =
     in
     { title = "Day 14"
     , body =
-        [ column
-            [ paddingXY 40 20
-            , Font.size 30
-            , width fill
-            ]
-            [ html <| h1 [] [ Html.text "Day 14" ]
-            , row [ spacing 100, Font.size 15 ]
-                [ column [ alignTop ] (viewKata1 kata1)
-                , column [ alignTop ] (viewKata2 kata2 ++ viewKata3 kata3 ++ viewKata4 kata4)
-                ]
-            ]
-        ]
+        UI.layout <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
+                column
+                    [ paddingXY 40 20
+                    , Font.size 30
+                    , width fill
+                    ]
+                    [ html <| h1 [] [ Html.text "Day 14" ]
+                    , row [ spacing 100, Font.size 15 ]
+                        [ column [ alignTop ] (viewKata1 kata1)
+                        , column [ alignTop ] (viewKata2 kata2 ++ viewKata3 kata3 ++ viewKata4 kata4)
+                        ]
+                    ]
     }
