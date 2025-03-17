@@ -48,6 +48,7 @@ type Msg
     | StatusConnected Bool
 
 
+buttonAttrs : List (Attribute msg)
 buttonAttrs =
     [ Element.width fill
     , padding 10
@@ -110,6 +111,7 @@ view model =
     }
 
 
+webSocketEchoChat : Model -> Element Msg
 webSocketEchoChat model =
     column
         [ centerX
@@ -117,6 +119,7 @@ webSocketEchoChat model =
         , Font.size 20
         , Element.width fill
         , Element.height fill
+        , spacing 8
         ]
         [ row
             [ Element.width fill ]
@@ -135,7 +138,7 @@ webSocketEchoChat model =
               <|
                 List.map (\msg -> Element.text msg) model.messages
             ]
-        , row [ Element.width fill ]
+        , row [ Element.width fill, spacing 4 ]
             [ Input.text [ Element.width <| fillPortion 5 ]
                 { onChange = DraftChanged
                 , placeholder = Just (placeholder [] <| Element.text "Write here your message...")
