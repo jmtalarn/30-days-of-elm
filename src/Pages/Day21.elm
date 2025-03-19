@@ -102,7 +102,7 @@ view ( planets, speed ) =
     { title = "Day 21"
     , body =
         UI.layout <|
-            Element.layout [] <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
                 Element.column
                     [ Element.width Element.fill
                     , Font.size 30

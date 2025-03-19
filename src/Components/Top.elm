@@ -1,5 +1,6 @@
 module Components.Top exposing (header)
 
+import Colors.Opaque
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
@@ -70,7 +71,7 @@ header =
         , padding 20
 
         --, Background.color <| rgb255 38 104 69
-        , Background.color <| rgb255 141 166 211
+        , Background.color <| Colors.Opaque.steelblue --<| rgb255 141 166 211
         ]
         [ wrappedRow
             [ Font.color <| rgba 0 0 0 0.9
