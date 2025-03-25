@@ -1,7 +1,5 @@
 module Pages.Day27 exposing (Model, Msg, page)
 
--- import Html.Attributes exposing (..)
-
 import Colors.Opaque exposing (dimgray, grey)
 import Element exposing (..)
 import Element.Background as Background

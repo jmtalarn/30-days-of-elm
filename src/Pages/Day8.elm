@@ -195,7 +195,7 @@ view model =
                                     , Border.color Colors.Opaque.cornflowerblue
                                     , Border.dashed
                                     , Border.widthEach { bottom = 1, left = 0, right = 0, top = 0 }
-                                    , mouseOver [ Border.glow Colors.Opaque.cornflowerblue 0.5 ]
+                                    , mouseOver [ Border.glow Colors.Opaque.cornflowerblue 2 ]
                                     ]
                                     { url = buildUrl model
                                     , label = text <| buildUrl model

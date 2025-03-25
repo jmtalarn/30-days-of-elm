@@ -1,6 +1,7 @@
 module Components.Top exposing (header)
 
 import Colors.Opaque
+import Components.HomeIcon as HomeIcon
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
@@ -26,7 +27,8 @@ buttonAttrs =
 
 dayLinks : List (Element msg)
 dayLinks =
-    [ link buttonAttrs { url = "./day1", label = paragraph [] [ text "Day 1" ] }
+    [ link buttonAttrs { url = "/", label = HomeIcon.icon }
+    , link buttonAttrs { url = "./day1", label = paragraph [] [ text "Day 1" ] }
     , link buttonAttrs { url = "./day2", label = paragraph [] [ text "Day 2" ] }
     , link buttonAttrs { url = "./day3", label = paragraph [] [ text "Day 3" ] }
     , link buttonAttrs { url = "./day4", label = paragraph [] [ text "Day 4" ] }
@@ -84,9 +86,7 @@ header =
                 , paragraph [ Font.size 16 ]
                     [ text "Built with "
                     , link linkAttrs { label = text "elm-spa", url = "https://www.elm-spa.dev/" }
-                    , text " and "
-                    , link linkAttrs { label = text "elm-starter", url = "https://github.com/lucamug/elm-starter" }
-                    , text " based on "
+                    , text " and  based on "
                     , link linkAttrs { label = text "Kristian Pedersen challenge", url = "https://dev.to/kristianpedersen/30-days-of-elm-intro-2lo2" }
                     , text "."
                     ]
