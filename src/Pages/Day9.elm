@@ -237,6 +237,7 @@ asteroidsDecoder =
     field "near_earth_objects" dateKeyAsteroidsDecoder
 
 
+dateKeyAsteroidsDecoder : Decoder (List Asteroid)
 dateKeyAsteroidsDecoder =
     let
         result pair =
