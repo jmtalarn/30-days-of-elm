@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "node elm-constants.js && elm-spa server",
-		"build": "node elm-constants.js &&  elm-spa build",
+		"build": "node elm-constants.js &&  elm-spa gen && elm make .elm-spa/defaults/Main.elm --output=public/dist/elm.js",
 		"elm:install:dependencies": "elm-json install -- elm.json"
 	},
 	"author": "",
