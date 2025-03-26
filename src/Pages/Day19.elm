@@ -168,7 +168,7 @@ view ( ( la, here, tk ), time ) =
     { title = "Day 19"
     , body =
         UI.layout <|
-            Element.layout [] <|
+            Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|
                 Element.column
                     [ Element.centerX
                     , Element.padding 40

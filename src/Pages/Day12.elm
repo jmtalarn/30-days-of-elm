@@ -49,18 +49,22 @@ update msg _ =
         Set value ->
             let
                 number =
-                    value
+                    Result.withDefault 0 <| parseInt value
 
                 binaryNumber =
-                    Binary.fromDecimal <| Result.withDefault 0 <| parseInt value
+                    Binary.fromDecimal <| number
 
                 binaryNextNumber =
-                    nextNumberWithSameAmountOfOnes binaryNumber (add (Binary.fromIntegers [ 1 ]) binaryNumber)
+                    if number /= 0 then
+                        nextNumberWithSameAmountOfOnes binaryNumber (add (Binary.fromIntegers [ 1 ]) binaryNumber)
+
+                    else
+                        Binary.fromIntegers [ 0 ]
 
                 nextNumber =
                     String.fromInt <| Binary.toDecimal binaryNextNumber
             in
-            ( Model number binaryNumber nextNumber binaryNextNumber, Cmd.none )
+            ( Model value binaryNumber nextNumber binaryNextNumber, Cmd.none )
 
 
 nextNumberWithSameAmountOfOnes : Bits -> Bits -> Bits
@@ -112,6 +116,7 @@ view model =
                             [ spacing 10, centerY ]
                             [ Input.text
                                 [ htmlAttribute <| type_ "number"
+                                , htmlAttribute <| HtmlAttributes.min "0"
                                 , Font.extraLight
                                 ]
                                 { onChange = Set
