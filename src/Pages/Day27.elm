@@ -8,7 +8,8 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (h1, p, s)
 import Html.Events exposing (onInput)
-import Page
+import Page exposing (Page)
+import Ports
 import Route exposing (Route)
 import Shared
 import UI
@@ -68,14 +69,14 @@ update msg model =
             )
 
         Connect ->
-            ( model, Shared.socketConnect () )
+            ( model, Ports.socketConnect () )
 
         Disconnect ->
-            ( model, Shared.socketDisconnect () )
+            ( model, Ports.socketDisconnect () )
 
         Send ->
             ( { model | draft = "" }
-            , Shared.socketSendMessage model.draft
+            , Ports.socketSendMessage model.draft
             )
 
         StatusConnected status ->
@@ -89,7 +90,7 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-    Sub.batch [ Shared.socketMessageReceiver Recv, Shared.socketStatusReceiver StatusConnected ]
+    Sub.batch [ Ports.socketMessageReceiver Recv, Ports.socketStatusReceiver StatusConnected ]
 
 
 view : Model -> View Msg

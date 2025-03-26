@@ -3,7 +3,7 @@ module Pages.Day2 exposing (Model, Msg, page)
 import Element exposing (column, html)
 import Html exposing (Html, div, p, text)
 import Html.Attributes exposing (..)
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import UI

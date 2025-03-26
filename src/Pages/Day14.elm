@@ -11,7 +11,7 @@ import Element.Input as Input exposing (..)
 import Html exposing (h1, h3)
 import Html.Events exposing (onInput)
 import List exposing (foldl, map, map2)
-import Page
+import Page exposing (Page)
 import Parser exposing (float, run)
 import Regex
 import Route exposing (Route)

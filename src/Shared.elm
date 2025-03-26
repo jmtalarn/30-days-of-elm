@@ -1,7 +1,7 @@
 module Shared exposing
     ( Flags
     , Model
-    , Msg(..)
+    , Msg
     , decoder
     , init
     , subscriptions
@@ -9,18 +9,18 @@ module Shared exposing
     )
 
 import Effect exposing (Effect)
-import Json.Decode as Json
+import Json.Decode exposing (field, map, string)
 import Route exposing (Route)
 
 
-decoder : Json.Decoder Flags
-decoder =
-    Json.map Flags
-        (Json.field "nasaApiKey" Json.string)
-
-
 type alias Flags =
-    Json.Value
+    { nasaApiKey : Maybe String }
+
+
+decoder : Json.Decode.Decoder Flags
+decoder =
+    map Flags
+        (field "nasaApiKey" (Json.Decode.maybe string))
 
 
 type alias Model =
@@ -32,14 +32,14 @@ type Msg
     = NoOp
 
 
-init : Result Json.Error Flags -> Route () -> ( Model, Effect Msg )
+init : Result Json.Decode.Error Flags -> Route () -> ( Model, Effect Msg )
 init result _ =
     let
-        nasaApiKey =
+        flags =
             result
                 |> Result.withDefault { nasaApiKey = Nothing }
     in
-    ( Model nasaApiKey, Cmd.none )
+    ( Model <| Maybe.withDefault "" <| flags.nasaApiKey, Effect.none )
 
 
 update : Route () -> Msg -> Model -> ( Model, Effect Msg )
@@ -47,7 +47,7 @@ update _ msg model =
     case msg of
         NoOp ->
             ( model
-            , Cmd.none
+            , Effect.none
             )
 
 

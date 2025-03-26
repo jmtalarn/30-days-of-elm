@@ -25,7 +25,7 @@ import Loading as Loader
         )
 import Material.Icons.Outlined as Outlined exposing (cake, card_giftcard, email, home, phone)
 import Material.Icons.Types exposing (Coloring(..))
-import Page
+import Page exposing (Page)
 import Process exposing (sleep)
 import Route exposing (Route)
 import Shared

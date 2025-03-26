@@ -11,7 +11,7 @@ import Element.Border as Border
 import Element.Font as Font
 import Html exposing (Html)
 import List exposing (concat)
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import UI

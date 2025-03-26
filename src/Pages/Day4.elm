@@ -4,7 +4,7 @@ import Element exposing (html)
 import Html exposing (Html, div, h1, input, label, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onCheck)
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Time

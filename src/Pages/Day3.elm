@@ -6,7 +6,7 @@ import Html exposing (Html, button, div, input, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import List exposing (concat, repeat)
-import Page
+import Page exposing (Page)
 import Random
 import Route exposing (Route)
 import Shared

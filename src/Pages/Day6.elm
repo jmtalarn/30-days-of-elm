@@ -10,7 +10,7 @@ import Html exposing (input)
 import Html.Attributes as HtmlAttributes
 import Html.Events exposing (onInput)
 import List exposing (foldl)
-import Page
+import Page exposing (Page)
 import ParseInt exposing (parseIntHex)
 import Route exposing (Route)
 import Shared

@@ -1,4 +1,4 @@
-module Pages.Home_ exposing (view)
+module Pages.Home_ exposing (Model, Msg, page)
 
 import Animation exposing (borderBottomWidth)
 import Colors.Opaque
@@ -7,8 +7,29 @@ import Element.Border as Border
 import Element.Font as Font
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Page exposing (Page)
+import Route exposing (Route)
+import Shared
 import UI
 import View exposing (View)
+
+
+type alias Model =
+    {}
+
+
+type Msg
+    = NoOp
+
+
+page : Shared.Model -> Route () -> Page Model Msg
+page shared req =
+    Page.element
+        { init = ( {}, Cmd.none )
+        , update = \_ _ -> ( {}, Cmd.none )
+        , view = \_ -> view
+        , subscriptions = \_ -> Sub.none
+        }
 
 
 view : View msg

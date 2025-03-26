@@ -12,7 +12,7 @@ import Element.Input as Input exposing (..)
 import Html exposing (h1, s)
 import List exposing (foldl)
 import Maybe
-import Page
+import Page exposing (Page)
 import Random exposing (int)
 import Route exposing (Route)
 import Shared

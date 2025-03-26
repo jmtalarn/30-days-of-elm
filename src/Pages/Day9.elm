@@ -17,7 +17,7 @@ import Http
 import Json.Decode exposing (Decoder, bool, decodeString, field, float, index, list, string)
 import List exposing (sortBy)
 import Maybe
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Svg exposing (..)

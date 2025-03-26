@@ -10,7 +10,7 @@ import Html exposing (h1, h3)
 import Html.Attributes as HtmlAttributes exposing (min, type_)
 import Html.Events exposing (onInput)
 import List exposing (filter, foldl)
-import Page
+import Page exposing (Page)
 import ParseInt exposing (parseInt)
 import Route exposing (Route)
 import Shared

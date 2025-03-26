@@ -21,13 +21,13 @@ port module Ports exposing
 port scrolled : (Bool -> msg) -> Sub msg
 
 
-port socketSendMessage : String -> Effect Msg
+port socketSendMessage : String -> Cmd msg
 
 
-port socketConnect : () -> Effect Msg
+port socketConnect : () -> Cmd msg
 
 
-port socketDisconnect : () -> Effect Msg
+port socketDisconnect : () -> Cmd msg
 
 
 port socketMessageReceiver : (String -> msg) -> Sub msg

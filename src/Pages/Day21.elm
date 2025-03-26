@@ -8,7 +8,7 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input
 import Html exposing (Html, h1)
 import Html.Attributes
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Simple.Animated as Animated

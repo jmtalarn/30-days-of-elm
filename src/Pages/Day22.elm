@@ -12,7 +12,7 @@ import Element.Input as Input exposing (..)
 import Html exposing (h1, h2)
 import Html.Events exposing (onInput)
 import List exposing (foldl, indexedMap, map)
-import Page
+import Page exposing (Page)
 import Parser exposing (float, run)
 import Route exposing (Route)
 import Shared

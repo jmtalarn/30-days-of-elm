@@ -10,7 +10,7 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (Html, h1, p)
 import Html.Events exposing (onInput)
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Svg exposing (..)

@@ -14,7 +14,7 @@ import Html.Attributes as HtmlAttributes
 import Html.Events exposing (onInput)
 import Json.Decode as Decode exposing (Decoder, Error, oneOf, string)
 import Json.Decode.Pipeline exposing (required)
-import Page
+import Page exposing (Page)
 import Result
 import Route exposing (Route)
 import Shared

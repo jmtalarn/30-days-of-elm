@@ -8,7 +8,7 @@ import Html exposing (h1)
 import Html.Attributes as HtmlAttributes exposing (id)
 import Html.Events exposing (onInput)
 import Json.Decode as Decode
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Task

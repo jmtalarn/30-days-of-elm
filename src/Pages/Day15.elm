@@ -14,7 +14,7 @@ import Html.Attributes as HtmlAttributes
 import Html.Events exposing (onInput)
 import Json.Decode exposing (Error)
 import JsonTree exposing (KeyPath, Node, TaggedValue(..), parseString)
-import Page
+import Page exposing (Page)
 import Result
 import Route exposing (Route)
 import Shared

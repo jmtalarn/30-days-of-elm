@@ -12,8 +12,7 @@ import Element.Input as Input exposing (..)
 import Html exposing (h1, p)
 import Html.Events exposing (onInput)
 import Json.Decode as Decode
-import Page
-import Pages.Home_ exposing (view)
+import Page exposing (Page)
 import Regex exposing (Regex, contains)
 import Route exposing (Route)
 import Shared

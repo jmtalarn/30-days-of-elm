@@ -12,7 +12,7 @@ import Html exposing (h1, h3)
 import Html.Events exposing (onInput)
 import Json.Decode
 import Json.Encode
-import Page
+import Page exposing (Page)
 import Result
 import Route exposing (Route)
 import Shared

@@ -1,6 +1,6 @@
 module Pages.Day13 exposing (Model, Msg, page)
 
--- import Pages.Day12 exposing (nextNumberWithSameAmountOfOnes)
+-- import Page exposing (Page)s.Day12 exposing (nextNumberWithSameAmountOfOnes)
 
 import Binary exposing (Bits, add, empty)
 import Colors.Opaque exposing (grey)
@@ -25,7 +25,7 @@ import LineChart.Junk as Junk
 import LineChart.Legends as Legends
 import LineChart.Line as Line
 import List exposing (filter, foldl, indexedMap)
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Svg exposing (Svg)

@@ -1,7 +1,7 @@
 module Pages.Day20 exposing (Model, Msg, page)
 
 --port module Pages.Day20 exposing (Model, Msg, page)
--- import Pages.Day18 exposing (Response(..))
+-- import Page exposing (Page)s.Day18 exposing (Response(..))
 
 import Browser.Dom exposing (Viewport, getElement, getViewport)
 import Browser.Events exposing (onResize)
@@ -14,7 +14,8 @@ import Html exposing (h1)
 import Html.Attributes as HtmlAttributes exposing (id)
 import Html.Events exposing (onInput)
 import Json.Decode as Decode
-import Page
+import Page exposing (Page)
+import Ports
 import Route exposing (Route)
 import Shared
 import Svg.Attributes exposing (result)
@@ -66,7 +67,7 @@ subscriptions : Model -> Sub Msg
 subscriptions _ =
     Sub.batch
         [ onResize (\_ _ -> GetNewViewport)
-        , Shared.scrolled (\_ -> GetNewViewport)
+        , Ports.scrolled (\_ -> GetNewViewport)
         ]
 
 

@@ -6,7 +6,7 @@ import Element.Border as Border
 import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (h1, h2, h3, li, ul)
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import UI

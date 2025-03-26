@@ -16,7 +16,7 @@ import Html exposing (h1, p)
 import Html.Attributes
 import Html.Events exposing (onInput)
 import Maybe
-import Page
+import Page exposing (Page)
 import Route exposing (Route)
 import Shared
 import Svg exposing (..)
