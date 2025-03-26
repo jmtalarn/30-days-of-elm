@@ -11,7 +11,9 @@
   <script src="/dist/elm.js"></script>
   <script> app = Elm.Main.init({ flags: { nasaApiKey: constants.NASA_API_KEY } }) </script>
   <script>
-
+    window.addEventListener("scroll", () => {
+      app.ports.scrolled.send(true);
+    });
     // Create your WebSocket.
     let socket;
     app.ports.socketConnect.subscribe(function () {

@@ -33,7 +33,7 @@ page shared req =
 
 
 type alias Kata1 =
-    { initialPopulation : Int, percentGrowPerYear : Float, inhabitantsPerYear : Int, populationToSurpass : Int, population : Int, years : Int }
+    { initialPopulation : Int, percentGrowPerYear : Float, inhabitantsPerYear : Int, populationToSurpass : Int, population : Int, years : Maybe Int }
 
 
 type alias Kata2 =
@@ -54,7 +54,7 @@ type alias Model =
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model (Kata1 0 2.0 0 0 0 0) (Kata2 0 "") (Kata3 0 0 0) (Kata4 "" ""), Cmd.none )
+    ( Model (Kata1 0 2.0 0 0 0 Nothing) (Kata2 0 "") (Kata3 0 0 0) (Kata4 "" ""), Cmd.none )
 
 
 type Msg
@@ -80,22 +80,22 @@ update msg model =
                 pop0 =
                     Maybe.withDefault 0 <| toInt value
             in
-            ( { model | kata1 = { kata1 | initialPopulation = pop0, population = pop0 } |> solveKata1 }, Cmd.none )
+            ( { model | kata1 = { kata1 | initialPopulation = pop0, population = pop0, years = Nothing } |> solveKata1 }, Cmd.none )
 
         Kata1SetPercentageGrowing value ->
-            ( { model | kata1 = { kata1 | percentGrowPerYear = Maybe.withDefault 0 <| parseFloat value } |> solveKata1 }, Cmd.none )
+            ( { model | kata1 = { kata1 | percentGrowPerYear = Maybe.withDefault 0 <| parseFloat value, population = kata1.initialPopulation, years = Nothing } |> solveKata1 }, Cmd.none )
 
         Kata1SetPopulationToSurpass value ->
-            ( { model | kata1 = { kata1 | populationToSurpass = Maybe.withDefault 0 <| toInt value } |> solveKata1 }, Cmd.none )
+            ( { model | kata1 = { kata1 | populationToSurpass = Maybe.withDefault 0 <| toInt value, population = kata1.initialPopulation, years = Nothing } |> solveKata1 }, Cmd.none )
 
         Kata1SetInhabitantsPerYear value ->
-            ( { model | kata1 = { kata1 | inhabitantsPerYear = Maybe.withDefault 0 <| toInt value } |> solveKata1 }, Cmd.none )
+            ( { model | kata1 = { kata1 | inhabitantsPerYear = Maybe.withDefault 0 <| toInt value, population = kata1.initialPopulation, years = Nothing } |> solveKata1 }, Cmd.none )
 
         Kata2SetNumber value ->
             ( { model | kata2 = { kata2 | value = Maybe.withDefault 0 <| toInt value } |> solveKata2 }, Cmd.none )
 
         Kata3SetDivisor value ->
-            ( { model | kata3 = { kata3 | divisor = Maybe.withDefault 0 <| toInt value } |> solveKata3 }, Cmd.none )
+            ( { model | kata3 = { kata3 | divisor = Maybe.withDefault 0 <| toInt value, mm = kata3.bound } |> solveKata3 }, Cmd.none )
 
         Kata3SetBound value ->
             ( { model
@@ -156,11 +156,14 @@ solveKata3 kata3 =
     let
         { divisor, bound, mm } =
             kata3
+
+        _ =
+            Debug.log "Kata3" kata3
     in
     if mm == 0 then
         Kata3 divisor bound mm
 
-    else if modBy divisor mm == 0 then
+    else if modBy mm divisor == 0 then
         Kata3 divisor bound mm
 
     else
@@ -196,10 +199,16 @@ fact n =
 solveKata1 : Kata1 -> Kata1
 solveKata1 kata1 =
     let
-        { percentGrowPerYear, inhabitantsPerYear, populationToSurpass, population, years } =
+        { percentGrowPerYear, inhabitantsPerYear, populationToSurpass, population, years, initialPopulation } =
             kata1
+
+        _ =
+            Debug.log "kata1" kata1
     in
-    if population >= populationToSurpass then
+    if inhabitantsPerYear == 0 && initialPopulation == 0 then
+        { kata1 | years = Nothing }
+
+    else if population >= populationToSurpass then
         kata1
 
     else
@@ -208,9 +217,18 @@ solveKata1 kata1 =
                 population + round (toFloat population * (percentGrowPerYear / 100)) + inhabitantsPerYear
 
             oneMoreYear =
-                years + 1
+                case years of
+                    Just n ->
+                        n + 1
+
+                    Nothing ->
+                        1
         in
-        solveKata1 { kata1 | population = populationOnNextYear, years = oneMoreYear }
+        if populationOnNextYear == kata1.population then
+            kata1
+
+        else
+            solveKata1 { kata1 | population = populationOnNextYear, years = Just oneMoreYear }
 
 
 subscriptions : Model -> Sub Msg
@@ -273,7 +291,20 @@ viewKata1 kata1 =
                     Element.text
                         ("Years to surpass " ++ String.fromInt kata1.populationToSurpass ++ " of  population")
                 ]
-            , row [ centerX ] [ Element.el [ Font.extraLight, Font.size 30 ] <| Element.text <| String.fromInt kata1.years ]
+            , row [ centerX ]
+                [ Element.el [ Font.extraLight, Font.size 30 ] <|
+                    Element.text <|
+                        case kata1.years of
+                            Just number ->
+                                String.fromInt number
+
+                            Nothing ->
+                                if kata1.initialPopulation >= kata1.populationToSurpass then
+                                    "Already happened"
+
+                                else
+                                    "It'll never happen"
+                ]
             ]
         ]
     ]
@@ -281,9 +312,10 @@ viewKata1 kata1 =
 
 viewKata2 : Kata2 -> List (Element Msg)
 viewKata2 kata2 =
-    [ html <| h3 [] [ Html.text "Strong number is the number that the sum of the factorial of its digits is equal to number itself." ]
-    , row [ spacing 20 ]
-        [ column []
+    [ html <| h3 [] [ Html.text "Strong number" ]
+    , paragraph [ Font.extraLight ] [ Element.text "Strong number is the number that the sum of the factorial of its digits is equal to number itself." ]
+    , row [ spacing 20, width fill ]
+        [ column [ spacing 8, paddingXY 0 12, width <| fillPortion 1 ]
             [ Input.text
                 [ Font.extraLight ]
                 { onChange = Kata2SetNumber
@@ -294,8 +326,8 @@ viewKata2 kata2 =
                         (Element.text "Write a number to check if it is Strong")
                 }
             ]
-        , column []
-            [ row [] [ Element.el [ Font.extraBold ] <| Element.text ("Check if this number " ++ String.fromInt kata2.value ++ " is " ++ kata2.result) ]
+        , column [ width <| fillPortion 1 ]
+            [ row [] [ paragraph [ Font.extraBold ] [ Element.text ("This number " ++ String.fromInt kata2.value ++ " is " ++ kata2.result) ] ]
             ]
         ]
     ]
@@ -304,9 +336,9 @@ viewKata2 kata2 =
 viewKata3 : Kata3 -> List (Element Msg)
 viewKata3 kata3 =
     [ html <| h3 [] [ Html.text "Maximum multiple" ]
-    , paragraph [ Font.extraLight, paddingEach { top = 0, right = 200, bottom = 20, left = 0 } ] [ Element.text "Given a Divisor and a Bound , Find the largest integer N , Such That: N is divisible by divisor, N is less than or equal to bound, N is greater than 0." ]
-    , row [ spacing 20 ]
-        [ column [ spacing 20 ]
+    , row [ width fill, Font.extraLight, paddingXY 0 16 ] [ paragraph [] [ Element.text "Given a Divisor and a Bound , Find the largest integer N , Such That: N is divisible by divisor, N is less than or equal to bound, N is greater than 0." ] ]
+    , row [ spacing 20, Element.width fill ]
+        [ column [ spacing 20, Element.width <| fillPortion 1 ]
             [ Input.text
                 [ Font.extraLight ]
                 { onChange = Kata3SetDivisor
@@ -314,7 +346,7 @@ viewKata3 kata3 =
                 , placeholder = Just (Input.placeholder [] (Element.text "Write the number here"))
                 , label =
                     Input.labelAbove []
-                        (Element.text "Initial population")
+                        (Element.text "Divisor")
                 }
             , Input.text
                 [ Font.extraLight ]
@@ -323,11 +355,11 @@ viewKata3 kata3 =
                 , placeholder = Just (Input.placeholder [] (Element.text "Write the Bound"))
                 , label =
                     Input.labelAbove []
-                        (Element.text "Percentage growing per year")
+                        (Element.text "Bound")
                 }
             ]
-        , column [ spacing 20 ]
-            [ row []
+        , column [ spacing 20, Element.width <| fillPortion 1 ]
+            [ row [ centerX ]
                 [ Element.el [ Font.extraBold ] <|
                     Element.text
                         "The maximum multiple is "

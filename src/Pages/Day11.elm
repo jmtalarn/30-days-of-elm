@@ -7,7 +7,7 @@ import Element exposing (..)
 import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (h1, h3)
-import Html.Attributes as HtmlAttributes exposing (type_)
+import Html.Attributes as HtmlAttributes exposing (min, type_)
 import Html.Events exposing (onInput)
 import List exposing (filter, foldl)
 import Page
@@ -48,7 +48,15 @@ update msg _ =
         Set value ->
             let
                 number =
-                    Result.withDefault 0 <| parseInt value
+                    let
+                        parsedInt =
+                            Result.withDefault 0 <| parseInt value
+                    in
+                    if parsedInt >= 0 then
+                        parsedInt
+
+                    else
+                        0
 
                 binaryNumber =
                     number2binary <| number
@@ -64,6 +72,10 @@ update msg _ =
 
 number2binary : Int -> Int
 number2binary number =
+    let
+        _ =
+            Debug.log "number2binary" number
+    in
     if number == 0 then
         number
 
@@ -73,7 +85,11 @@ number2binary number =
 
 countOnes : Int -> Int
 countOnes number =
-    foldl (+) 0 <| filter (\a -> a == 1) <| List.map (Result.withDefault 0) <| List.map parseInt <| (fromInt number |> split "")
+    if number == 0 then
+        0
+
+    else
+        foldl (+) 0 <| filter (\a -> a == 1) <| List.map (Result.withDefault 0) <| List.map parseInt <| (fromInt number |> split "")
 
 
 nextNumberWithSameAmountOfOnes : Int -> Int -> Int
@@ -85,11 +101,15 @@ nextNumberWithSameAmountOfOnes number nextNumber =
         nextNumberOnes =
             countOnes <| number2binary nextNumber
     in
-    if numberOnes == nextNumberOnes then
-        nextNumber
+    if number == 0 then
+        0
 
     else
-        nextNumberWithSameAmountOfOnes number (nextNumber + 1)
+        if numberOnes == nextNumberOnes then
+            nextNumber
+
+        else
+            nextNumberWithSameAmountOfOnes number (nextNumber + 1)
 
 
 subscriptions : Model -> Sub Msg
@@ -115,6 +135,7 @@ view model =
                             [ spacing 10, centerY ]
                             [ Input.text
                                 [ htmlAttribute <| type_ "number"
+                                , htmlAttribute <| HtmlAttributes.min "0"
                                 , Font.extraLight
                                 ]
                                 { onChange = Set
