@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-const outputFilePath = path.join(__dirname, './public/constants.js');
+const outputFilePath = path.join(__dirname, './static/constants.js');
 
 const constants = {
 	NASA_API_KEY: process.env.NASA_API_KEY,

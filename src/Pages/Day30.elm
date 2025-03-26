@@ -7,13 +7,13 @@ import Element.Font as Font exposing (size)
 import Element.Input as Input exposing (..)
 import Html exposing (h1, h2, h3, li, ul)
 import Page
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

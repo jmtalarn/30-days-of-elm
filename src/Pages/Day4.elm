@@ -5,14 +5,14 @@ import Html exposing (Html, div, h1, input, label, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onCheck)
 import Page
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import Time
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

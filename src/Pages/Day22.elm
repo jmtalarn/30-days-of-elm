@@ -14,7 +14,7 @@ import Html.Events exposing (onInput)
 import List exposing (foldl, indexedMap, map)
 import Page
 import Parser exposing (float, run)
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import String exposing (split, toInt)
 import Tuple exposing (first, second)
@@ -22,7 +22,7 @@ import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

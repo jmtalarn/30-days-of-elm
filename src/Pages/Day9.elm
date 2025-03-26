@@ -18,7 +18,7 @@ import Json.Decode exposing (Decoder, bool, decodeString, field, float, index, l
 import List exposing (sortBy)
 import Maybe
 import Page
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
@@ -28,7 +28,7 @@ import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init shared

@@ -27,7 +27,7 @@ import Material.Icons.Outlined as Outlined exposing (cake, card_giftcard, email,
 import Material.Icons.Types exposing (Coloring(..))
 import Page
 import Process exposing (sleep)
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import Task exposing (perform)
 import Time exposing (utc)
@@ -36,7 +36,7 @@ import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

@@ -12,14 +12,14 @@ import Html.Events exposing (onInput)
 import List exposing (foldl)
 import Page
 import ParseInt exposing (parseIntHex)
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import String exposing (left, right, slice)
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

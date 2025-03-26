@@ -1,20 +1,22 @@
-port module Shared exposing
+module Shared exposing
     ( Flags
     , Model
     , Msg(..)
+    , decoder
     , init
-    , scrolled
-    , socketConnect
-    , socketDisconnect
-    , socketMessageReceiver
-    , socketSendMessage
-    , socketStatusReceiver
     , subscriptions
     , update
     )
 
+import Effect exposing (Effect)
 import Json.Decode as Json
-import Request exposing (Request)
+import Route exposing (Route)
+
+
+decoder : Json.Decoder Flags
+decoder =
+    Json.map Flags
+        (Json.field "nasaApiKey" Json.string)
 
 
 type alias Flags =
@@ -26,52 +28,21 @@ type alias Model =
     }
 
 
-
-{-
-
-   ██████      ██████     ██████     ████████    ███████
-   ██   ██    ██    ██    ██   ██       ██       ██
-   ██████     ██    ██    ██████        ██       ███████
-   ██         ██    ██    ██   ██       ██            ██
-   ██          ██████     ██   ██       ██       ███████
-
--}
-
-
-port scrolled : (Bool -> msg) -> Sub msg
-
-
-port socketSendMessage : String -> Cmd msg
-
-
-port socketConnect : () -> Cmd msg
-
-
-port socketDisconnect : () -> Cmd msg
-
-
-port socketMessageReceiver : (String -> msg) -> Sub msg
-
-
-port socketStatusReceiver : (Bool -> msg) -> Sub msg
-
-
 type Msg
     = NoOp
 
 
-init : Request -> Flags -> ( Model, Cmd Msg )
-init _ flags =
+init : Result Json.Error Flags -> Route () -> ( Model, Effect Msg )
+init result _ =
     let
         nasaApiKey =
-            flags
-                |> Json.decodeValue (Json.field "nasaApiKey" Json.string)
-                |> Result.withDefault ""
+            result
+                |> Result.withDefault { nasaApiKey = Nothing }
     in
     ( Model nasaApiKey, Cmd.none )
 
 
-update : Request -> Msg -> Model -> ( Model, Cmd Msg )
+update : Route () -> Msg -> Model -> ( Model, Effect Msg )
 update _ msg model =
     case msg of
         NoOp ->
@@ -80,6 +51,6 @@ update _ msg model =
             )
 
 
-subscriptions : Request -> Model -> Sub Msg
+subscriptions : Route () -> Model -> Sub Msg
 subscriptions _ _ =
     Sub.none

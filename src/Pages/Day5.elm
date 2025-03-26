@@ -8,14 +8,14 @@ import Html.Events exposing (onClick)
 import List exposing (all, member, repeat)
 import Page
 import Platform.Cmd exposing (Cmd)
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import Task
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

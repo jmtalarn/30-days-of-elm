@@ -4,13 +4,13 @@ import Element exposing (column, html)
 import Html exposing (Html, div, p, text)
 import Html.Attributes exposing (..)
 import Page
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

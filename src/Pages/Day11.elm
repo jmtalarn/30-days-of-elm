@@ -12,14 +12,14 @@ import Html.Events exposing (onInput)
 import List exposing (filter, foldl)
 import Page
 import ParseInt exposing (parseInt)
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import String exposing (fromInt, split)
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init
@@ -104,12 +104,11 @@ nextNumberWithSameAmountOfOnes number nextNumber =
     if number == 0 then
         0
 
-    else
-        if numberOnes == nextNumberOnes then
-            nextNumber
+    else if numberOnes == nextNumberOnes then
+        nextNumber
 
-        else
-            nextNumberWithSameAmountOfOnes number (nextNumber + 1)
+    else
+        nextNumberWithSameAmountOfOnes number (nextNumber + 1)
 
 
 subscriptions : Model -> Sub Msg

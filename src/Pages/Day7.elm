@@ -12,13 +12,13 @@ import Element.Font as Font
 import Html exposing (Html)
 import List exposing (concat)
 import Page
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

@@ -14,7 +14,7 @@ import List exposing (foldl)
 import Maybe
 import Page
 import Random exposing (int)
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import Svg exposing (..)
 import Svg.Attributes as SvgAttrs exposing (..)
@@ -28,7 +28,7 @@ dt =
     0.03
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

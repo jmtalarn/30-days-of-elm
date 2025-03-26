@@ -17,7 +17,7 @@ import Html.Attributes
 import Html.Events exposing (onInput)
 import Maybe
 import Page
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import Svg exposing (..)
 import Svg.Attributes as SvgAttrs exposing (..)
@@ -26,7 +26,7 @@ import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

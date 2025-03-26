@@ -8,13 +8,13 @@ import Html.Events exposing (onClick)
 import List exposing (concat, repeat)
 import Page
 import Random
-import Request exposing (Request)
+import Route exposing (Route)
 import Shared
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init

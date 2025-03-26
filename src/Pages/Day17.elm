@@ -15,14 +15,14 @@ import Html.Events exposing (onInput)
 import Json.Decode as Decode exposing (Decoder, Error, oneOf, string)
 import Json.Decode.Pipeline exposing (required)
 import Page
-import Request exposing (Request)
 import Result
+import Route exposing (Route)
 import Shared
 import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Request -> Page.With Model Msg
+page : Shared.Model -> Route () -> Page Model Msg
 page shared req =
     Page.element
         { init = init
