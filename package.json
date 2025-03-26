@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "node elm-constants.js && elm-spa server",
-		"build": "node elm-constants.js &&  elm-spa build"
+		"build": "node elm-constants.js &&  elm-spa build",
+		"elm:install:dependencies": "elm-json install -- elm.json"
 	},
 	"author": "",
 	"license": "ISC",
@@ -15,6 +16,7 @@
 		"elm-spa": "^6.0.6"
 	},
 	"devDependencies": {
-		"dotenv": "^16.4.7"
+		"dotenv": "^16.4.7",
+		"elm-json": "^0.2.13"
 	}
 }
