@@ -17,8 +17,8 @@ import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Route () -> Page Model Msg
-page shared req =
+page : Page Model Msg
+page =
     Page.element
         { init = init
         , update = update
@@ -52,7 +52,7 @@ subscriptions model =
     Sub.none
 
 
-view : Model -> View Msg
+view : Model -> { title : String, body : List (Html.Html Msg) }
 view model =
     { title = "Day 1"
     , body =

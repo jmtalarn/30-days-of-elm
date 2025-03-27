@@ -1,20 +1,16 @@
 module Pages.Day9 exposing (Model, Msg, page)
 
--- import Html.Attributes exposing (..)
-
-import Colors.Opaque exposing (grey)
-import Debug
-import Dict
+import Colors.Opaque
+import Effect exposing (Effect)
 import Element exposing (..)
-import Element.Background as Background
 import Element.Border as Border
-import Element.Font as Font exposing (size)
-import Element.Input as Input exposing (..)
-import Html exposing (h1, p)
+import Element.Font as Font
+import Element.Input exposing (..)
+import Html exposing (h1)
 import Html.Attributes as HtmlAttributes
 import Html.Events exposing (onInput)
 import Http
-import Json.Decode exposing (Decoder, bool, decodeString, field, float, index, list, string)
+import Json.Decode exposing (Decoder, bool, field, float, index, list)
 import List exposing (sortBy)
 import Maybe
 import Page exposing (Page)
@@ -23,19 +19,27 @@ import Shared
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Task
-import Time exposing (Month(..), Posix, toDay, toMonth, toYear, utc)
+import Time exposing (Month(..), toDay, toMonth, toYear, utc)
 import UI
 import View exposing (View)
 
 
 page : Shared.Model -> Route () -> Page Model Msg
-page shared req =
-    Page.element
+page shared route =
+    Page.new
         { init = init shared
         , update = update
-        , view = view
         , subscriptions = subscriptions
+        , view = view
         }
+
+
+
+-- INIT
+
+
+type alias Model =
+    { response : Response, date : String, nasaApiKey : String }
 
 
 type Response
@@ -44,17 +48,19 @@ type Response
     | Success (List Asteroid)
 
 
-type alias Model =
-    { response : Response, date : String, nasaApiKey : String }
-
-
-init : Shared.Model -> ( Model, Cmd Msg )
-init shared =
-    ( Model Loading "" shared.nasaApiKey, now )
-
-
 type alias Asteroid =
     { name : String, size : Float, hazardous : Bool, distance : Float, time : String }
+
+
+init : Shared.Model -> () -> ( Model, Effect Msg )
+init shared () =
+    ( Model Loading "" shared.nasaApiKey
+    , Effect.sendCmd now
+    )
+
+
+
+-- UPDATE
 
 
 type Msg
@@ -63,27 +69,35 @@ type Msg
     | SetNowToDate Time.Posix
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> ( Model, Effect Msg )
 update msg model =
     case msg of
         GotAsteroids result ->
             case result of
                 Ok asteroids ->
-                    ( { model | response = Success asteroids }, Cmd.none )
+                    ( { model | response = Success asteroids }, Effect.none )
 
                 Err error ->
-                    ( { model | response = Failure }, Cmd.none )
+                    ( { model | response = Failure }, Effect.none )
 
         SetNowToDate date ->
-            ( { model | date = formatDate <| date }, getAsteroids model )
+            ( { model | date = formatDate <| date }, Effect.sendCmd <| getAsteroids model )
 
         SetDate date ->
-            ( { model | date = date }, getAsteroids model )
+            ( { model | date = date }, Effect.sendCmd <| getAsteroids model )
+
+
+
+-- SUBSCRIPTIONS
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
+
+
+
+-- VIEW
 
 
 getPaddingLeft : List Asteroid -> Asteroid -> Int
@@ -106,7 +120,7 @@ getPaddingLeft asteroids asteroid =
 
 view : Model -> View Msg
 view model =
-    { title = "Day 9"
+    { title = "Pages.Day9"
     , body =
         UI.layout <|
             Element.layoutWith { options = [ Element.noStaticStyleSheet ] } [] <|

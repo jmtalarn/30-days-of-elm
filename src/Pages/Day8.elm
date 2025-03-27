@@ -1,16 +1,15 @@
 module Pages.Day8 exposing (Model, Msg, page)
 
-import Browser
 import Colors.Opaque exposing (cyan, dimgray, fuchsia)
-import Dict exposing (fromList, get)
+import Dict exposing (get)
+import Effect exposing (Effect)
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
-import Html exposing (Html)
+import Html
 import Html.Attributes
-import List exposing (concat)
 import Maybe
 import Page exposing (Page)
 import Route exposing (Route)
@@ -20,29 +19,25 @@ import View exposing (View)
 
 
 page : Shared.Model -> Route () -> Page Model Msg
-page shared req =
-    Page.element
-        { init = init shared req.query
+page shared route =
+    Page.new
+        { init = init route.query
         , update = update
-        , view = view
         , subscriptions = subscriptions
+        , view = view
         }
 
 
-type Msg
-    = Set String String
 
-
-type alias Params =
-    { name : String, age : String, location : String }
+-- INIT
 
 
 type alias Model =
     List ( String, String )
 
 
-init : Shared.Model -> Dict.Dict String String -> ( Model, Cmd msg )
-init _ query =
+init : Dict.Dict String String -> () -> ( Model, Effect Msg )
+init query _ =
     let
         name =
             Maybe.withDefault "" <| Dict.get "name" query
@@ -53,10 +48,24 @@ init _ query =
         location =
             Maybe.withDefault "" <| Dict.get "location" query
     in
-    ( [ ( "name", name ), ( "age", age ), ( "location", location ) ], Cmd.none )
+    ( [ ( "name", name ), ( "age", age ), ( "location", location ) ]
+    , Effect.none
+    )
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+
+-- UPDATE
+
+
+type Msg
+    = Set String String
+
+
+type alias Params =
+    { name : String, age : String, location : String }
+
+
+update : Msg -> Model -> ( Model, Effect Msg )
 update msg model =
     let
         dict =
@@ -64,12 +73,22 @@ update msg model =
     in
     case msg of
         Set field value ->
-            ( Dict.toList <| Dict.insert field value dict, Cmd.none )
+            ( Dict.toList <| Dict.insert field value dict
+            , Effect.none
+            )
+
+
+
+-- SUBSCRIPTIONS
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
     Sub.none
+
+
+
+-- VIEW
 
 
 commonAttributes : List (Attribute msg)
@@ -83,12 +102,12 @@ commonAttributes =
 
 paragraphAttributes : List (Attribute msg)
 paragraphAttributes =
-    concat [ commonAttributes, [ Font.justify, Font.hairline, width (fill |> maximum 500) ] ]
+    List.concat [ commonAttributes, [ Font.justify, Font.hairline, width (fill |> maximum 500) ] ]
 
 
 titleAttributes : List (Attribute msg)
 titleAttributes =
-    concat [ commonAttributes, [ Font.extraBold, Font.size 62 ] ]
+    List.concat [ commonAttributes, [ Font.extraBold, Font.size 62 ] ]
 
 
 rowAttributes : List (Attribute msg)

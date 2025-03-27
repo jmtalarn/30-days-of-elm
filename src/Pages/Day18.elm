@@ -36,8 +36,8 @@ import UI
 import View exposing (View)
 
 
-page : Shared.Model -> Route () -> Page Model Msg
-page shared req =
+page : Page Model Msg
+page =
     Page.element
         { init = init
         , update = update
