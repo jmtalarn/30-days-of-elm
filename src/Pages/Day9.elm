@@ -1,7 +1,7 @@
 module Pages.Day9 exposing (Model, Msg, page)
 
 import Colors.Opaque
-import Effect exposing (Effect)
+import Effect exposing (..)
 import Element exposing (..)
 import Element.Border as Border
 import Element.Font as Font
@@ -92,7 +92,7 @@ update msg model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
     Sub.none
 
 

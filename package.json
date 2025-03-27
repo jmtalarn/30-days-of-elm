@@ -7,7 +7,8 @@
 		"dev": "node elm-constants.js && elm-spa server",
 		"build": "node elm-constants.js &&  elm-spa build",
 		"elm:install:dependencies": "elm-json install -- elm.json",
-		"elm-land:dev": "node elm-constants.js && elm-land server"
+		"elm-land:dev": "node elm-constants.js && elm-land server",
+		"elm-land:build": "node elm-constants.js && elm-land build"
 	},
 	"author": "",
 	"license": "ISC",

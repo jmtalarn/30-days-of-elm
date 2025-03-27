@@ -11,6 +11,8 @@ module Shared exposing
 import Effect exposing (Effect)
 import Json.Decode exposing (field, map, string)
 import Route exposing (Route)
+import Shared.Model
+import Shared.Msg
 
 
 type alias Flags =
@@ -24,12 +26,11 @@ decoder =
 
 
 type alias Model =
-    { nasaApiKey : String
-    }
+    Shared.Model.Model
 
 
-type Msg
-    = NoOp
+type alias Msg =
+    Shared.Msg.Msg
 
 
 init : Result Json.Decode.Error Flags -> Route () -> ( Model, Effect Msg )
@@ -39,13 +40,13 @@ init result _ =
             result
                 |> Result.withDefault { nasaApiKey = Nothing }
     in
-    ( Model <| Maybe.withDefault "" <| flags.nasaApiKey, Effect.none )
+    ( Shared.Model.Model <| Maybe.withDefault "" <| flags.nasaApiKey, Effect.none )
 
 
 update : Route () -> Msg -> Model -> ( Model, Effect Msg )
 update _ msg model =
     case msg of
-        NoOp ->
+        Shared.Msg.NoOp ->
             ( model
             , Effect.none
             )

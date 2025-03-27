@@ -2,7 +2,7 @@
 	"app": {
 		"elm": {
 			"development": { "debugger": true },
-			"production": { "debugger": false }
+			"production": { "debugger": true }
 		},
 		"env": [],
 		"html": {
