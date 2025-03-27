@@ -6,3 +6,4 @@ dist
 .env
 .elm-land
 public/constants.js
+static/constants.js
