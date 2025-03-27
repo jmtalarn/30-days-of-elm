@@ -85,7 +85,7 @@ header =
                 [ el [ Font.size 32, width fill ] <| link [] { label = text "30 days of elm", url = "/" }
                 , paragraph [ Font.size 16 ]
                     [ text "Built with "
-                    , link linkAttrs { label = text "elm-spa", url = "https://www.elm-spa.dev/" }
+                    , link linkAttrs { label = text "elm-land", url = "https://www.elm.land/" }
                     , text " and  based on "
                     , link linkAttrs { label = text "Kristian Pedersen challenge", url = "https://dev.to/kristianpedersen/30-days-of-elm-intro-2lo2" }
                     , text "."
